@@ -2,11 +2,11 @@
 
 {
   imports =
-    [
-      ./hardware-configuration.nix
-    ];
+    [(import ./hardware-configuration.nix)] ++
+    [(../../modules/desktop/gnome/default.nix)];
 
-  # Bootloader.
+  #imports =
+  #  [(import ./hardware-configuration.nix)];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -51,21 +51,26 @@
     # tlp.enable = true;
     auto-cpufreq.enable = true;
     blueman.enable = true;
+
+    xserver = {
+      enable = true;
+
+      layout = "us";
+      xkbOptions = "ctrl:nocaps";
+      libinput.enable = true;
+
+      displayManager = {
+        gdm = {
+          enable = true;
+        };
+      };
+
+      desktopManager = {
+        gnome = {
+          enable = true;
+        };
+      };
+    };
   };
 
-  # ---
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-    xkbOptions = "ctrl:nocaps";
-  };
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 }

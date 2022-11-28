@@ -38,13 +38,13 @@
 
   environment = {
     variables = {
+      NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
       TERMINAL = "alacritty";
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
     systemPackages = with pkgs; [
       vim
-      firefox
       git
       killall
       nano
