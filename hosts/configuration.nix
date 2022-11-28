@@ -5,10 +5,13 @@
 { config, lib, pkgs, inputs, user, location, ... }:
 
 {
+  imports =
+    ( import ../modules/shell );
+
   users.users.${user} = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    # shell = pkgs.zsh
+    shell = pkgs.fish
   };
   security.sudo.wheelNeedsPassword = false;
 
