@@ -84,6 +84,8 @@
         damage_tracking=2
       }
 
+      $mod=SUPER
+
       bindm=SUPER,mouse:272,movewindow
       bindm=SUPER,mouse:273,resizewindow
 
@@ -109,31 +111,44 @@
       bind=SUPERSHIFT,up,movewindow,u
       bind=SUPERSHIFT,down,movewindow,d
 
-      bind=ALT,1,workspace,1
-      bind=ALT,2,workspace,2
-      bind=ALT,3,workspace,3
-      bind=ALT,4,workspace,4
-      bind=ALT,5,workspace,5
-      bind=ALT,6,workspace,6
-      bind=ALT,7,workspace,7
-      bind=ALT,8,workspace,8
-      bind=ALT,9,workspace,9
-      bind=ALT,0,workspace,10
-      bind=ALT,right,workspace,+1
-      bind=ALT,left,workspace,-1
+      bind=$mod,1,workspace,1
+      bind=$mod,2,workspace,2
+      bind=$mod,3,workspace,3
+      bind=$mod,4,workspace,4
+      bind=$mod,5,workspace,5
+      bind=$mod,6,workspace,6
+      bind=$mod,7,workspace,7
+      bind=$mod,8,workspace,8
+      bind=$mod,9,workspace,9
+      bind=$mod,0,workspace,10
+      bind=$mod,right,workspace,+1
+      bind=$mod,left,workspace,-1
 
-      bind=ALTSHIFT,1,movetoworkspace,1
-      bind=ALTSHIFT,2,movetoworkspace,2
-      bind=ALTSHIFT,3,movetoworkspace,3
-      bind=ALTSHIFT,4,movetoworkspace,4
-      bind=ALTSHIFT,5,movetoworkspace,5
-      bind=ALTSHIFT,6,movetoworkspace,6
-      bind=ALTSHIFT,7,movetoworkspace,7
-      bind=ALTSHIFT,8,movetoworkspace,8
-      bind=ALTSHIFT,9,movetoworkspace,9
-      bind=ALTSHIFT,0,movetoworkspace,10
-      bind=ALTSHIFT,right,movetoworkspace,+1
-      bind=ALTSHIFT,left,movetoworkspace,-1
+      bind=$mod SHIFT,1,movetoworkspace,1
+      bind=$mod SHIFT,2,movetoworkspace,2
+      bind=$mod SHIFT,3,movetoworkspace,3
+      bind=$mod SHIFT,4,movetoworkspace,4
+      bind=$mod SHIFT,5,movetoworkspace,5
+      bind=$mod SHIFT,6,movetoworkspace,6
+      bind=$mod SHIFT,7,movetoworkspace,7
+      bind=$mod SHIFT,8,movetoworkspace,8
+      bind=$mod SHIFT,9,movetoworkspace,9
+      bind=$mod SHIFT,0,movetoworkspace,10
+      bind=$mod SHIFT,right,movetoworkspace,+1
+      bind=$mod SHIFT,left,movetoworkspace,-1
+
+      #bind=ALTSHIFT,1,movetoworkspace,1
+      #bind=ALTSHIFT,2,movetoworkspace,2
+      #bind=ALTSHIFT,3,movetoworkspace,3
+      #bind=ALTSHIFT,4,movetoworkspace,4
+      #bind=ALTSHIFT,5,movetoworkspace,5
+      #bind=ALTSHIFT,6,movetoworkspace,6
+      #bind=ALTSHIFT,7,movetoworkspace,7
+      #bind=ALTSHIFT,8,movetoworkspace,8
+      #bind=ALTSHIFT,9,movetoworkspace,9
+      #bind=ALTSHIFT,0,movetoworkspace,10
+      #bind=ALTSHIFT,right,movetoworkspace,+1
+      #bind=ALTSHIFT,left,movetoworkspace,-1
 
       bind=CTRL,right,resizeactive,20 0
       bind=CTRL,left,resizeactive,-20 0
@@ -156,7 +171,7 @@
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       #exec-once=${pkgs.swaybg}/bin/swaybg -m center -i $HOME/.config/wall
       #exec-once=${pkgs.mpvpaper}/bin/mpvpaper -sf -v -o "--loop --panscan=1" '*' $HOME/.config/wall.mp4
-      exec-once=${pkgs.waybar}/bin/waybar
+      #exec-once=${pkgs.waybar}/bin/waybar
       #exec-once=${pkgs.blueman}/bin/blueman-applet
     '';
   };
