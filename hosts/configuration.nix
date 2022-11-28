@@ -11,7 +11,7 @@
   users.users.${user} = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish
+    shell = pkgs.fish;
   };
   security.sudo.wheelNeedsPassword = false;
 
