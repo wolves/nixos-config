@@ -7,8 +7,7 @@
     ];
 
   home = {
-    package = with pkgs; [
-
+    packages = with pkgs; [
     ];
   };
 
