@@ -105,9 +105,8 @@
           position = "top";
           height = 16;
           output = [
-            #"eDP-1"
+            "eDP-1"
             #"DP-2"
-            "HDMI-A-3"
           ];
           tray = { spacing = 5; };
           #modules-center = [ "clock" ];

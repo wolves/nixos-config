@@ -171,7 +171,7 @@
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       #exec-once=${pkgs.swaybg}/bin/swaybg -m center -i $HOME/.config/wall
       #exec-once=${pkgs.mpvpaper}/bin/mpvpaper -sf -v -o "--loop --panscan=1" '*' $HOME/.config/wall.mp4
-      #exec-once=${pkgs.waybar}/bin/waybar
+      exec-once=${pkgs.waybar}/bin/waybar
       #exec-once=${pkgs.blueman}/bin/blueman-applet
     '';
   };
