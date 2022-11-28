@@ -1,4 +1,4 @@
-#
+
 #  Hyprland NixOS & Home manager configuration
 #
 #  flake.nix
@@ -67,6 +67,7 @@
 
       input {
         kb_layout=us
+        kb_options=ctrl:nocaps
         follow_mouse=2
         repeat_delay=250
         numlock_by_default=1
