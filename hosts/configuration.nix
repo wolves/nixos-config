@@ -77,14 +77,17 @@
       killall
       nano
       pciutils
+      tailscale
       usbutils
       wget
     ];
   };
 
-  # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
+
   services = {
+
+    # Enable sound with pipewire.
     pipewire = {
       enable = true;
       alsa = {
@@ -94,9 +97,19 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    printing.enable = true;
-    openssh.enable = true;
+
     flatpak.enable = true;
+    openssh.enable = true;
+    printing.enable = true;
+
+    tailscale.enable = true;
+  };
+
+  networking.firewall = {
+    enable = true;
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+    allowedTCPPorts = [ 22 ];
   };
 
   nix = {
