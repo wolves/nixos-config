@@ -16,7 +16,7 @@
 {
   home.file = {
     ".config/hypr/hyprland.conf".text = ''
-      monitor=eDP-1,2256x1504@60,0x0,1
+      monitor=eDP-1,2256x1504@60,0x0,1.2
       #monitor=HDMI-A-3,1920x1080@60,1920x0,1
       #monitor=HDMI-A-1,1280x1028@60,3840x0,1
 

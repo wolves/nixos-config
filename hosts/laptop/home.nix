@@ -13,6 +13,6 @@
   };
 
   programs = {
-    alacritty.settings.font.size = 11;
+    alacritty.settings.font.size = 12;
   };
 }

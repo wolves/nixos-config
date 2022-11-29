@@ -28,6 +28,7 @@
   fonts.fonts = with pkgs; [
     carlito
     vegur
+    iosevka
     source-code-pro
     jetbrains-mono
     font-awesome

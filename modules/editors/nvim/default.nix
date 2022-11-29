@@ -25,7 +25,8 @@
 	
 	highlight Comment cterm=italic gui=italic
 	
-	set number
+        set number
+        set relativenumber
       '';
     };
   };
