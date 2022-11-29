@@ -51,7 +51,7 @@
 
     enableDefaultFonts = false;
 
-    fontConfig = {
+    fontconfig = {
       defaultFonts ={
         monospace = [
           "Iosevka Term"
