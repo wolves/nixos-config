@@ -1,11 +1,6 @@
 ''
   * {
-    border: none;
     font-family: Material Design Icons, Iosevka Nerd Font;
-    /*font-family: FiraCode Nerd Font Mono;*/
-    /*font-weight: bold;*/
-    font-size: 12px;
-    text-shadow: 0px 0px 5px #000000;
   }
 
   button:hover {
@@ -13,12 +8,15 @@
   }
 
   window#waybar {
+    background-color: #303446;
+    border-radius: 0px;
+    color: #c6d0f5;
     font-size: 20px;
-    background-color: rgba(0,0,0,0.5);
-    background: transparent;
+    /* transition-property: background-color; */
+    transition-duration: 0.5s;
+
+    font-size: 18px;
     transition-property: background-color;
-    transition-duration: .5s;
-    border-bottom: none;
   }
 
   window#waybar.hidden {
@@ -27,6 +25,7 @@
 
   #workspaces {
     font-size: 15px;
+    background-color: #414559;
   }
 
   #workspaces button {
@@ -58,7 +57,6 @@
   #clock,
   #pulseaudio,
   #custom-sink,
-  #network,
   #mpd,
   #memory,
   #network,

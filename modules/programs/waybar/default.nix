@@ -42,9 +42,9 @@
           #tray = { spacing = 5; };
           modules-left = [
             "custom/menu"
-            "wlr/workspaces"
           ];
           modules-center = [
+            "wlr/workspaces"
           ];
           modules-right = [
             "cpu"
@@ -177,8 +177,8 @@
             max-length = 25;
           };
           network = {
-            format-wifi = "";
-            format-ethernet = "";
+            format-wifi = " ";
+            format-ethernet = " ";
             #format-ethernet = "<span font='11'></span> {ifname}: {ipaddr}/{cidr}";
             format-linked = "睊{ifname} (No IP)";
             format-disconnected = "睊Not connected";
@@ -187,7 +187,8 @@
             #on-click-right = "${pkgs.alacritty}/bin/alacritty -e nmtui";
           };
           pulseaudio = {
-            format = "{icon} {volume}% {format_source}";
+            #format = "{icon} {volume}% {format_source}";
+            format = "{volume}% {icon}";
             format-bluetooth = "{icon} {volume}% {format_source}";
             format-bluetooth-muted = " {volume}% {format_source}";
             format-muted = " {format_source}";
@@ -209,7 +210,7 @@
             on-click-middle = "${pkgs.pavucontrol}/bin/pavucontrol";
           };
           "custom/sink" = {
-            format = "<span font='9'>蓼</span>";
+            format = "蓼";
             on-click = "$HOME/.config/waybar/script/sink.sh";
             tooltip = false;
           };
