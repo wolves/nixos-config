@@ -39,7 +39,7 @@
         sensitivity=1
         main_mod=SUPER
         border_size=3
-        gaps_in=5
+        gaps_in=6
         gaps_out=7
         col.active_border=0x80ffffff
         col.inactive_border=0x66333333
@@ -47,7 +47,7 @@
       }
       
       decoration {
-        rounding=5
+        rounding=0
         multisample_edges=true
         active_opacity=0.93
         inactive_opacity=0.93
@@ -69,10 +69,17 @@
         kb_layout=us
         kb_options=ctrl:nocaps
         follow_mouse=2
+        repeat_rate=50
         repeat_delay=250
         numlock_by_default=1
         force_no_accel=1
         sensitivity=1
+        accel_profile=adaptive
+
+        touchpad {
+          disable_while_typing=true
+          clickfinger_behavior=true
+        }
       }
 
       dwindle {
@@ -95,7 +102,6 @@
       bind=SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm
       bind=SUPER,H,togglefloating,
       bind=SUPER,D,exec,${pkgs.rofi}/bin/rofi -show drun
-      #bind=SUPER,Space,exec,${pkgs.rofi}/bin/rofi -show drun
       bind=SUPER,P,pseudo,
       bind=SUPER,F,fullscreen,
       bind=SUPER,R,forcerendererreload
