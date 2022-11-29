@@ -11,20 +11,28 @@
 
     packages = with pkgs; [
       # Terminal
-      exa
-      zoxide
-      ripgrep
-      fzf
-      pfetch
-      ranger
+      exa       # Better ls
+      zoxide    # Better cd
+      ripgrep   # Better grep
+      fzf       # Fuzzy Finder
+      pfetch    # Minimal Fetch
+      ranger    # File Mgr
+      tldr      # man synopsis
 
       # A/V
-      feh
-      mpv
+      feh       # Image Viewer
+      mpv       # Media Player
 
       # Apps
       firefox
       google-chrome
+
+      # File Mgmt
+      okular    # PDF Viewer
+      pcmanfm   # File Mgr
+      rsync     # Syncer
+      unzip     # Zip Files
+      unrar     # Rar Files
     ];
 
     pointerCursor = {
