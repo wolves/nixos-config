@@ -1,7 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ../../programs/waybar.nix ];
+  imports =
+    [( import ../../programs/waybar/default.nix )];
 
   services.dbus.enable = true;
 

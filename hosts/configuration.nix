@@ -26,15 +26,21 @@
   security.rtkit.enable = true;
 
   fonts.fonts = with pkgs; [
+    material-icons
+    material-design-icons
     carlito
     vegur
-    iosevka
+    inter
+    iosevka-bin
+    lato
     source-code-pro
     jetbrains-mono
     font-awesome
     corefonts
     (nerdfonts.override {
       fonts = [
+        "Iosevka"
+        "JetBrainsMono"
         "FiraCode"
       ];
     })
