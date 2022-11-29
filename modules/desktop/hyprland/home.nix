@@ -105,7 +105,7 @@
       bind=SUPER,Q,killactive,
       bind=SUPER,Escape,exit,
       bind=SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm
-      bind=SUPER,H,togglefloating,
+      #bind=SUPER,H,togglefloating,
       bind=SUPER,D,exec,${pkgs.rofi}/bin/rofi -show drun
       bind=SUPER,P,pseudo,
       bind=SUPER,F,fullscreen,
