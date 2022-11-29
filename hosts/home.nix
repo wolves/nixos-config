@@ -11,6 +11,7 @@
 
     packages = with pkgs; [
       # Terminal
+      bat       # Better cat
       exa       # Better ls
       zoxide    # Better cd
       ripgrep   # Better grep
@@ -18,6 +19,7 @@
       pfetch    # Minimal Fetch
       ranger    # File Mgr
       tldr      # man synopsis
+      gh        # Github CLI
 
       # A/V
       feh       # Image Viewer
