@@ -11,6 +11,10 @@
 
     packages = with pkgs; [
       # Terminal
+      exa
+      zoxide
+      ripgrep
+      fzf
       pfetch
       ranger
 
