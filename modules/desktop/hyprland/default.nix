@@ -18,9 +18,13 @@
     };
     systemPackages = with pkgs; [
       grim
+      light
+      pamixer
       #mpvpaper
       slurp
       swappy
+      swayidle
+      swaylock-fancy
       wl-clipboard
       wlr-randr
     ];
