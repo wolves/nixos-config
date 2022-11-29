@@ -30,33 +30,73 @@
       };
 
       settings = {
-        Main = {
+        mainBar = {
           layer = "top";
-          position = "top";
-          height = 16;
+          position = "left";
+          width = 60;
+          spacing = 7;
+          #height = 16;
           output = [
             "eDP-1"
-            #"DP-2"
           ];
-          tray = { spacing = 5; };
-          #modules-center = [ "clock" ];
-          #modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
-          modules-left = [ "custom/menu" "wlr/workspaces" ];
+          #tray = { spacing = 5; };
+          modules-left = [
+            "custom/menu"
+            "wlr/workspaces"
+          ];
+          modules-center = [
+          ];
+          modules-right = [
+            "cpu"
+            "memory"
+            "pulseaudio"
+            "network"
+            "clock"
+            "custom/power"
+          ];
           #modules-right = [ "cpu" "memory" "disk" "pulseaudio" "battery" "network" "tray" ];
-          modules-right = [ "network" "cpu" "memory" "custom/pad" "pulseaudio" "custom/sink" "custom/pad" "clock" "tray" ];
+          #modules-right = [ "network" "cpu" "memory" "custom/pad" "pulseaudio" "custom/sink" "custom/pad" "clock" "tray" ];
 
           "custom/pad" = {
             format = " ";
             tooltip = false;
           };
           "custom/menu" = {
-            format = "<span font='16'></span>";
-            on-click = "${pkgs.rofi}/bin/rofi -show p -modi p:${pkgs.rofi-power-menu}/bin/rofi-power-menu -theme $HOME/.config/rofi/config.rasi";
-            on-click-right = "${pkgs.rofi}/bin/rofi -show drun";
+            format = " ";
             tooltip = false;
+            on-click = "${pkgs.rofi}/bin/rofi -show drun";
           };
+
+          "custom/power" = {
+            format = "襤";
+            tooltip = false;
+            on-click = "${pkgs.rofi}/bin/rofi -show p -modi p:${pkgs.rofi-power-menu}/bin/rofi-power-menu -theme $HOME/.config/rofi/config.rasi";
+          };
+
+          #"custom/power" = {
+          #  tooltip = false;
+          #  on-click = let
+          #    doas = pkgs.doas + "/bin/doas";
+          #    rofi = config.programs.rofi.package + "/bin/rofi";
+          #    systemctl = pkgs.systemd + "/bin/systemctl";
+          #  in
+          #  pkgs.writeShellScript "shutdown-waybar" ''
+          #    #!/bin/sh
+          #    off=" Shutdown"
+          #    reboot=" Reboot"
+          #    cancel=" Cancel"
+          #    sure="$(printf '%s\n%s\n%s' "$off" "$reboot" "$cancel" |
+          #      ${rofi} -dmenu -p ' Are you sure?')"
+          #    if [ "$sure" = "$off" ]; then
+          #      ${doas} ${systemctl} poweroff
+          #    elif [ "$sure" = "$reboot" ]; then
+          #      ${doas} ${systemctl} reboot
+          #    fi
+          #  '';
+          #  format = "襤";
+          #};
           "sway/workspaces" = {
-            format = "<span font='12'>{icon}</span>";
+            format = "{icon}";
             format-icons = {
               "1"="";
               "2"="";
@@ -74,7 +114,14 @@
             };
           };
           "wlr/workspaces" = {
-            format = "<span font='11'>{name}</span>";
+            on-click = "activate";
+            format = "{icon}";
+            active-only = false;
+            format-icons = {
+              default = "";
+              active = " 󰮯";
+            };
+            #format = "<span font='11'>{name}</span>";
             #format = "<span font='12'>{icon}</span>";
             #format-icons = {
             #  "1"="";
@@ -89,25 +136,33 @@
             #  "10"="";
             #};
             #all-outputs = true;
-            active-only = false;
-            on-click = "activate";
           };
+
           clock = {
-            format = "{:%b %d %H:%M}";
-            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-            #format-alt = "{:%A, %B %d, %Y} ";
-          };
+            format = ''
+              {:%H
+              %M}'';
+              tooltip-format = ''
+                <big>{:%Y %B}</big>
+                <tt><small>{calendar}</small></tt>'';
+              };
+          #clock = {
+          #  format = "{:%b %d %H:%M}";
+          #  tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          #  #format-alt = "{:%A, %B %d, %Y} ";
+          #};
+
           cpu = {
-            format = "{usage}% <span font='11'></span>";
+            format = "{usage}% ";
             interval = 1;
           };
           disk = {
-            format = "{percentage_used}% <span font='11'></span>";
+            format = "{percentage_used}% ";
             path = "/";
             interval = 30;
           };
           memory = {
-            format = "{}% <span font='11'></span>";
+            format = "{}% ";
             interval = 1;
           };
           battery = {
@@ -116,29 +171,29 @@
               warning = 30;
               critical = 15;
             };
-            format = "{capacity}% <span font='11'>{icon}</span>";
-            format-charging = "{capacity}% <span font='11'></span>";
+            format = "{capacity}% {icon}";
+            format-charging = "{capacity}% ";
             format-icons = ["" "" "" "" ""];
             max-length = 25;
           };
           network = {
-            format-wifi = "<span font='11'></span>";
-            format-ethernet = "<span font='11'></span>";
+            format-wifi = "";
+            format-ethernet = "";
             #format-ethernet = "<span font='11'></span> {ifname}: {ipaddr}/{cidr}";
-            format-linked = "<span font='11'>睊</span> {ifname} (No IP)";
-            format-disconnected = "<span font='11'>睊</span> Not connected";
+            format-linked = "睊{ifname} (No IP)";
+            format-disconnected = "睊Not connected";
             #format-alt = "{ifname}: {ipaddr}/{cidr}";
             tooltip-format = "{essid} {ipaddr}/{cidr}";
             #on-click-right = "${pkgs.alacritty}/bin/alacritty -e nmtui";
           };
           pulseaudio = {
-            format = "<span font='11'>{icon}</span> {volume}% {format_source}";
-            format-bluetooth = "<span font='11'>{icon}</span> {volume}% {format_source}";
-            format-bluetooth-muted = "<span font='11'></span> {volume}% {format_source}";
-            format-muted = "<span font='11'></span> {format_source}";
+            format = "{icon} {volume}% {format_source}";
+            format-bluetooth = "{icon} {volume}% {format_source}";
+            format-bluetooth-muted = " {volume}% {format_source}";
+            format-muted = " {format_source}";
             #format-source = "{volume}% <span font='11'></span>";
-            format-source = "<span font='10'></span>";
-            format-source-muted = "<span font='11'></span>";
+            format-source = "";
+            format-source-muted = "";
             format-icons = {
               default = [ "" "" "" ];
               headphone = "";
@@ -162,81 +217,84 @@
             icon-size = 13;
           };
         };
-        Sec = {
-          layer = "top";
-          position = "top";
-          height = 16;
-          output = [
-            "DP-1"
-          ];
-          modules-left = [ "custom/menu" "wlr/workspaces" ];
-          modules-right = [ "pulseaudio" "custom/sink" "custom/pad" "clock"];
 
-          "custom/pad" = {
-            format = " ";
-            tooltip = false;
-          };
-          "custom/menu" = {
-            format = "<span font='16'></span>";
-            on-click = "${pkgs.rofi}/bin/rofi -show p -modi p:${pkgs.rofi-power-menu}/bin/rofi-power-menu -theme $HOME/.config/rofi/config.rasi";
-            on-click-right = "${pkgs.rofi}/bin/rofi -show drun";
-            tooltip = false;
-          };
-          "wlr/workspaces" = {
-            format = "<span font='11'>{name}</span>";
-            #format = "<span font='12'>{icon}</span>";
-            #format-icons = {
-            #  "1"="";
-            #  "2"="";
-            #  "3"="";
-            #  "4"="";
-            #  "5"="";
-            #  "6"="";
-            #  "7"="";
-            #  "8"="";
-            #  "9"="";
-            #  "10"="";
-            #};
-            active-only = false;
-            on-click = "activate";
-            #on-scroll-up = "hyprctl dispatch workspace e+1";
-            #on-scroll-down = "hyprctl dispatch workspace e-1";
-          };
-          clock = {
-            format = "{:%b %d %H:%M}";
-            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-            #format-alt = "{:%A, %B %d, %Y} ";
-          };
-          pulseaudio = {
-            format = "<span font='11'>{icon}</span> {volume}% {format_source}";
-            format-bluetooth = "<span font='11'>{icon}</span> {volume}% {format_source}";
-            format-bluetooth-muted = "<span font='11'></span> {volume}% {format_source}";
-            format-muted = "<span font='11'></span> {format_source}";
-            #format-source = "{volume}% <span font='11'></span>";
-            format-source = "<span font='10'></span>";
-            format-source-muted = "<span font='11'></span>";
-            format-icons = {
-              default = [ "" "" "" ];
-              headphone = "";
-              #hands-free = "";
-              #headset = "";
-              #phone = "";
-              #portable = "";
-              #car = "";
-            };
-            tooltip-format = "{desc}, {volume}%";
-            on-click = "${pkgs.pamixer}/bin/pamixer -t";
-            on-click-right = "${pkgs.pamixer}/bin/pamixer --default-source -t";
-            on-click-middle = "${pkgs.pavucontrol}/bin/pavucontrol";
-          };
-          "custom/sink" = {
-            format = "<span font='10'>蓼</span>";
-            on-click = "$HOME/.config/waybar/script/sink.sh";
-            tooltip = false;
-          };
-        };
+
+        #Sec = {
+        #  layer = "top";
+        #  position = "top";
+        #  height = 16;
+        #  output = [
+        #    "DP-1"
+        #  ];
+        #  modules-left = [ "custom/menu" "wlr/workspaces" ];
+        #  modules-right = [ "pulseaudio" "custom/sink" "custom/pad" "clock"];
+
+        #  "custom/pad" = {
+        #    format = " ";
+        #    tooltip = false;
+        #  };
+        #  "custom/menu" = {
+        #    format = "<span font='16'></span>";
+        #    on-click = "${pkgs.rofi}/bin/rofi -show p -modi p:${pkgs.rofi-power-menu}/bin/rofi-power-menu -theme $HOME/.config/rofi/config.rasi";
+        #    on-click-right = "${pkgs.rofi}/bin/rofi -show drun";
+        #    tooltip = false;
+        #  };
+        #  "wlr/workspaces" = {
+        #    format = "<span font='11'>{name}</span>";
+        #    #format = "<span font='12'>{icon}</span>";
+        #    #format-icons = {
+        #    #  "1"="";
+        #    #  "2"="";
+        #    #  "3"="";
+        #    #  "4"="";
+        #    #  "5"="";
+        #    #  "6"="";
+        #    #  "7"="";
+        #    #  "8"="";
+        #    #  "9"="";
+        #    #  "10"="";
+        #    #};
+        #    active-only = false;
+        #    on-click = "activate";
+        #    #on-scroll-up = "hyprctl dispatch workspace e+1";
+        #    #on-scroll-down = "hyprctl dispatch workspace e-1";
+        #  };
+        #  clock = {
+        #    format = "{:%b %d %H:%M}";
+        #    tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        #    #format-alt = "{:%A, %B %d, %Y} ";
+        #  };
+        #  pulseaudio = {
+        #    format = "<span font='11'>{icon}</span> {volume}% {format_source}";
+        #    format-bluetooth = "<span font='11'>{icon}</span> {volume}% {format_source}";
+        #    format-bluetooth-muted = "<span font='11'></span> {volume}% {format_source}";
+        #    format-muted = "<span font='11'></span> {format_source}";
+        #    #format-source = "{volume}% <span font='11'></span>";
+        #    format-source = "<span font='10'></span>";
+        #    format-source-muted = "<span font='11'></span>";
+        #    format-icons = {
+        #      default = [ "" "" "" ];
+        #      headphone = "";
+        #      #hands-free = "";
+        #      #headset = "";
+        #      #phone = "";
+        #      #portable = "";
+        #      #car = "";
+        #    };
+        #    tooltip-format = "{desc}, {volume}%";
+        #    on-click = "${pkgs.pamixer}/bin/pamixer -t";
+        #    on-click-right = "${pkgs.pamixer}/bin/pamixer --default-source -t";
+        #    on-click-middle = "${pkgs.pavucontrol}/bin/pavucontrol";
+        #  };
+        #  "custom/sink" = {
+        #    format = "<span font='10'>蓼</span>";
+        #    on-click = "$HOME/.config/waybar/script/sink.sh";
+        #    tooltip = false;
+        #  };
+        #};
       };
     };
+
     home.file.".config/waybar/script/sink.sh" = {              # Custom script: Toggle speaker/headset
       text = ''
         #!/bin/sh

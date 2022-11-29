@@ -13,6 +13,7 @@
   }
 
   window#waybar {
+    font-size: 20px;
     background-color: rgba(0,0,0,0.5);
     background: transparent;
     transition-property: background-color;
@@ -24,27 +25,8 @@
     opacity: 0.2;
   }
 
-  #workspace,
-  #mode,
-  #clock,
-  #pulseaudio,
-  #custom-sink,
-  #network,
-  #mpd,
-  #memory,
-  #network,
-  #window,
-  #cpu,
-  #disk,
-  #battery,
-  #tray {
-    color: #999999;
-    background-clip: padding-box;
-  }
-
-  #custom-menu {
-    color: #A7C7E7;
-    padding: 0px 5px 0px 5px;
+  #workspaces {
+    font-size: 15px;
   }
 
   #workspaces button {
@@ -71,6 +53,39 @@
     color: #999999;
   }
 
+  #workspace,
+  #mode,
+  #clock,
+  #pulseaudio,
+  #custom-sink,
+  #network,
+  #mpd,
+  #memory,
+  #network,
+  #window,
+  #cpu,
+  #disk,
+  #battery,
+  #tray {
+    color: #999999;
+    background-clip: padding-box;
+  }
+
+  #custom-menu {
+    color: #A7C7E7;
+    padding: 0px 5px 0px 5px;
+  }
+
+  #custom-power {
+    color: #e78284;
+  }
+
+  #clock {
+    font-weight: 700;
+    font-size: 20px;
+    padding: 5px 0px 5px 0px;
+    font-family: "Iosevka Term";
+  }
   #battery.warning {
     color: #ff5d17;
   }
@@ -81,5 +96,17 @@
 
   #battery.charging {
     color: #9ece6a;
+  }
+
+  tooltip {
+    font-family: 'Lato', sans-serif;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px;
+  }
+
+  tooltip label {
+    font-family: 'Lato', sans-serif;
+    padding: 20px;
   }
 ''
