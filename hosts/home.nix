@@ -35,6 +35,8 @@
       rsync     # Syncer
       unzip     # Zip Files
       unrar     # Rar Files
+
+      lua
     ];
 
     pointerCursor = {

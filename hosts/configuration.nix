@@ -105,11 +105,14 @@
     tailscale.enable = true;
   };
 
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
-    allowedTCPPorts = [ 22 ];
+  networking = {
+    #wireless.iwd.enable = true;
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ "tailscale0" ];
+      allowedUDPPorts = [ config.services.tailscale.port ];
+      allowedTCPPorts = [ 22 ];
+    };
   };
 
   nix = {
