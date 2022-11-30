@@ -9,9 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-    };
+    #nur = {
+    #  url = "github:nix-community/NUR";
+    #};
+
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     hyprland = {
       url = "github:vaxerski/Hyprland";
@@ -19,7 +21,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, nur, hyprland, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }:
     let
       user = "wlvs";
       location = "$HOME/.config/nixos";
@@ -28,7 +30,7 @@
       nixosConfigurations = (
 	import ./hosts {
 	  inherit (nixpkgs) lib;
-	  inherit inputs nixpkgs home-manager nur user location hyprland;
+	  inherit inputs nixpkgs home-manager user location hyprland;
 	}
 
 	# fwrk = lib.nixosSystem {
