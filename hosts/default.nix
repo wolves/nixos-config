@@ -23,7 +23,7 @@ in
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = { inherit user; };
+          extraSpecialArgs = { inherit inputs user; };
           users.${user} = {
             imports = [(./home.nix)] ++ [(import ./laptop/home.nix)];
           };
