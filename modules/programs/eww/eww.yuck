@@ -111,7 +111,7 @@
 
 
 ;; ━━━ WIFI ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-(defvar wifi "{}")
+;;(defvar wifi "{}")
 (defpoll wifi :interval "30s" "./scripts/wifi.sh")
 
 (defwidget wifi []
@@ -125,7 +125,7 @@
 )
 
 ;; ━━━ BATTERY ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-(defvar battery "{}")
+;;(defvar battery "{}")
 (defpoll battery :interval "60s" "./scripts/battery.sh")
 
 (defwidget battery []
@@ -228,13 +228,14 @@
 
 (defwidget powerbutton []
   (eventbox :cursor "hand"
-  (button		:class "reg-btn powerbutton"
-                :onclick "eww open powermenu --toggle &"	"")
+    (button :class "reg-btn powerbutton"
+	:onclick "eww open powermenu --toggle &"
+      "⏻")
   )
 )
-                                                  (defwidget powermenucontent []
-                                                  (box :orientation "h"
-  :class "powermenu-container"
+(defwidget powermenucontent []
+  (box :orientation "h"
+	:class "powermenu-container"
   (box :class "shutdown-btn-box"
        :orientation "h"
     (button :class "btn"
@@ -276,7 +277,7 @@
 (defwindow dashboard
   :monitor 0
   :geometry (geometry 
-  :height "1080px" 
+  :height "100%" 
   :width "350px"
   :x "48px"
   :y "0px"
@@ -288,7 +289,7 @@
 (defwindow bar
   :monitor 0
   :exclusive false 
-  :geometry (geometry :height "1080px" :x "-4px" :y "0px"
+  :geometry (geometry :height "100%" :x "-4px" :y "0px"
   :width "52px"
   :anchor "top left")
   :stacking "fg"

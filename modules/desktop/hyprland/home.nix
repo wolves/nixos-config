@@ -17,12 +17,21 @@
   home.file = {
     ".config/hypr/hyprland.conf".text = ''
       monitor=eDP-1,2256x1504@60,0x0,1.2
+      monitor=eDP-1,addreserved,0,0,48,0
       #monitor=HDMI-A-3,1920x1080@60,1920x0,1
       #monitor=HDMI-A-1,1280x1028@60,3840x0,1
 
       #workspace=HDMI-A-3,1
       workspace=eDP-1,1
       #workspace=HDMI-A-1,3
+
+      exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+      exec-once=eww daemon
+      exec-once=eww open bar
+      #exec-once=${pkgs.waybar}/bin/waybar
+      #exec-once=${pkgs.swaybg}/bin/swaybg -m center -i $HOME/.config/wall
+      #exec-once=${pkgs.mpvpaper}/bin/mpvpaper -sf -v -o "--loop --panscan=1" '*' $HOME/.config/wall.mp4
+      #exec-once=${pkgs.blueman}/bin/blueman-applet
 
       #wsbind=1,HDMI-A-3
       #wsbind=2,HDMI-A-3
@@ -179,11 +188,6 @@
       windowrule=float,title:^(Picture-in-Picture)$
       windowrule=float,title:^(Volume Control)$
 
-      exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      #exec-once=${pkgs.swaybg}/bin/swaybg -m center -i $HOME/.config/wall
-      #exec-once=${pkgs.mpvpaper}/bin/mpvpaper -sf -v -o "--loop --panscan=1" '*' $HOME/.config/wall.mp4
-      exec-once=${pkgs.waybar}/bin/waybar
-      #exec-once=${pkgs.blueman}/bin/blueman-applet
     '';
   };
 }
