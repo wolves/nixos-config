@@ -24,6 +24,7 @@
       #mpvpaper
       slurp
       swappy
+      swaybg
       swayidle
       swaylock-fancy
       wl-clipboard
