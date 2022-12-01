@@ -2,7 +2,6 @@
 
 {
   imports =
-    (import ../modules/editors) ++
     (import ../modules/programs);
 
   home = {
@@ -18,7 +17,8 @@
       fzf       # Fuzzy Finder
       pfetch    # Minimal Fetch
       ranger    # File Mgr
-      tldr      # man synopsis
+      tealdeer    # man synopsis
+      tree-sitter
       gh        # Github CLI
 
       # A/V
@@ -37,13 +37,10 @@
       unrar     # Rar Files
 
       lua
+      rust-analyzer
+      zig
     ];
 
-    pointerCursor = {
-      name = "Dracula-cursors";
-      package = pkgs.dracula-theme;
-      size = 16;
-    };
     stateVersion = "22.05";
   };
 
@@ -51,18 +48,18 @@
     home-manager.enable = true;
   };
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-    font = {
-      name = "JetBrains Mono Medium";
-    };
-  };
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     name = "Dracula";
+  #     package = pkgs.dracula-theme;
+  #   };
+  #   iconTheme = {
+  #     name = "Papirus-Dark";
+  #     package = pkgs.papirus-icon-theme;
+  #   };
+  #   font = {
+  #     name = "JetBrains Mono Medium";
+  #   };
+  # };
 }

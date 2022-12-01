@@ -1,5 +1,6 @@
 [
   ./alacritty.nix
-  ./rofi.nix
   ./eww
+  ./nvim
+  ./rofi.nix
 ]

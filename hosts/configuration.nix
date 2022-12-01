@@ -78,6 +78,7 @@
       killall
       nano
       pciutils
+      rust-bin.stable.latest.default
       tailscale
       usbutils
       wget
@@ -116,6 +117,14 @@
     };
   };
 
+  nixpkgs = {
+    config.allowUnfree = true;
+
+    overlays = with inputs; [
+      rust-overlay.overlays.default
+    ];
+  };
+
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -133,7 +142,6 @@
       keep-derivations      = true
     '';
   };
-  nixpkgs.config.allowUnfree = true;
 
   system = {
     autoUpgrade = {

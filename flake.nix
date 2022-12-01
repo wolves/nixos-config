@@ -9,14 +9,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:vaxerski/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #nur = {
     #  url = "github:nix-community/NUR";
     #};
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-    hyprland = {
-      url = "github:vaxerski/Hyprland";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -28,15 +32,10 @@
     in
     {
       nixosConfigurations = (
-	import ./hosts {
-	  inherit (nixpkgs) lib;
-	  inherit inputs nixpkgs home-manager user location hyprland;
-	}
-
-	# fwrk = lib.nixosSystem {
-	#   inherit system;
-	#   modules = [ ./configuration.nix ];
-	# };
+        import ./hosts {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager user location hyprland;
+        }
       );
     };
 }
