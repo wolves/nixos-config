@@ -25,7 +25,7 @@
       workspace=eDP-1,1
       #workspace=HDMI-A-1,3
       
-      exec-once=swaybg -i $NIXOS_CONFIG_DIR/modules/themes/wall.jpg --mode fill
+      exec-once=${pkgs.swaybg}/bin/swaybg -i $NIXOS_CONFIG_DIR/modules/themes/wall.jpg --mode fill
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once=eww daemon
       exec-once=eww open bar
