@@ -24,11 +24,11 @@
       #workspace=HDMI-A-3,1
       workspace=eDP-1,1
       #workspace=HDMI-A-1,3
-      
-      exec-once=${pkgs.swaybg}/bin/swaybg -i $NIXOS_CONFIG_DIR/modules/themes/wall.jpg --mode fill
+
       exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once=eww daemon
       exec-once=eww open bar
+      exec-once=${pkgs.swaybg}/bin/swaybg -i $HOME/wallpaper/aenami_escape_1k.jpg --mode fill
       #exec-once=${pkgs.waybar}/bin/waybar
       #exec-once=${pkgs.swaybg}/bin/swaybg -m center -i $HOME/.config/wall
       #exec-once=${pkgs.mpvpaper}/bin/mpvpaper -sf -v -o "--loop --panscan=1" '*' $HOME/.config/wall.mp4
