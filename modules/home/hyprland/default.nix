@@ -7,10 +7,18 @@
 }:
 
 {
+  programs = {
+    fish.loginShellInit = ''
+      if test (tty) = "/dev/tty1"
+        exec Hyprland &> /dev/null
+      end
+    '';
+  };
   home.packages = with pkgs; [
     grim
     libnotify
-    light
+    brightnessctl
+    # light
     pamixer
     #mpvpaper
     slurp
