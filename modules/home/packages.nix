@@ -49,6 +49,7 @@ in {
     lua
     rust-analyzer
     #zig
+    dconf
     gcc
   ];
 }

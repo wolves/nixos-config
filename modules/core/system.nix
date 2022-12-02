@@ -4,6 +4,7 @@
   ...
 }: {
   services.dbus = {
+    packages = with pkgs; [dconf];
     enable = true;
   };
 
