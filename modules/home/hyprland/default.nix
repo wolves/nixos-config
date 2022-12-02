@@ -7,13 +7,13 @@
 }:
 
 {
-  programs = {
-    fish.loginShellInit = ''
-      if test (tty) = "/dev/tty1"
-        exec Hyprland &> /dev/null
-      end
-    '';
-  };
+  # programs = {
+  #   fish.loginShellInit = ''
+  #     if test (tty) = "/dev/tty1"
+  #       exec Hyprland &> /dev/null
+  #     end
+  #   '';
+  # };
   home.packages = with pkgs; [
     grim
     libnotify

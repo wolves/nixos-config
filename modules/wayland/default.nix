@@ -36,9 +36,11 @@
       XDG_CURRENT_DESKTOP="Hyprland";
       XDG_SESSION_DESKTOP="Hyprland";
     };
-    # loginShellInit = ''
-    #   dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-    # '';
+    # dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+    loginShellInit = ''
+      dbus-update-activation-environment --systemd DISPLAY
+      eval $(gnome-keyring-daemon --start)
+    '';
   };
 
   hardware = {
