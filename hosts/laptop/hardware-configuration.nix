@@ -13,12 +13,24 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.initrd = {
+    # Setup keyfile
+    secrets = {
+      "/crypto_keyfile.bin" = null;
+    };
+
+    luks.devices."luks-cb97a2ac-4475-40eb-a983-9c32ceeb70dc".device = "/dev/disk/by-uuid/cb97a2ac-4475-40eb-a983-9c32ceeb70dc";
+    # Enable swap on luks
+    luks.devices."luks-b3b1b94f-d034-4672-b8ab-51c914735bab".device = "/dev/disk/by-uuid/b3b1b94f-d034-4672-b8ab-51c914735bab";
+    luks.devices."luks-b3b1b94f-d034-4672-b8ab-51c914735bab".keyFile = "/crypto_keyfile.bin";
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c4ce0e26-c386-481f-bead-fb78d891d05a";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-cb97a2ac-4475-40eb-a983-9c32ceeb70dc".device = "/dev/disk/by-uuid/cb97a2ac-4475-40eb-a983-9c32ceeb70dc";
+  
 
   fileSystems."/boot/efi" =
     { device = "/dev/disk/by-uuid/59D1-6E9B";
@@ -28,15 +40,6 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/8926b0d8-a401-4f44-a817-d132a86c308b"; }
     ];
-
-  networking = {
-    hostName = "fwrk";
-    networkmanager.enable = true;
-
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

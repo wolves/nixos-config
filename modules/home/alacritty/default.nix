@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs = {
@@ -13,6 +13,7 @@
           normal.family = "Iosevka";
           bold = { style = "Medium"; };
         };
+        font.size = 12;
         padding = {
           x = 6;
           y = 6;
