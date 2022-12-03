@@ -105,6 +105,11 @@
       };
     };
 
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
     starship = {
       enable = true;
 
