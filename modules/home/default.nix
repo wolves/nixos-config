@@ -8,7 +8,7 @@
 }:
 # glue configs together
 {
-  config.home.stateVersion = "22.05";
+  config.home.stateVersion = "22.11";
   imports = [
     ./packages.nix
 
