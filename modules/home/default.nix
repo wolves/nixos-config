@@ -17,13 +17,15 @@
     ./shell
     ./eww
     ./hyprland
-    ./nvim
+    ./neovim
+    #./nvim
     inputs.hyprland.homeManagerModules.default
   ];
-  # config.modules = {
-  #   programs = {
-  #     alacritty.settings.font.size = 12;
-  #   };
-  # };
+  config.modules = {
+    programs = {
+      #alacritty.settings.font.size = 12;
+      neovim.enable = true;
+    };
+  };
 }
 
