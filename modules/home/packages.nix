@@ -13,43 +13,57 @@
   #   };
   # });
 in {
-  home.packages = with pkgs; [
-    # Terminal
-    acpi      # Battery
-    bat       # Better cat
-    exa       # Better ls
-    fd        # Better find
-    zoxide    # Better cd
-    ripgrep   # Better grep
-    fzf       # Fuzzy Finder
-    pfetch    # Minimal Fetch
-    ranger    # File Mgr
-    tealdeer    # man synopsis
-    tree-sitter
-    gh        # Github CLI
-    gum
-    killall
-    tailscale
+  home = {
+    packages = with pkgs; [
+      # Terminal
+      acpi      # Battery
+      bat       # Better cat
+      exa       # Better ls
+      fd        # Better find
+      zoxide    # Better cd
+      ripgrep   # Better grep
+      fzf       # Fuzzy Finder
+      pfetch    # Minimal Fetch
+      ranger    # File Mgr
+      tealdeer    # man synopsis
+      tree-sitter
+      gh        # Github CLI
+      gum
+      killall
+      tailscale
 
-    # A/V
-    feh       # Image Viewer
-    mpv       # Media Player
+      # A/V
+      feh       # Image Viewer
+      mpv       # Media Player
 
-    # Apps
-    firefox
-    google-chrome
+      # Apps
+      firefox
+      google-chrome
 
-    # File Mgmt
-    okular    # PDF Viewer
-    pcmanfm   # File Mgr
-    rsync     # Syncer
-    unzip     # Zip Files
-    unrar     # Rar Files
+      # File Mgmt
+      okular    # PDF Viewer
+      pcmanfm   # File Mgr
+      rsync     # Syncer
+      unzip     # Zip Files
+      unrar     # Rar Files
 
-    lua
-    rust-analyzer
-    #zig
-    dconf
-    gcc
-  ];
+      lua
+      rust-analyzer
+      #zig
+      dconf
+      gcc
+    ];
+    pointerCursor = {
+      #name = "Dracula-cursors";
+      #package = pkgs.dracula-theme;
+      #name = "Catppuccin-Mocha-Dark-Cursors";
+      #package = pkgs.catppuccin-cursors.mochaDark;
+      #name = "Phinger-cursors";
+      #package = pkgs.phinger-cursors;
+      #gtk.enable = true;
+      name = "phinger-cursors";
+      package = pkgs.phinger-cursors;
+      size = 48;
+    };
+  };
 }
