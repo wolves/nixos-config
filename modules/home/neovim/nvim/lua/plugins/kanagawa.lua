@@ -22,7 +22,7 @@ return {
         CursorLine = { bg = default_clrs.winterBlue },
       },
     })
-    -- vim.cmd 'colorscheme kanagawa'
+    --vim.cmd.colorscheme('kanagawa')
     kanagawa.load()
   end,
 }
