@@ -7,8 +7,9 @@
   programs.helix = {
     enable = true;
     package = inputs.helix.packages."x86_64-linux".default;
+    themes = import ./theme.nix;
     settings = {
-      theme = "gruvbox";
+      theme = "kanagawa";
       editor.lsp.display-messages = true;
       keys.normal = {
         space.space = "file_picker";
