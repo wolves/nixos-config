@@ -24,6 +24,9 @@
           W = ":set whitespace.render none";
         };
       };
+      keys.insert = {
+        "C-c" = "normal_mode";
+      };
       editor = {
         color-modes = true;
         cursorline = true;
