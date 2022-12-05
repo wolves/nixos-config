@@ -89,6 +89,7 @@ local leader = {
   },
   f = {
     name = "+file",
+    f = { require("plugins.telescope").project_files, "Project Files" },
     n = { "<cmd>enew<CR>", "New" },
     r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
     t = { "<cmd>Neotree toggle<CR>", "Neotree" },
@@ -102,6 +103,7 @@ local leader = {
     s = { "<cmd>Telescope git_status<CR>", "Status" },
     h = { name = "+hunk" },
   },
+  ["<space>"] = { require("plugins.telescope").project_files, "Project Files" },
   ["h"] = {
     name = "+help",
     a = { "<cmd>:Telescope autocommands<CR>", "Auto Commands" },
