@@ -8,7 +8,7 @@
     enable = true;
     package = inputs.helix.packages."x86_64-linux".default;
     settings = {
-      theme = "catppuccin_frappe";
+      theme = "gruvbox";
       editor.lsp.display-messages = true;
       keys.normal = {
         space.space = "file_picker";
