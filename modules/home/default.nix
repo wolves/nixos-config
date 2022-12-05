@@ -18,6 +18,7 @@
     ./eww
     ./hyprland
     ./neovim
+    ./helix
     #./nvim
     inputs.hyprland.homeManagerModules.default
   ];
