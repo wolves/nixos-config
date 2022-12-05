@@ -15,14 +15,18 @@
         space.space = "file_picker";
         space.w = ":w";
         space.q = ":q";
+        "C-c" = "no_op";
         "C-d" = ["half_page_down" "align_view_center"];
         "C-u" = ["half_page_up" "align_view_center"];
         "C-q" = ":bc";
+        "H" = ":bp";
+        "L" = ":bn";
         space.u = {
           f = ":format"; # format using LSP formatter
           w = ":set whitespace.render all";
           W = ":set whitespace.render none";
         };
+        g.c.c = "toggle_comments";
       };
       keys.insert = {
         "C-c" = "normal_mode";
