@@ -19,6 +19,11 @@
         "C-d" = ["half_page_down" "align_view_center"];
         "C-u" = ["half_page_up" "align_view_center"];
         "C-q" = ":bc";
+        # Buffer/Split Movement
+        "C-h" = "jump_view_left";
+        "C-l" = "jump_view_right";
+        "C-j" = "jump_view_down";
+        "C-k" = "jump_view_up";
         "H" = ":bp";
         "L" = ":bn";
         space.u = {
