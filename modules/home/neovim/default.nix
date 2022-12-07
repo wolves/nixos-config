@@ -95,7 +95,11 @@ in {
         trouble-nvim
         rust-tools-nvim
         nvim-web-devicons
-        nvim-cmp
+        {
+          plugin = nvim-cmp;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/cmp.lua);
+        }
         cmp-nvim-lsp
         cmp-buffer
         cmp-path
