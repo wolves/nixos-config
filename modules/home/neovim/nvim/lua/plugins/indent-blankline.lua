@@ -1,8 +1,8 @@
-local M = {}
-
-M.event = "BufReadPre"
-
-function M.config()
+--local M = {}
+--
+--M.event = "BufReadPre"
+--
+--function M.config()
   local indent = require("indent_blankline")
 
   -- PERF: debounce indent-blankline refresh
@@ -49,6 +49,6 @@ function M.config()
       "operation_type",
     },
   })
-end
-
-return M
+--end
+--
+--return M

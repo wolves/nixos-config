@@ -7,6 +7,27 @@
 }:
 with lib; let
   cfg = config.modules.programs.neovim;
+
+  nvim-window-picker = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+    pname = "nvim-window-picker";
+    version = "a53a3b7487a9f090f5405ead8dcd5ebf5b934e97";
+    src = pkgs.fetchFromGitHub {
+      owner = "s1n7ax";
+      repo = pname;
+      rev = version;
+      sha256 = "s1UC2DGrl6g1scpwx5BbaSynl7z+p0UnwKbaUzIxygI=";
+    };
+  };
+incline-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+    pname = "incline-nvim";
+    version = "44d4e6f4dcf2f98cf7b62a14e3c10749fc5c6e35";
+    src = pkgs.fetchFromGitHub {
+      owner = "b0o";
+      repo = "incline.nvim";
+      rev = version;
+      sha256 = "oXmZK4cVyuSqmDUwJK0v7YL2g3Kr7zbMgk178D+zzys=";
+    };
+  };
 in {
   options.modules.programs.neovim = { enable = mkEnableOption "neovim"; };
 
@@ -91,7 +112,22 @@ in {
           type = "lua";
           config = builtins.readFile(./nvim/lua/plugins/neo-tree.lua);
         }
-        #nvim-window-picker
+        {
+          plugin = nvim-window-picker;
+          type = "lua";
+          config = ''
+            require("window-picker").setup({
+              autoselect_one = true,
+              include_current = false,
+              filter_rules = {
+                bo = {
+                  filetype = { "neo-tree-popup", "quickfix", "incline" },
+                  buftype = { "terminal", "quickfix", "nofile" },
+                },
+              },
+            })
+          '';
+        }
         nui-nvim
         nvim-notify
         toggleterm-nvim
@@ -121,7 +157,7 @@ in {
           type = "lua";
           config = builtins.readFile(./nvim/lua/plugins/lualine.lua);
         }
-        #incline-nvim
+        incline-nvim
         {
           plugin = comment-nvim;
           type = "lua";
@@ -184,6 +220,8 @@ in {
       ];
       extraConfig = ''
         luafile $NIXOS_CONFIG_DIR/modules/home/neovim/nvim/lua/config/options.lua
+        luafile $NIXOS_CONFIG_DIR/modules/home/neovim/nvim/lua/plugins/indent-blankline.lua
+        luafile $NIXOS_CONFIG_DIR/modules/home/neovim/nvim/lua/plugins/incline.lua
       '';
     };
   };
