@@ -39,6 +39,7 @@ in {
       mpv       # Media Player
 
       # Apps
+      calibre
       firefox
       google-chrome
 
