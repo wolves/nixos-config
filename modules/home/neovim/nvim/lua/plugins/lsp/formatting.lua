@@ -1,4 +1,5 @@
-local util = require("util")
+-- local util = require("util")
+local util = dofile("/home/wlvs/.config/nixos/modules/home/neovim/nvim/lua/util/init.lua")
 
 local M = {}
 
@@ -25,7 +26,8 @@ end
 
 function M.setup(client, buf)
   local ft = vim.api.nvim_buf_get_option(buf, "filetype")
-  local nls = require("plugins.null-ls")
+  -- local nls = require("plugins.null-ls")
+  local nls = dofile("/home/wlvs/.config/nixos/modules/home/neovim/nvim/lua/plugins/null-ls.lua")
 
   local enable = false
   if nls.has_formatter(ft) then
@@ -46,7 +48,7 @@ function M.setup(client, buf)
     vim.cmd([[
       augroup LspFormat
         autocmd! * <buffer>
-        autocmd BufWritePre <buffer> lua require("plugins.lsp.formatting").format()
+        autocmd BufWritePre <buffer> lua dofile('/home/wlvs/.config/nixos/modules/home/neovim/nvim/lua/plugins/lsp/formatting.lua').format()
       augroup END
     ]])
   end

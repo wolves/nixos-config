@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local lsp_formatting = dofile('/home/wlvs/.config/nixos/modules/home/neovim/nvim/lua/plugins/lsp/formatting.lua');
 
 local M = {}
 
@@ -21,9 +22,9 @@ function M.setup(client, buffer)
         },
         d = { vim.diagnostic.open_float, "Line Diagnostics" },
         f = {
-          { require("plugins.lsp.formatting").format, "Format Document", cond = cap.documentFormatting },
+          { lsp_formatting.format, "Format Document", cond = cap.documentFormatting },
           {
-            require("plugins.lsp.formatting").format,
+            lsp_formatting.format,
             "Format Range",
             cond = cap.documentRangeFormatting,
             mode = "v",

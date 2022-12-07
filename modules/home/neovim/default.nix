@@ -222,6 +222,7 @@ in {
         luafile $NIXOS_CONFIG_DIR/modules/home/neovim/nvim/lua/config/options.lua
         luafile $NIXOS_CONFIG_DIR/modules/home/neovim/nvim/lua/plugins/indent-blankline.lua
         luafile $NIXOS_CONFIG_DIR/modules/home/neovim/nvim/lua/plugins/incline.lua
+        luafile $NIXOS_CONFIG_DIR/modules/home/neovim/nvim/lua/plugins/lsp/init.lua
       '';
     };
   };
