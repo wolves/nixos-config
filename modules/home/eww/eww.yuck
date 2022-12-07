@@ -279,7 +279,7 @@
   :geometry (geometry 
   :height "100%" 
   :width "350px"
-  :x "48px"
+  :x "52px"
   :y "0px"
   :anchor "top left")
   :stacking "fg"
@@ -289,7 +289,7 @@
 (defwindow bar
   :monitor 0
   :exclusive false 
-  :geometry (geometry :height "100%" :x "-4px" :y "0px"
+  :geometry (geometry :height "100%" :x "-2px" :y "0px"
   :width "52px"
   :anchor "top left")
   :stacking "fg"

@@ -1,21 +1,31 @@
-$base: #44465c;
-$blue: #3fc6de;
-$surface0: #44465c;
-$surface1: #44465c;
-$text: #d9e0ee;
-$overlay0: #6e738d;
-$red: #ec6a88;
-$peach: #efb993;
-$yellow: #efb993;
-$mauve: #b072d1;
-$green: #3fdaa4;
-$mantle: #292a37;
-$crust: #2e303e;
-$light-gray: #9699b7;
+// Kanagawa Colors
+$fujiWhite: #DCD7BA;
+
+$sumiInk0: #16161D; // Darkest Bkg
+$sumiInk1: #1F1F28; // Default Bkg
+$sumiInk2: #2A2A37; // Lighter Bkg
+$sumiInk3: #363646; // Lighter Bkg (Editor Cursorline)
+$sumiInk4: #54546D; // Darker Foreground (Editor Line Numbers)
+
+$crystalBlue: #7E9CD8;
+
+$autumnRed: #C34043;
+$waveRed: #E46876;
+
+$springGreen: #98BB6C;
+
+$oniViolet: #957FB8;
+
+$surimiOrange: #FFA066;
+
+$autumnYellow: #DCA561;
+
+// Style Vars
+$bar-box-radius: 3px;
 
 * {
     all: unset; //Unsets everything so you can style everything from scratch
-    font-family: "JetBrainsMono"
+    font-family: "JetBrainsMono Nerd Font Mono";
 }
 
 .icon {
@@ -29,26 +39,26 @@ button {
 }
 
 .active {
-    color: $green;
+    color: $springGreen;
     font-size: 1.4rem;
 }
 
 .inactive {
-    color: $base;
+    color: $sumiInk0;
     font-size: 1.4rem;
 }
 
 .inactive:hover {
-    color: $light-gray;
+    color: $sumiInk4;
 }
 
 .bar {
-    background-color: $mantle;
-    border-left: 4px dotted $red;
+    background-color: $sumiInk2;
+    //border-left: 4px dotted $waveRed;
 }
 
 .dashboard {
-    background-color: $mantle;
+    background-color: $sumiInk2;
     padding: 1rem;
     margin-bottom: 1rem;
 }
@@ -65,20 +75,20 @@ button {
 .calendar_box {
     padding: 1rem;
     calendar:selected {
-        color: $blue;
+        color: $crystalBlue;
     }
 
     calendar.header {
-        color: $blue;
+        color: $crystalBlue;
         font-weight: bold;
     }
 
     calendar.button {
-        color: $blue;
+        color: $crystalBlue;
     }
 
     calendar.highlight {
-        color: $green;
+        color: $springGreen;
         font-weight: bold;
     }
 
@@ -91,24 +101,24 @@ button {
     padding: 1rem;
     .iconmem {
         font-size: 3rem;
-        color: $yellow;
+        color: $autumnYellow;
     }
     .iconcpu {
         font-size: 3rem;
-        color: $blue;
+        color: $crystalBlue;
     }
     .icondisk {
         font-size: 3rem;
-        color: $green;
+        color: $springGreen;
     }
     .cpubar, .membar, .diskbar {
-        background-color: $crust;
+        background-color: $sumiInk3;
     }
 }
 .slider_box {
     padding: 0 1rem;
     scale {
-        background-color: $crust;
+        background-color: $sumiInk3;
         border-radius: 100px;
         margin: 0.5rem 0;
     }
@@ -124,15 +134,15 @@ button {
     }
     
     .brightness_slider highlight {
-        background-color: $yellow;
+        background-color: $autumnYellow;
     }
 
     .volume_slider highlight {
-        background-color: $blue;
+        background-color: $crystalBlue;
     }
 
     .micvolume_slider highlight {
-        background-color: $green;
+        background-color: $springGreen;
     }
     
     .slider_icon {
@@ -146,38 +156,38 @@ button {
 
 .wifi {
   font-size: 2rem;
-  color: $blue;
+  color: $crystalBlue;
 }
 
 .clock {
   font-weight: bold;
-  background-color: $base;
-  color: $text;
-  border-radius: 10px;
+  background-color: $sumiInk1;
+  color: $fujiWhite;
+  border-radius: $bar-box-radius;
   padding: 0.2rem;
   margin: 0.5rem;
 }
 
 .cpubar {
-  color: $blue;
-  background-color: $surface1;
+  color: $crystalBlue;
+  background-color: $sumiInk3;
   margin: 4px 0;
 }
 
 .diskbar {
-  color: $green;
-  background-color: $surface1;
+  color: $springGreen;
+  background-color: $sumiInk3;
   margin: 4px 0;
 }
 
 .membar {
-    color: $yellow;
-    background-color: $surface1;
+  color: $autumnYellow;
+  background-color: $sumiInk3;
   margin: 4px 0;
 }
 
 .iconmem, .iconcpu, .icondisk {
-    color: $base;
+    color: $sumiInk3;
     font-size: 2.5rem;
 }
 
@@ -186,55 +196,57 @@ button {
 }
 
 .reg-btn { 
-    font-size: 2rem;
-    margin: 2px 8px;
-    border-radius: 10px;
+  font-size: 2rem;
+  margin: 2px 4px 2px 6px;
+  // margin: 2px 8px;
+  border-radius: $bar-box-radius;
 }
 
 .dashbutton {
-    color: $mauve;
+    color: $autumnYellow;
 }
 
 .dashbutton:hover {
-    background-color: $base;
+    background-color: $sumiInk3;
 }
 
 .dashbutton:active {
-    background-color: $mauve;
-    color: $mantle;
+    background-color: $autumnYellow;
+    color: $sumiInk2;
 }
 
 .powerbutton { 
-    color: $red; 
+    color: $waveRed; 
 }
 
 .powerbutton:hover {
-    background-color: $base;
+    background-color: $sumiInk3;
 }
 
 .powerbutton:active {
-    background-color: $red;
-    color: $mantle;
+    background-color: $waveRed;
+    color: $sumiInk2;
 }
 
 .launchbutton { 
-    background-color: $blue; 
-    color: $mantle;
-    margin-top: 6px;
+  background-color: $crystalBlue; 
+  color: $sumiInk2;
+  margin-top: 6px;
 }
 
 .launchbutton:hover {
-    background-color: $mauve;
+  color: $crystalBlue;
+  background-color: $sumiInk3;
 }
 
 .launchbutton:active {
-    color: $mauve;
-    background-color: $mantle;
+  color: $crystalBlue;
+  background-color: $sumiInk2;
 }
 
 .battery {
-    font-size: 1.5rem;
-    color: $blue;
+  font-size: 1.5rem;
+  color: $crystalBlue;
 }
 
 // Credits AlphaTechnolog
@@ -244,19 +256,19 @@ button {
     background: inherit;
     .dispatcher {
         border-radius: 15px;
-        background: $base;
-        color: $red;
+        background: $sumiInk0;
+        color: $waveRed;
         font-size: 14px;
         padding: 0 14px 0 10px;
-        &:hover { background-color: $surface0; }
-        &:active { background-color: $surface1; }
+        &:hover { background-color: $sumiInk3; }
+        &:active { background-color: $sumiInk3; }
     }
 }
 
 // powermenu
 .powermenu-container {
-  background: $crust;
-  color: $text;
+  background: $sumiInk3;
+  color: $fujiWhite;
   padding: 10px;
   font-size: 55px;
 
@@ -265,26 +277,26 @@ button {
   .btn { margin: 1rem;}
   // shutdown
   .shutdown-btn-box .btn {
-    color: $red;
+    color: $waveRed;
     border-radius: 15px;
-    background-color: $mantle;
-    &:hover { background-color: $base; }
-    &:active { background-color: $surface1; }
+    background-color: $sumiInk2;
+    &:hover { background-color: $sumiInk0; }
+    &:active { background-color: $sumiInk3; }
   }
   // reboot
   .reboot-btn-box .btn {
-    color: $mauve;
+    color: $oniViolet;
     border-radius: 15px;
-    background-color: $mantle;
-    &:hover { background-color: $base; }
-    &:active { background-color: $surface1; }
+    background-color: $sumiInk2;
+    &:hover { background-color: $sumiInk0; }
+    &:active { background-color: $sumiInk3; }
   }
   // exit
   .exit-btn-box .btn {
-    color: $yellow;
+    color: $autumnYellow;
     border-radius: 15px;
-    background-color: $mantle;
-    &:hover { background-color: $base; }
-    &:active { background-color: $surface1; }
+    background-color: $sumiInk2;
+    &:hover { background-color: $sumiInk0; }
+    &:active { background-color: $sumiInk3; }
   }
 }
