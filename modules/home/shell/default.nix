@@ -60,6 +60,7 @@
 
         ${pkgs.zoxide}/bin/zoxide init fish | source
         ${pkgs.starship}/bin/starship init fish | source
+        ${pkgs.direnv}/bin/direnv hook fish | source
       '';
 
       shellAliases = {

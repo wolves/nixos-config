@@ -18,6 +18,7 @@ in {
       # Terminal
       acpi      # Battery
       bat       # Better cat
+      direnv
       exa       # Better ls
       fd        # Better find
       zoxide    # Better cd
