@@ -182,7 +182,7 @@
         nodejs = {
           symbol = " ";
           version_format = "\${raw}";
-          format = "\[[$symbol($version)]($style)\] ";
+          format = "[$symbol($version)]($style) ";
         };
         
         package.symbol = " ";
