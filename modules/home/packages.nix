@@ -19,6 +19,7 @@ in {
       acpi      # Battery
       bat       # Better cat
       direnv
+      duf       # Disk Usage
       exa       # Better ls
       fd        # Better find
       zoxide    # Better cd
