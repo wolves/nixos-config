@@ -33,15 +33,15 @@ if vim.fn.has("nvim-0.9.0") == 1 then
   vim.opt.splitkeep = "screen"
 end
 
-vim.cmd.colorscheme("kanagawa")
+--vim.cmd.colorscheme("kanagawa")
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.ruby_host_prog = "/home/wlvs/.asdf/shims/ruby"
-vim.g.node_host_prog = "/home/wlvs/.local/share/pnpm/global/5/node_modules/neovim/bin/cli.js"
+--vim.g.loaded_python3_provider = 0
+--vim.g.loaded_perl_provider = 0
+--vim.g.ruby_host_prog = "/home/wlvs/.asdf/shims/ruby"
+--vim.g.node_host_prog = "/home/wlvs/.local/share/pnpm/global/5/node_modules/neovim/bin/cli.js"
 -- vim.g.node_host_prog = "/home/wlvs/.pnpm-global/5/node_modules/neovim/bin/cli.js"
 
 vim.opt.autowrite = true

@@ -1,8 +1,8 @@
-local M = {
-  event = "BufReadPre",
-}
+--local M = {
+--  event = "BufReadPre",
+--}
 
-function M.config()
+--function M.config()
   -- local signs = require("plugins.lsp.diagnostics").signs
 
   -- signs = {
@@ -19,31 +19,31 @@ function M.config()
   --   -- "hint",
   -- }
 
-  require("bufferline").setup({
-    options = {
-      show_close_icon = true,
-      -- diagnostics = "nvim_lsp",
-      always_show_bufferline = false,
-      separator_style = "thick",
-      -- diagnostics_indicator = function(_, _, diag)
-      --   local s = {}
-      --   for _, severity in ipairs(severities) do
-      --     if diag[severity] then
-      --       table.insert(s, signs[severity] .. diag[severity])
-      --     end
-      --   end
-      --   return table.concat(s, " ")
-      -- end,
-      offsets = {
-        {
-          filetype = "neo-tree",
-          text = "Neo Tree",
-          highlight = "Directory",
-          text_align = "left",
-        },
+require("bufferline").setup({
+  options = {
+    show_close_icon = true,
+    -- diagnostics = "nvim_lsp",
+    always_show_bufferline = false,
+    separator_style = "thick",
+    -- diagnostics_indicator = function(_, _, diag)
+    --   local s = {}
+    --   for _, severity in ipairs(severities) do
+    --     if diag[severity] then
+    --       table.insert(s, signs[severity] .. diag[severity])
+    --     end
+    --   end
+    --   return table.concat(s, " ")
+    -- end,
+    offsets = {
+      {
+        filetype = "neo-tree",
+        text = "Neo Tree",
+        highlight = "Directory",
+        text_align = "left",
       },
     },
-  })
-end
+  },
+})
+--end
 
-return M
+--return M

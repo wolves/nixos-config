@@ -1,8 +1,8 @@
-local M = {
-  event = "BufReadPre",
-}
-
-function M.config()
+--local M = {
+--  event = "BufReadPre",
+--}
+--
+--function M.config()
   require("gitsigns").setup({
     signs = {
       add = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -83,6 +83,6 @@ function M.config()
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
     end,
   })
-end
-
-return M
+--end
+--
+--return M

@@ -1,6 +1,6 @@
-return {
-  keys = { "<C-u>", "<C-d>", "gg", "G" },
-  config = function()
+--return {
+--  keys = { "<C-u>", "<C-d>", "gg", "G" },
+  --config = function()
     require("neoscroll").setup({})
     local map = {}
 
@@ -15,5 +15,5 @@ return {
     map["zb"] = { "zb", { "150" } }
 
     require("neoscroll.config").set_mappings(map)
-  end,
-}
+--  end,
+--}

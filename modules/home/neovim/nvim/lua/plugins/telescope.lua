@@ -1,12 +1,12 @@
-local M = {
-  cmd = { "Telescope" },
-  module = "telescope",
-  requires = {
-    { "nvim-telescope/telescope-fzf-native.nvim", module = "telescope._extensions.fzf", run = "make" },
-  },
-}
+--local M = {
+--  cmd = { "Telescope" },
+--  module = "telescope",
+--  requires = {
+--    { "nvim-telescope/telescope-fzf-native.nvim", module = "telescope._extensions.fzf", run = "make" },
+--  },
+--}
 
-function M.project_files(opts)
+local function project_files(opts)
   opts = opts or {}
   opts.show_untracked = true
   if vim.loop.fs_stat(".git") then
@@ -20,21 +20,21 @@ function M.project_files(opts)
   end
 end
 
-function M.grep_string_prompt()
+local function grep_string_prompt()
   require("telescope.builtin").grep_string({
     path_display = { "shorten" },
     search = vim.fn.input("Grep String ❱ "),
   })
 end
 
-function M.grep_word()
+local function grep_word()
   require("telescope.builtin").grep_string({
     path_display = { "shorten" },
     search = vim.fn.expand("<cword>"),
   })
 end
 
-function M.config()
+--function M.config()
   -- local trouble = require("trouble.providers.telescope")
 
   local telescope = require("telescope")
@@ -109,12 +109,21 @@ function M.config()
       -- buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
     },
   })
-end
+--end
 
--- function M.init()
---   vim.keymap.set("n", "<leader><space>", function()
---     require("plugins.telescope").project_files()
---   end, { desc = "Find File" })
--- end
+vim.keymap.set("n", "<leader><space>", function()
+  project_files()
+end, { desc = "Find File" })
 
-return M
+--local wk = require("which-key")
+--local telescope_keymap = {
+--  ["<leader>"] = {
+--    s = {
+--      s = { grep_string_prompt(), "Grep Prompt" },
+--      w = { grep_word(), "Current Word" },
+--    },
+--  }
+--}
+--wk.register(telescope_keymap)
+
+--return M

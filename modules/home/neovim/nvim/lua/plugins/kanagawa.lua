@@ -1,6 +1,6 @@
-return {
-  opt = false,
-  config = function()
+--return {
+--  opt = false,
+--  config = function()
     local kanagawa = require("kanagawa")
     local default_clrs = require('kanagawa.colors').setup()
 
@@ -22,7 +22,7 @@ return {
         CursorLine = { bg = default_clrs.winterBlue },
       },
     })
-    --vim.cmd.colorscheme('kanagawa')
+    vim.cmd.colorscheme('kanagawa')
     kanagawa.load()
-  end,
-}
+--  end,
+--}

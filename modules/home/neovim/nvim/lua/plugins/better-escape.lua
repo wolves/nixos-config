@@ -1,8 +1,8 @@
-local M = {}
-
-M.opt = false
-
-function M.config()
+--local M = {}
+--
+--M.opt = false
+--
+--function M.config()
   local esc = require("better_escape")
 
   esc.setup({
@@ -11,6 +11,6 @@ function M.config()
     clear_empty_lines = false, -- clear line after escaping if there is only whitespace
     keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
   })
-end
-
-return M
+--end
+--
+--return M

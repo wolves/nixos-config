@@ -1,9 +1,9 @@
-local M = {
-  cmd = "Neotree",
-  requires = { "s1n7ax/nvim-window-picker" },
-}
-
-function M.config()
+--local M = {
+--  cmd = "Neotree",
+--  requires = { "s1n7ax/nvim-window-picker" },
+--}
+--
+--function M.config()
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
   require("neo-tree").setup({
@@ -42,6 +42,6 @@ function M.config()
       },
     },
   })
-end
-
-return M
+--end
+--
+--return M

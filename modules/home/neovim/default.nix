@@ -11,7 +11,7 @@ in {
   options.modules.programs.neovim = { enable = mkEnableOption "neovim"; };
 
   config = mkIf cfg.enable {
-    xdg.configFile."nvim".source = ./nvim;
+    #xdg.configFile."nvim".source = ./nvim;
 
     home.packages = with pkgs; [
       sumneko-lua-language-server
@@ -48,10 +48,22 @@ in {
       withPython3 = false;
       plugins = with pkgs.vimPlugins; [
         vim-nix
-        kanagawa-nvim
+        {
+          plugin = which-key-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/config/mappings.lua);
+        }
+        {
+          plugin = kanagawa-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/kanagawa.lua);
+        }
         noice-nvim
-        which-key-nvim
-        telescope-nvim
+        {
+          plugin = telescope-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/telescope.lua);
+        }
         telescope-fzf-native-nvim
         nvim-lspconfig
         #mason-nvim
@@ -68,21 +80,56 @@ in {
         cmp-path
         cmp_luasnip
         cmp-nvim-lsp-signature-help
-        bufferline-nvim
+        {
+          plugin = bufferline-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/bufferline.lua);
+        }
         vim-bbye
-        neo-tree-nvim
+        {
+          plugin = neo-tree-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/neo-tree.lua);
+        }
         #nvim-window-picker
         nui-nvim
         nvim-notify
         toggleterm-nvim
-        neoscroll-nvim
-        better-escape-nvim
+        {
+          plugin = neoscroll-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/neoscroll.lua);
+        }
+        {
+          plugin = better-escape-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/better-escape.lua);
+        }
         indent-blankline-nvim
         nvim-colorizer-lua
         todo-comments-nvim
-        lualine-nvim
+        {
+          plugin = nvim-navic;
+          type = "lua";
+          config = ''
+            vim.g.navic_silence = true
+            require("nvim-navic").setup({ separator = " ", highlight = true, depth_limit = 5 })
+          '';
+        }
+        {
+          plugin = lualine-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/lualine.lua);
+        }
         #incline-nvim
-        comment-nvim
+        {
+          plugin = comment-nvim;
+          type = "lua";
+          #config = builtins.readFile(./nvim/lua/plugins/comment.lua);
+          config = ''
+            require("Comment").setup({})
+          '';
+        }
         nvim-autopairs
         luasnip
         friendly-snippets
@@ -90,8 +137,16 @@ in {
         nvim-surround
         splitjoin-vim
         #inc-rename-nvim
-        gitsigns-nvim
-        neogit
+        {
+          plugin = gitsigns-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/gitsigns.lua);
+        }
+        {
+          plugin = neogit;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/neogit.lua);
+        }
         diffview-nvim
         vim-startuptime
         nvim-ts-autotag
@@ -127,6 +182,9 @@ in {
           tree-sitter-yaml
         ]))
       ];
+      extraConfig = ''
+        luafile $NIXOS_CONFIG_DIR/modules/home/neovim/nvim/lua/config/options.lua
+      '';
     };
   };
 }

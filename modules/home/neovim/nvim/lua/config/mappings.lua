@@ -1,7 +1,7 @@
 ---@diagnostic disable: missing-parameter
 
 local wk = require("which-key")
-local util = require("util")
+--local util = require("util")
 
 vim.o.timeoutlen = 300
 
@@ -89,7 +89,7 @@ local leader = {
   },
   f = {
     name = "+file",
-    f = { require("plugins.telescope").project_files, "Project Files" },
+    --f = { require("plugins.telescope").project_files, "Project Files" },
     n = { "<cmd>enew<CR>", "New" },
     r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
     t = { "<cmd>Neotree toggle<CR>", "Neotree" },
@@ -103,7 +103,7 @@ local leader = {
     s = { "<cmd>Telescope git_status<CR>", "Status" },
     h = { name = "+hunk" },
   },
-  ["<space>"] = { require("plugins.telescope").project_files, "Project Files" },
+  --["<space>"] = { project_files(), "Project Files" },
   ["h"] = {
     name = "+help",
     a = { "<cmd>:Telescope autocommands<CR>", "Auto Commands" },
@@ -129,32 +129,32 @@ local leader = {
     b = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Buffer" },
     g = { "<cmd>Telescope live_grep<CR>", "Grep" },
     h = { "<cmd>Telescope command_history<CR>", "Command History" },
-    s = { require("plugins.telescope").grep_string_prompt, "Grep Prompt" },
-    w = { require("plugins.telescope").grep_word, "Current Word" },
+    --s = { grep_string_prompt(), "Grep Prompt" },
+    --w = { grep_word(), "Current Word" },
   },
-  t = {
-    name = "+toggle",
-    f = { require("plugins.lsp.formatting").toggle, "Format on Save" },
-    n = {
-      function()
-        util.toggle("relativenumber", true)
-        util.toggle("number")
-      end,
-      "Line Numbers",
-    },
-    s = {
-      function()
-        util.toggle("spell")
-      end,
-      "Spelling",
-    },
-    w = {
-      function()
-        util.toggle("wrap")
-      end,
-      "Word Wrap",
-    },
-  },
+  --t = {
+  --  name = "+toggle",
+  --  f = { require("plugins.lsp.formatting").toggle, "Format on Save" },
+    -- n = {
+    --   function()
+    --     util.toggle("relativenumber", true)
+    --     util.toggle("number")
+    --   end,
+    --   "Line Numbers",
+    -- },
+    -- s = {
+    --   function()
+    --     util.toggle("spell")
+    --   end,
+    --   "Spelling",
+    -- },
+    -- w = {
+    --   function()
+    --     util.toggle("wrap")
+    --   end,
+    --   "Word Wrap",
+    -- },
+  --},
   x = {
     name = "+errors",
     t = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },

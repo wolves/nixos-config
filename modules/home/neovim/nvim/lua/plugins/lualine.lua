@@ -1,15 +1,15 @@
-local M = { event = "User PackerDefered" }
-
-local function clock()
-  return " " .. os.date("%H:%M")
-end
-
--- local function holidays()
---   return "🌴🌊"
---   -- return "🎅🎄🌟🎁"
--- end
-
-function M.config()
+--local M = { event = "User PackerDefered" }
+--
+--local function clock()
+--  return " " .. os.date("%H:%M")
+--end
+--
+---- local function holidays()
+----   return "🌴🌊"
+----   -- return "🎅🎄🌟🎁"
+---- end
+--
+--function M.config()
   require("lualine").setup({
     options = {
       theme = "auto",
@@ -95,6 +95,6 @@ function M.config()
     -- },
     extensions = { "nvim-tree" },
   })
-end
-
-return M
+--end
+--
+--return M
