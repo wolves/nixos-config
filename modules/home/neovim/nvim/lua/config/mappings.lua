@@ -3,13 +3,6 @@
 local wk = require("which-key")
 --local util = require("util")
 
--- local function grep_word()
---   require("telescope.builtin").grep_string({
---     path_display = { "shorten" },
---     search = vim.fn.expand("<cword>"),
---   })
--- end
-
 vim.o.timeoutlen = 300
 
 wk.setup({
