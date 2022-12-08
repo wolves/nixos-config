@@ -50,6 +50,7 @@ in {
       unzip     # Zip Files
       unrar     # Rar Files
 
+      asdf-vm
       lua
       rust-analyzer
       dconf
