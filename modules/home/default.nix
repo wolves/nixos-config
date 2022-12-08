@@ -17,6 +17,7 @@
     ./shell
     ./eww
     ./hyprland
+    ./mako
     ./neovim
     ./helix
     #./nvim
