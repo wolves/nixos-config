@@ -18,7 +18,6 @@
     grim
     libnotify
     brightnessctl
-    # light
     pamixer
     #mpvpaper
     slurp
