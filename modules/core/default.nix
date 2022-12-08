@@ -11,6 +11,6 @@
     ./nix.nix
     ./users.nix
     ./openssh.nix
-    # ./blocker.nix
+    ./blocker.nix
   ];
 }
