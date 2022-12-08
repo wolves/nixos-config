@@ -3,6 +3,13 @@
 local wk = require("which-key")
 --local util = require("util")
 
+-- local function grep_word()
+--   require("telescope.builtin").grep_string({
+--     path_display = { "shorten" },
+--     search = vim.fn.expand("<cword>"),
+--   })
+-- end
+
 vim.o.timeoutlen = 300
 
 wk.setup({
@@ -129,31 +136,37 @@ local leader = {
     b = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Buffer" },
     g = { "<cmd>Telescope live_grep<CR>", "Grep" },
     h = { "<cmd>Telescope command_history<CR>", "Command History" },
-    --s = { grep_string_prompt(), "Grep Prompt" },
-    --w = { grep_word(), "Current Word" },
+    s = {
+      '<cmd>lua require("telescope.builtin").grep_string({ path_display = { "shorten" }, search = vim.fn.input("Grep String ❱ ") })<CR>',
+      "Grep Prompt",
+    },
+    w = {
+      '<cmd>lua require("telescope.builtin").grep_string({ path_display = { "shorten" }, search = vim.fn.expand("<cword>") })<CR>',
+      "Grep Prompt",
+    },
   },
   --t = {
   --  name = "+toggle",
   --  f = { require("plugins.lsp.formatting").toggle, "Format on Save" },
-    -- n = {
-    --   function()
-    --     util.toggle("relativenumber", true)
-    --     util.toggle("number")
-    --   end,
-    --   "Line Numbers",
-    -- },
-    -- s = {
-    --   function()
-    --     util.toggle("spell")
-    --   end,
-    --   "Spelling",
-    -- },
-    -- w = {
-    --   function()
-    --     util.toggle("wrap")
-    --   end,
-    --   "Word Wrap",
-    -- },
+  -- n = {
+  --   function()
+  --     util.toggle("relativenumber", true)
+  --     util.toggle("number")
+  --   end,
+  --   "Line Numbers",
+  -- },
+  -- s = {
+  --   function()
+  --     util.toggle("spell")
+  --   end,
+  --   "Spelling",
+  -- },
+  -- w = {
+  --   function()
+  --     util.toggle("wrap")
+  --   end,
+  --   "Word Wrap",
+  -- },
   --},
   x = {
     name = "+errors",
