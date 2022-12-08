@@ -27,6 +27,7 @@
     swaylock-fancy
     wl-clipboard
     wlr-randr
+    wofi
   ];
 
   wayland.windowManager.hyprland = {

@@ -14,13 +14,13 @@
 
     ./alacritty
     ./rofi
+    ./wofi
     ./shell
     ./eww
     ./hyprland
     ./mako
     ./neovim
     ./helix
-    #./nvim
     inputs.hyprland.homeManagerModules.default
   ];
   config.modules = {
