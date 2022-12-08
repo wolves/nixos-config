@@ -10,6 +10,7 @@
     loader = {
       systemd-boot = {
         enable = true;
+        consoleMode="auto";
         configurationLimit = 5;
       };
       efi = {
@@ -18,5 +19,11 @@
       };
       timeout = 5;
     };
+    kernelParams = [
+      "quiet"
+      "splash"
+    ];
+    consoleLogLevel = 0;
+    initrd.verbose = false;
   };
 }
