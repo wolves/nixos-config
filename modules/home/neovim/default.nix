@@ -79,7 +79,11 @@ in {
           type = "lua";
           config = builtins.readFile(./nvim/lua/plugins/kanagawa.lua);
         }
-        noice-nvim
+        {
+          plugin = noice-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/noice.lua);
+        }
         {
           plugin = telescope-nvim;
           type = "lua";
@@ -93,7 +97,11 @@ in {
         null-ls-nvim
         #schemastore-nvim
         trouble-nvim
-        rust-tools-nvim
+        {
+          plugin = rust-tools-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/rust-tools.lua);
+        }
         nvim-web-devicons
         {
           plugin = nvim-cmp;
@@ -133,7 +141,11 @@ in {
           '';
         }
         nui-nvim
-        nvim-notify
+        {
+          plugin = nvim-notify;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/notify.lua);
+        }
         toggleterm-nvim
         {
           plugin = neoscroll-nvim;
@@ -146,7 +158,11 @@ in {
           config = builtins.readFile(./nvim/lua/plugins/better-escape.lua);
         }
         indent-blankline-nvim
-        nvim-colorizer-lua
+        {
+          plugin = nvim-colorizer-lua;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/colorizer.lua);
+        }
         todo-comments-nvim
         {
           plugin = nvim-navic;
@@ -170,7 +186,11 @@ in {
             require("Comment").setup({})
           '';
         }
-        nvim-autopairs
+        {
+          plugin = nvim-autopairs;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/autopairs.lua);
+        }
         luasnip
         friendly-snippets
         #tabout-nvim
