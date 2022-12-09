@@ -1,8 +1,9 @@
 #!/bin/sh
 
-if nmcli g | grep -q "connected"; then
+SSID_NAME=$(nmcli dev status | rg wifi | xargs | awk '/^wlp170s0/ {print $4}')
+if nmcli g | rg -q "connected"; then
 	icon=""
-	ssid=Oblivion
+	ssid=${SSID_NAME}
 	status="Connected to ${ssid}"
 else
 	icon="睊"

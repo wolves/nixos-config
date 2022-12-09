@@ -121,6 +121,11 @@
           :tooltip {wifi.status}
           :class "wifi"
     )
+   ;;(button :tooltip {wifi.status}
+   ;;        :class "wifi"
+   ;;        :onclick "alacritty -e nmtui &"
+   ;;   ""
+   ;;)
   )
 )
 
