@@ -211,6 +211,12 @@
       keyMode = "vi";
       shortcut = "a";
       terminal = "xterm-256color";
+
+      plugins = with pkgs; [
+        tmuxPlugins.better-mouse-mode
+        tmuxPlugins.online-status
+        tmuxPlugins.pain-control
+      ];
     };
   };
 }
