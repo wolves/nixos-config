@@ -41,7 +41,6 @@ in {
       # Apps
       calibre
       firefox
-      google-chrome
 
       # File Mgmt
       okular    # PDF Viewer
