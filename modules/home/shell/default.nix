@@ -6,9 +6,40 @@
 }: {
   programs = {
     git = {
+      package = pkgs.gitAndTools.gitFull;
       enable = true;
       userName = "wolves";
       userEmail = "cstingl@protonmail.com";
+      extraConfig = {
+        init = { defaultBranch = "main";};
+        rerere.enabled = true;
+        push.default = "current";
+        merge.stat = "true";
+        branch = {
+          autosetupmerge = "true";
+          autosetuprebase = "always";
+        };
+        delta = {
+          syntax-theme = "Nord";
+          line-numbers = true;
+        };
+      };
+      lfs.enable = true;
+      delta.enable = true;
+      aliases = {
+        gad="git add .";
+        gc="git commit -m";
+        gcam="git commit --amend -m";
+        gcl="git clone";
+        gco="git checkout";
+        gd="git diff";
+        gl="git log --oneline --graph --decorate";
+        gp="git push";
+        gpf="git push -f";
+        gpr="git pull --rebase";
+        grc="git rebase --continue";
+        gs="git status --short --branch";
+      };
     };
 
     fish = {
@@ -91,18 +122,6 @@
         mv="mv -iv";
         rm="rm -iv";
 
-        # GIT;
-        gad="git add .";
-        gc="git commit";
-        gcl="git clone";
-        gco="git checkout";
-        gd="git diff";
-        gl="git log --oneline --graph --decorate";
-        gp="git push";
-        gpf="git push -f";
-        gpr="git pull --rebase";
-        grc="git rebase --continue";
-        gs="git status --short --branch";
       };
     };
 
