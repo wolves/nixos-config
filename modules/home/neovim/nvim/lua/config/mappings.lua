@@ -51,6 +51,9 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Tree
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle reveal<CR>")
 
+-- Terminal
+vim.keymap.set("n", "<C-\\>", "<cmd>ToggleTerm<CR>")
+
 -- Search
 local function search(backward)
   vim.cmd([[echo "1> "]])

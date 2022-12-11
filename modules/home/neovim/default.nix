@@ -146,7 +146,11 @@ in {
           type = "lua";
           config = builtins.readFile(./nvim/lua/plugins/notify.lua);
         }
-        toggleterm-nvim
+        {
+          plugin = toggleterm-nvim;
+          type = "lua";
+          config = builtins.readFile(./nvim/lua/plugins/toggleterm.lua);
+        }
         {
           plugin = neoscroll-nvim;
           type = "lua";
