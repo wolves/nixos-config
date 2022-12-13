@@ -9,6 +9,7 @@
   };
 
   environment.variables = {
+    NIXOS_CONFIG = "$HOME/.config/nixos/configuration.nix";
     NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
     TERMINAL = "alacritty";
     EDITOR = "nvim";
