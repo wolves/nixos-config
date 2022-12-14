@@ -27,18 +27,6 @@
       lfs.enable = true;
       delta.enable = true;
       aliases = {
-        gad="git add .";
-        gc="git commit -m";
-        gcam="git commit --amend -m";
-        gcl="git clone";
-        gco="git checkout";
-        gd="git diff";
-        gl="git log --oneline --graph --decorate";
-        gp="git push";
-        gpf="git push -f";
-        gpr="git pull --rebase";
-        grc="git rebase --continue";
-        gs="git status --short --branch";
       };
     };
 
@@ -122,6 +110,18 @@
         mv="mv -iv";
         rm="rm -iv";
 
+        gad="git add .";
+        gc="git commit -m";
+        gcam="git commit --amend -m";
+        gcl="git clone";
+        gco="git checkout";
+        gd="git diff";
+        gl="git log --oneline --graph --decorate";
+        gp="git push";
+        gpf="git push -f";
+        gpr="git pull --rebase";
+        grc="git rebase --continue";
+        gs="git status --short --branch";
       };
     };
 
