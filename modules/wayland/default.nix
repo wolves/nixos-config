@@ -46,6 +46,8 @@
       XDG_SESSION_TYPE = "wayland";
       XDG_CURRENT_DESKTOP="Hyprland";
       XDG_SESSION_DESKTOP="Hyprland";
+      SDL_VIDEODRIVER="wayland";
+      _JAVA_AWT_WM_NONREPARENTING="1";
     };
     # dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
     # loginShellInit = ''
