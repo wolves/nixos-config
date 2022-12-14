@@ -15,7 +15,6 @@
       (catppuccin-gtk.override {size = "compact";})
       bibata-cursors
       papirus-icon-theme
-      greetd.gtkgreet
     ];
 
     # set gtk theme
