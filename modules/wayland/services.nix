@@ -69,17 +69,17 @@ in {
           entry {
             color: #f5e0dc;
             background: rgba(30, 30, 46, 0.8);
-            border-radius: 16px;
+            border-radius: 6px;
             box-shadow: 0 0 5px #1e1e2e;
           }
           #clock {
             color: #f5e0dc;
             text-shadow: 0 0 3px #1e1e2e;
           }
-          .text-button { border-radius: 16px; }
+          .text-button { border-radius: 6px; }
         '';
         greetdSwayConfig = pkgs.writeText "greetd-sway-config" ''
-          exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l -s ${gtkgreetStyle}; swaymsg exit"
+          exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
           bindsym Mod4+shift+e exec swaynag \
             -t warning \
             -m 'What do you want to do?' \
@@ -90,6 +90,7 @@ in {
         '';
         in "${pkgs.sway}/bin/sway --config ${greetdSwayConfig}";
         # in "${pkgs.dbus}/bin/dbus-run-session ${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.gtkgreet} -l -s ${gtkgreetStyle}";
+        default_session.user = "wlvs";
       };
     };
 
