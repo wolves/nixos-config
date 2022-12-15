@@ -6,8 +6,11 @@
   security = {
     sudo.wheelNeedsPassword = false;
 
-    # allow wayland lockers to unlock the screen
-    pam.services.swaylock.text = "auth include login";
+    pam.services = {
+      login.enableGnomeKeyring = true;
+      # allow wayland lockers to unlock the screen
+      swaylock.text = "auth include login";
+    };
 
     rtkit.enable = true;
   };
