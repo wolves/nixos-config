@@ -12,6 +12,7 @@
   imports = [
     ./packages.nix
 
+    ./files
     ./alacritty
     ./rofi
     ./wofi
