@@ -102,8 +102,9 @@ in {
     bindm=SUPER,mouse:273,resizewindow
 
     bind=SUPER,Return,exec,alacritty
+    bind=$mod SHIFT, Return, exec, footclient -L
     bind=SUPER,Q,killactive,
-    bind = $mod, L, exec, loginctl lock-session
+    bind = $mod SHIFT, X, exec, loginctl lock-session
     bind=SUPER,Escape,exit,
     bind=SUPER,E,exec,pcmanfm
     #bind=SUPER,H,togglefloating,

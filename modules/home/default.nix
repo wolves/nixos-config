@@ -13,6 +13,7 @@
     ./packages.nix
 
     ./files
+    ./foot
     ./alacritty
     ./rofi
     ./wofi
