@@ -19,15 +19,15 @@
     ignore-empty-password = true;
     indicator = true;
     image = "$HOME/wallpaper/aenami_escape_1k.jpg";
-    bs-hl-color = ${red};
-    key-hl-color = ${orange};
-    inside-clear-color = ${red};
-    inside-color = ${yellow};
-    inside-ver-color = ${blue};
-    inside-wrong-color = ${red};
-    line-color = ${crust};
-    ring-color = ${base};
-    separator-color = ${sumiInk4};
+    bs-hl-color = "${red}";
+    key-hl-color = "${orange}";
+    inside-clear-color = "${red}";
+    inside-color = "${yellow}";
+    inside-ver-color = "${blue}";
+    inside-wrong-color = "${red}";
+    line-color = "${crust}";
+    ring-color = "${base}";
+    separator-color = "${sumiInk4}";
   };
 }
 
