@@ -6,7 +6,7 @@
     # TODO: Update colors to use a global color theme
     crust = "#16161D"; # Kanagawa SumiInk0
     base = "#1F1F28"; #Kanagawa SumiInk1
-    sumiInk4: = "#54546D";
+    sumiInk4 = "#54546D";
 
     red = "#E46867"; # Kanagawa WaveRed
     blue = "#7E9CD8"; # Kanagawa CrystalBlue
