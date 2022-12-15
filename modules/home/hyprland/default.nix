@@ -18,7 +18,6 @@
     swaybg
     swayidle
     swaylock-effects
-    # swaylock-fancy
     wl-clipboard
     wlr-randr
     wofi
