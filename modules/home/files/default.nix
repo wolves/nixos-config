@@ -17,7 +17,7 @@
     filter = name: _: (lib.hasSuffix ".ttf" (baseNameOf (toString name)));
     src = pkgs.fetchzip {
       url = "https://github.com/wolves/iosevka-wlvs/archive/refs/tags/v1.0.0.zip";
-      sha256 = "0000000000000000000000000000000000000000000000000000";
+      sha256 = "sha256-XwFOxkQrR3CeOq4jOYYHdgPyigjS7ah287qwZAJ710E=";
       stripRoot = false;
     };
   };
