@@ -21,6 +21,7 @@
     ./mako
     ./neovim
     ./helix
+    ./swaylock
     inputs.hyprland.homeManagerModules.default
   ];
   config.modules = {
