@@ -103,6 +103,7 @@ in {
 
     bind=SUPER,Return,exec,alacritty
     bind=SUPER,Q,killactive,
+    bind = $mod, L, exec, loginctl lock-session
     bind=SUPER,Escape,exit,
     bind=SUPER,E,exec,pcmanfm
     #bind=SUPER,H,togglefloating,
