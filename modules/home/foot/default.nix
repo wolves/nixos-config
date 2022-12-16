@@ -11,10 +11,10 @@
     server.enable = true;
     settings = {
       main = {
-        term = "xterm-256color";
-        font = "monospace:size=14";
+        # term = "xterm-256color";
+        font = "Iosevka Nerd Font Mono:size=7,monospace:size=7";
         pad = "24x24";
-        dpi-aware = "yes";
+        # dpi-aware = "yes";
       };
       colors = {
         alpha = "0.9";

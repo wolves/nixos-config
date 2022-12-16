@@ -37,12 +37,12 @@
     ];
     timeouts = [
       {
-        timeout = 600;
+        timeout = 900;
         command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
         resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
       }
       {
-        timeout = 610;
+        timeout = 910;
         command = "${pkgs.systemd}/bin/loginctl lock-session";
       }
     ];
