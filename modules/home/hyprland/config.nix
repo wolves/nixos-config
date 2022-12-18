@@ -101,19 +101,19 @@ in {
     bindm=SUPER,mouse:272,movewindow
     bindm=SUPER,mouse:273,resizewindow
 
-    bind=SUPER,Return,exec,alacritty
-    bind=$mod SHIFT, Return, exec, footclient
-    bind=SUPER,Q,killactive,
+    bind = $mod, Return, exec, alacritty
+    bind = $mod, W, exec, makoctl dismiss
+    bind = $mod, Q, killactive,
     bind = $mod SHIFT, X, exec, loginctl lock-session
-    bind=SUPER,Escape,exit,
-    bind=SUPER,E,exec,pcmanfm
-    #bind=SUPER,H,togglefloating,
-    #bind=SUPER,D,exec,rofi -show drun
-    bind=$mod,D,exec,wofi --show run --xoffset=1542 --yoffset=8 --width=320px --height=1228px --style=$HOME/.config/wofi.css --prompt=Run
-    bind=SUPER,P,pseudo,
-    bind=SUPER,F,fullscreen,
-    bind=SUPER,R,forcerendererreload
-    bind=SUPERSHIFT,R,exec,hyprctl reload
+    bind = $mod, Escape, exit,
+    bind = $mod, E, exec, pcmanfm
+    #bind = $mod, H, togglefloating,
+    #bind = $mod, D, exec, rofi -show drun
+    bind = $mod, D, exec, wofi --show run --xoffset=1542 --yoffset=8 --width=320px --height=1228px --style=$HOME/.config/wofi.css --prompt=Run
+    bind = $mod, P, pseudo,
+    bind = $mod, F, fullscreen,
+    bind = $mod, R, forcerendererreload
+    bind = $mod SHIFT, R, exec, hyprctl reload && notify-send "Hyprland Reloaded"
 
     bind=SUPER,h,movefocus,l
     bind=SUPER,l,movefocus,r
@@ -125,45 +125,51 @@ in {
     bind=SUPERSHIFT,up,movewindow,u
     bind=SUPERSHIFT,down,movewindow,d
 
-    bind=$mod,1,workspace,1
-    bind=$mod,2,workspace,2
-    bind=$mod,3,workspace,3
-    bind=$mod,4,workspace,4
-    bind=$mod,5,workspace,5
-    bind=$mod,6,workspace,6
-    bind=$mod,7,workspace,7
-    bind=$mod,8,workspace,8
-    bind=$mod,9,workspace,9
-    bind=$mod,0,workspace,10
-    bind=$mod,right,workspace,+1
-    bind=$mod,left,workspace,-1
-
-    bind=$mod SHIFT,1,movetoworkspace,1
-    bind=$mod SHIFT,2,movetoworkspace,2
-    bind=$mod SHIFT,3,movetoworkspace,3
-    bind=$mod SHIFT,4,movetoworkspace,4
-    bind=$mod SHIFT,5,movetoworkspace,5
-    bind=$mod SHIFT,6,movetoworkspace,6
-    bind=$mod SHIFT,7,movetoworkspace,7
-    bind=$mod SHIFT,8,movetoworkspace,8
-    bind=$mod SHIFT,9,movetoworkspace,9
-    bind=$mod SHIFT,0,movetoworkspace,10
-    bind=$mod SHIFT,right,movetoworkspace,+1
-    bind=$mod SHIFT,left,movetoworkspace,-1
-
+    # Window Resize
     bind=CTRL,right,resizeactive,20 0
     bind=CTRL,left,resizeactive,-20 0
     bind=CTRL,up,resizeactive,0 -20
     bind=CTRL,down,resizeactive,0 20
 
+    # Media
+
+    # Volume
+    bindle=,XF86AudioLowerVolume,exec,pamixer -d 10
+    bindle=,XF86AudioRaiseVolume,exec,pamixer -i 10
+    bindl=,XF86AudioMute,exec,pamixer -t
+    bindl=,XF86AudioMicMute,exec,pamixer --default-source -t
+
+    # Backlight
+    bindle = , XF86MonBrightnessDown, exec, brightnessctl s 10%-
+    bindle = , XF86MonBrightnessUP, exec, brightnessctl s +10%
+
+    # Screenshot
     bind=,print,exec,grim -g "$(slurp)" - | swappy -f - -o ~/Pictures/$(date +%Hh_%Mm_%Ss_%d_%B_%Y).png && notify-send "Saved to ~/Pictures/$(date +%Hh_%Mm_%Ss_%d_%B_%Y).png"
 
-    bind=,XF86AudioLowerVolume,exec,pamixer -d 10
-    bind=,XF86AudioRaiseVolume,exec,pamixer -i 10
-    bind=,XF86AudioMute,exec,pamixer -t
-    bind=,XF86AudioMicMute,exec,pamixer --default-source -t
+    # Workspaces
+    # binds mod + [shift +] {1..10} to [move to] ws {1..10}
+    ${builtins.concatStringsSep "\n" (builtins.genList (
+        x: let
+          ws = let
+            c = (x + 1) / 10;
+          in
+            builtins.toString (x + 1 - (c * 10));
+        in ''
+          bind = $mod, ${ws},workspace, ${toString (x + 1)}
+          bind = $mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}
+        ''
+      )
+      10)}
 
-    bind=,XF86MonBrightnessDown,exec,brightnessctl s 10%-
-    bind=,XF86MonBrightnessUP,exec,brightnessctl s +10%
+    # Special Workspace
+    bind = $mod SHIFT, grave, movetoworkspace, special
+    bind = $mod, grave, togglespecialworkspace
+
+    # Cycle Workspaces
+    bind=$mod, bracketleft, workspace, m-1
+    bind=$mod, bracketright, workspace, m+1
+    # Cycle Monitors
+    bind=$mod SHIFT, braceleft, focusmonitor, l
+    bind=$mod SHIFT, braceright, focusmonitor, r
   '';
 }
