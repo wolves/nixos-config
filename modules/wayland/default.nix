@@ -65,6 +65,8 @@
       driSupport = true;
       driSupport32Bit = true;
     };
+
+    bluetooth.enable = true;
   };
 
   xdg.portal = {
