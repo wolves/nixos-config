@@ -34,6 +34,6 @@ in {
       {inherit home-manager;}
     ]
     ++ shared;
-  specialArgs = { inherit inputs; };
+    specialArgs = { inherit inputs; };
   };
 }
