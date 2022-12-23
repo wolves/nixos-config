@@ -37,6 +37,7 @@ in {
       # A/V
       feh       # Image Viewer
       mpv       # Media Player
+      blueberry # Bluetooth
 
       # Apps
       calibre
