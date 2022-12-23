@@ -50,7 +50,7 @@ in {
       unrar     # Rar Files
 
       lua
-      rust-analyzer
+      # rust-analyzer
       dconf
       gcc
     ];
