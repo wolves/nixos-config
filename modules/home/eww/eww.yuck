@@ -1,5 +1,3 @@
-(include "./modules/sys.yuck")
-
 (defwidget bar []
   (centerbox :orientation "v" :hexpand false
     (box :valign "start" :hexpand false :vexpand true :orientation "v" :space-evenly false
@@ -11,7 +9,6 @@
     (workspaces :halign "center" :vexpand true :hexpand false :orientation "v")
 
     (box :valign "end" :hexpand false :vexpand true :orientation "v" :space-evenly false
-      (sys)
       (battery)
       (wifi)
       (mem :thickness 4 :icon "")

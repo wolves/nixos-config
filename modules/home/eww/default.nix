@@ -25,11 +25,6 @@
       executable = true;
     };
 
-  home.file.".config/eww/scripts/memory" = {
-      source = ./scripts/memory;
-      executable = true;
-  };
-
   home.file.".config/eww/scripts/wifi.sh" = {
       source = ./scripts/wifi.sh;
       executable = true;
