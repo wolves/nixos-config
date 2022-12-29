@@ -44,7 +44,6 @@ in {
     }
 
     general {
-      main_mod=SUPER
       sensitivity=1
       border_size=3
       gaps_in=4
