@@ -9,6 +9,12 @@
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
+  xdg.configFile = {
+    "eww/css".source = ./css;
+    "eww/modules".source = ./modules;
+    "eww/windows".source = ./windows;
+  };
+
   # configuration
   home.file.".config/eww/eww.scss".source = ./eww.scss;
   home.file.".config/eww/eww.yuck".source = ./eww.yuck;
