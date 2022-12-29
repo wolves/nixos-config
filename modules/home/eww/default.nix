@@ -23,6 +23,11 @@
   home.file.".config/eww/scripts/battery.sh" = {
       source = ./scripts/battery.sh;
       executable = true;
+    };
+
+  home.file.".config/eww/scripts/memory" = {
+      source = ./scripts/memory;
+      executable = true;
   };
 
   home.file.".config/eww/scripts/wifi.sh" = {
