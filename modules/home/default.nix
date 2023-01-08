@@ -25,11 +25,5 @@
     ./swaylock
     inputs.hyprland.homeManagerModules.default
   ];
-  config.modules = {
-    programs = {
-      #alacritty.settings.font.size = 12;
-      neovim.enable = true;
-    };
-  };
 }
 
