@@ -25,6 +25,7 @@
     rust-bin.stable.latest.default
     usbutils
     wget
+    neovim
   ];
 
   time.timeZone = "America/New_York";
