@@ -91,8 +91,8 @@
         ".5"="cd ../../../../..";
         
         # Appliications
-        vim="nvim";
-        vi="nvim";
+        # vim="nvim";
+        # vi="nvim";
         nv="nvim";
         tm="tmux";
         
