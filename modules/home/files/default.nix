@@ -13,12 +13,4 @@
       stripRoot = false;
     };
   };
-  home.file."${config.xdg.dataHome}/fonts/IosevkaWlvs".source = lib.cleanSourceWith {
-    filter = name: _: (lib.hasSuffix ".ttf" (baseNameOf (toString name)));
-    src = pkgs.fetchzip {
-      url = "https://github.com/wolves/iosevka-wlvs/archive/refs/tags/v1.0.0.zip";
-      sha256 = "sha256-XwFOxkQrR3CeOq4jOYYHdgPyigjS7ah287qwZAJ710E=";
-      stripRoot = false;
-    };
-  };
 }
