@@ -21,6 +21,7 @@
   environment.systemPackages = with pkgs; [
     git
     nano
+    vim
     pciutils
     rust-bin.stable.latest.default
     usbutils
