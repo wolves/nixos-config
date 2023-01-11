@@ -22,7 +22,6 @@
     ./hyprland
     ./mako
     ./neovim
-    ./helix
     ./swaylock
     inputs.hyprland.homeManagerModules.default
   ];
