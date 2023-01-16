@@ -19,6 +19,7 @@
     ./wofi
     ./shell
     ./eww
+    ./neovim
     ./hyprland
     ./mako
     ./swaylock

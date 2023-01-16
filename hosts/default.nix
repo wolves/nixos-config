@@ -11,6 +11,7 @@
   hmModule = inputs.home-manager.nixosModules.home-manager;
 
   shared = [core];
+  #overlays = [inputs.neovim-nightly.overlay];
 
   home-manager = {
     useGlobalPkgs = true;
@@ -25,6 +26,7 @@ in {
   laptop = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
+      #{nixpkgs.overlays = overlays;}
       {networking.hostName = "fwrk";}
       ./laptop/hardware-configuration.nix
       bootloader

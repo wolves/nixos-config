@@ -6,7 +6,7 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     hyprland.url = "github:hyprwm/Hyprland";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    #neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     helix.url = "github:SoraTenshi/helix/experimental";
 
     home-manager = {
