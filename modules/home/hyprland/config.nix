@@ -10,7 +10,7 @@ in {
     $mod=SUPER
 
     monitor=eDP-1,2256x1504@60,0x0,1.2
-    monitor=eDP-1,addreserved,0,0,50,0
+    #monitor=eDP-1,addreserved,0,0,50,0
 
     workspace=eDP-1,1
 
