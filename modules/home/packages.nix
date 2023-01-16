@@ -54,6 +54,7 @@ in {
       # rust-analyzer
       dconf
       gcc
+      gnumake
     ];
     pointerCursor = {
       #name = "Dracula-cursors";
