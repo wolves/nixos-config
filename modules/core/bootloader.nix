@@ -20,17 +20,6 @@
       timeout = 5;
     };
 
-    initrd = {
-      # Setup keyfile
-      secrets = {
-        "/crypto_keyfile.bin" = null;
-      };
-
-      # Enable swap on luks
-      luks.devices."luks-68906de8-ef94-4bbe-b46b-9746c934757a".device = "/dev/disk/by-uuid/68906de8-ef94-4bbe-b46b-9746c934757a";
-      luks.devices."luks-68906de8-ef94-4bbe-b46b-9746c934757a".keyFile = "/crypto_keyfile.bin";
-    };
-
     kernelParams = [
       "quiet"
       "splash"
