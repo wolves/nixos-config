@@ -1,322 +1,79 @@
 @import 'css/colors';
 
-// Style Vars
-$bar-box-radius: 3px;
+@mixin rounding {
+  border-radius: 16px;
+}
+
+@mixin window {
+  border: 1px solid $sumiInk2;
+  box-shadow: 0 2px 3px #11111b;
+  margin: 5px 5px 10px;
+  @include rounding;
+}
 
 * {
-  all: unset; //Unsets everything so you can style everything from scratch
-  font-family: "JetBrainsMono Nerd Font Mono";
+  all: unset;
+  transition: 200ms ease;
+  font-family: Product Sans, Roboto, sans-serif;
 }
 
-.icon {
-  font-family: monospace;
-  font-size: 1.4rem;
-}
-
-
-button {
-  transition: background-color 200ms, color 200ms;
-}
-
-.active {
-  color: $springGreen;
-  font-size: 1.4rem;
-}
-
-.inactive {
-  color: $sumiInk0;
-  font-size: 1.4rem;
-}
-
-.inactive:hover {
-  color: $sumiInk4;
-}
+@import 'css/calendar';
+// @import 'css/music';
+// @import 'css/osd';
+@import 'css/sidebar';
+@import 'css/system';
+@import 'css/volume';
 
 .bar {
-  background-color: $sumiInk2;
-  //border-left: 4px dotted $waveRed;
-}
-
-.dashboard {
-  background-color: $sumiInk2;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.cal-box {
-  padding: 1rem 1rem .2rem;
-}
-
-.cal {
-  padding: 0;
-  border-radius: 8px;
-}
-
-.calendar_box {
-  padding: 1rem;
-
-  calendar:selected {
-    color: $crystalBlue;
-  }
-
-  calendar.header {
-    color: $crystalBlue;
-    font-weight: bold;
-  }
-
-  calendar.button {
-    color: $crystalBlue;
-  }
-
-  calendar.highlight {
-    color: $springGreen;
-    font-weight: bold;
-  }
-
-  calendar:indeterminate {
-    color: rgba(205, 219, 249, 0.3);
-  }
-}
-
-.sysinfo_box {
-  padding: 1rem;
-
-  .iconmem {
-    font-size: 3rem;
-    color: $autumnYellow;
-  }
-
-  .iconcpu {
-    font-size: 3rem;
-    color: $crystalBlue;
-  }
-
-  .icondisk {
-    font-size: 3rem;
-    color: $springGreen;
-  }
-
-  .cpubar,
-  .membar,
-  .diskbar {
-    background-color: $sumiInk3;
-  }
-}
-
-.slider_box {
-  padding: 0 1rem;
-
-  scale {
-    background-color: $sumiInk3;
-    border-radius: 100px;
-    margin: 0.5rem 0;
-  }
-
-  scale trough {
-    border-radius: 100px;
-  }
-
-  scale highlight {
-    padding: 8px;
-    margin: 8px;
-    border-radius: 100px;
-  }
-
-  .brightness_slider highlight {
-    background-color: $autumnYellow;
-  }
-
-  .volume_slider highlight {
-    background-color: $crystalBlue;
-  }
-
-  .micvolume_slider highlight {
-    background-color: $springGreen;
-  }
-
-  .slider_icon {
-    font-size: 2rem;
-    padding-right: 0.75rem;
-  }
-}
-
-.notification_box {}
-
-.wifi {
-  font-size: 2rem;
-  color: $crystalBlue;
-}
-
-.clock {
-  font-weight: bold;
   background-color: $sumiInk1;
   color: $fujiWhite;
-  border-radius: $bar-box-radius;
-  padding: 0.2rem;
-  margin: 0.5rem;
+
+  label {
+    font-size: 1.2rem;
+  }
 }
 
-.cpubar {
-  color: $crystalBlue;
-  background-color: $sumiInk3;
-  margin: 4px 0;
+tooltip {
+  background: $sumiInk1;
+  border: 1px solid $sumiInk2;
+  border-radius: 8px;
+
+  label {
+    font-size: 1rem;
+  }
 }
 
-.diskbar {
-  color: $springGreen;
-  background-color: $sumiInk3;
-  margin: 4px 0;
+.icon, .icon label { font-family: Material Symbols Outlined; }
+
+.module { margin: 0 8px; }
+
+.hour {
+  font-weight: bold;
+  padding-left: 5px;
 }
 
-.membar {
-  color: $autumnYellow;
-  background-color: $sumiInk3;
-  margin: 4px 0;
-}
-
-.iconmem,
-.iconcpu,
-.icondisk {
-  color: $sumiInk3;
-  font-size: 2.5rem;
+.minute {
+  padding-right: 0.7rem;
 }
 
 .date {
-  font-size: 1.5rem;
-}
-
-.reg-btn {
-  font-size: 2rem;
-  margin: 2px 4px 2px 6px;
-  // margin: 2px 8px;
-  border-radius: $bar-box-radius;
-}
-
-.dashbutton {
-  color: $autumnYellow;
-}
-
-.dashbutton:hover {
-  background-color: $sumiInk3;
-}
-
-.dashbutton:active {
-  background-color: $autumnYellow;
-  color: $sumiInk2;
-}
-
-.powerbutton {
-  color: $waveRed;
-}
-
-.powerbutton:hover {
-  background-color: $sumiInk3;
-}
-
-.powerbutton:active {
-  background-color: $waveRed;
-  color: $sumiInk2;
-}
-
-.launchbutton {
-  background-color: $crystalBlue;
-  color: $sumiInk2;
-  margin-top: 6px;
-}
-
-.launchbutton:hover {
+  background: $sumiInk1;
   color: $crystalBlue;
+
+  label {
+    font-size: 1.2rem;
+  }
+}
+
+.bright-icon { color: $autumnYellow; }
+.module-bt { font-size: 1.2rem; }
+
+scale trough {
   background-color: $sumiInk3;
+  border-radius: 24px;
+  margin: 0 1rem;
+  min-height: 10px;
+  min-width: 70px;
 }
 
-.launchbutton:active {
-  color: $crystalBlue;
-  background-color: $sumiInk2;
-}
-
-.battery {
-  font-size: 1.5rem;
-  color: $crystalBlue;
-}
-
-// Credits AlphaTechnolog
-.powermenu-box {
-  padding: 0 2px;
-  margin: 7px 7px 7px 0px;
-  background: inherit;
-
-  .dispatcher {
-    border-radius: 15px;
-    background: $sumiInk0;
-    color: $waveRed;
-    font-size: 14px;
-    padding: 0 14px 0 10px;
-
-    &:hover {
-      background-color: $sumiInk3;
-    }
-
-    &:active {
-      background-color: $sumiInk3;
-    }
-  }
-}
-
-// powermenu
-.powermenu-container {
-  background: $sumiInk3;
-  color: $fujiWhite;
-  padding: 10px;
-  font-size: 55px;
-
-  transition: all 200ms cubic-bezier(.1, -0.00, .0, 1.49);
-
-  .btn {
-    margin: 1rem;
-  }
-
-  // shutdown
-  .shutdown-btn-box .btn {
-    color: $waveRed;
-    border-radius: 15px;
-    background-color: $sumiInk2;
-
-    &:hover {
-      background-color: $sumiInk0;
-    }
-
-    &:active {
-      background-color: $sumiInk3;
-    }
-  }
-
-  // reboot
-  .reboot-btn-box .btn {
-    color: $oniViolet;
-    border-radius: 15px;
-    background-color: $sumiInk2;
-
-    &:hover {
-      background-color: $sumiInk0;
-    }
-
-    &:active {
-      background-color: $sumiInk3;
-    }
-  }
-
-  // exit
-  .exit-btn-box .btn {
-    color: $autumnYellow;
-    border-radius: 15px;
-    background-color: $sumiInk2;
-
-    &:hover {
-      background-color: $sumiInk0;
-    }
-
-    &:active {
-      background-color: $sumiInk3;
-    }
-  }
-}
+.workspaces { margin-left: 10px; }

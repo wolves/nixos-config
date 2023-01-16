@@ -1,0 +1,32 @@
+.calendar-win {
+  @include window;
+  background-color: $sumiInk1;
+  border: 1px solid $sumiInk2;
+  color: $fujiWhite;
+  padding: .2em;
+}
+
+calendar {
+  padding: 5px;
+
+  :selected {
+    color: $oniViolet;
+  }
+
+  .header {
+    color: $subtext1; // #bac2de
+  }
+
+  .highlight {
+    color: $maroon; // #eba0ac
+    font-weight: bold;
+  }
+
+  .button {
+    color: $crystalBlue; // was: #74c7ec
+  }
+
+  :indeterminate {
+    color: #6c7086;
+  }
+}
