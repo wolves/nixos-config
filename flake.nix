@@ -31,10 +31,10 @@
       inputs.rust-overlay.follows = "rust-overlay";
     };
 
-    fufexan-dotfiles = {
-      url = "github:fufexan/dotfiles";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #fufexan-dotfiles = {
+    #  url = "github:fufexan/dotfiles";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = { self, ... } @ inputs:
