@@ -29,7 +29,7 @@
     timestr = "%I:%M %p";
     datestr = "";
 
-    font = "Lato";
+    font = "Product Sans";
     font-size = "52";
     text-color = "${blue}";
 
