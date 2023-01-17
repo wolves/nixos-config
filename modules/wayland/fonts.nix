@@ -1,12 +1,17 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
+  environment.systemPackages = [
+    inputs.fufexan-dotfiles.packages."x86_64-linux".material-symbols
+  ];
+
   fonts = {
     fonts = with pkgs; [
-      material-icons
-      material-design-icons
+      #material-icons
+      #material-design-icons
       carlito
       vegur
       inter
