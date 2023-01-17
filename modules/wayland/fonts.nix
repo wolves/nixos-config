@@ -6,8 +6,13 @@
 }: {
   fonts = {
     fonts = with pkgs; [
-      #material-icons
+      # icons
+      inputs.fufexan-dotfiles.packages.${pkgs.system}.material-symbols
+      material-icons
       material-design-icons
+      font-awesome
+
+      #normal
       carlito
       vegur
       inter
@@ -16,9 +21,10 @@
       source-code-pro
       noto-fonts
       noto-fonts-emoji
-      font-awesome
       jetbrains-mono
       corefonts
+
+      #nerd
       (nerdfonts.override {
         fonts = [
           "Iosevka"
