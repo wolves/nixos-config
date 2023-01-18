@@ -101,7 +101,7 @@ end
 --/ Telescope: Helper Funcs
 vim.keymap.set("n", "<leader><space>", function()
   project_files()
-end, { "Find File" })
+end, { desc = "Find File" })
 
 vim.keymap.set("n", "<leader>ss", function()
   grep_string_prompt()
