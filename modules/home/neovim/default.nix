@@ -134,6 +134,7 @@ in {
         "mini-indentscope"
         "mini-surround"
         "neogit"
+        "noice"
         "telescope"
 	      "which-key"
       ]);
