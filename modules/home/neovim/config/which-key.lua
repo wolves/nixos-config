@@ -101,7 +101,7 @@ end
 --/ Telescope: Helper Funcs
 vim.keymap.set("n", "<leader><space>", function()
   project_files()
-end, { desc = "Find File" })
+end, { "Find File" })
 
 vim.keymap.set("n", "<leader>ss", function()
   grep_string_prompt()
@@ -121,26 +121,26 @@ local leader = {
     },
   },
   g = {
-    b = { "<cmd>Telescope git_branches<CR>", desc = "Branches" },
-    c = { "<cmd>Telescope git_commits<CR>", desc = "Commits" },
-    d = { "<cmd>DiffviewOpen<CR>", desc = "Diffview" },
-    g = { "<cmd>Neogit<CR>", desc = "Neogit" },
-    s = { "<cmd>Telescope git_status<CR>", desc = "Status" },
+    b = { "<cmd>Telescope git_branches<CR>", "Branches" },
+    c = { "<cmd>Telescope git_commits<CR>", "Commits" },
+    d = { "<cmd>DiffviewOpen<CR>", "Diffview" },
+    g = { "<cmd>Neogit<CR>", "Neogit" },
+    s = { "<cmd>Telescope git_status<CR>", "Status" },
     h = { name = "+hunk" }
   },
   h = {
-    a = { "<cmd>Telescope autocommands<CR>", desc = "Auto Commands" },
-    c = { "<cmd>Telescope commands<CR>", desc = "Commands" },
-    f = { "<cmd>Telescope filetypes<CR>", desc = "File Types" },
-    h = { "<cmd>Telescope help_tags<CR>", desc = "Help Pages" },
-    k = { "<cmd>Telescope keymaps<CR>", desc = "Key Maps" },
-    m = { "<cmd>Telescope man_pages<CR>", desc = "Man Pages" },
-    o = { "<cmd>Telescope vim_options<CR>", desc = "Options" },
-    s = { "<cmd>Telescope highlights<CR>", desc = "Search Highlight Groups" },
-    t = { "<cmd>Telescope builtin<CR>", desc = "Telescope" },
+    a = { "<cmd>Telescope autocommands<CR>", "Auto Commands" },
+    c = { "<cmd>Telescope commands<CR>", "Commands" },
+    f = { "<cmd>Telescope filetypes<CR>", "File Types" },
+    h = { "<cmd>Telescope help_tags<CR>", "Help Pages" },
+    k = { "<cmd>Telescope keymaps<CR>", "Key Maps" },
+    m = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
+    o = { "<cmd>Telescope vim_options<CR>", "Options" },
+    s = { "<cmd>Telescope highlights<CR>", "Search Highlight Groups" },
+    t = { "<cmd>Telescope builtin<CR>", "Telescope" },
   },
   s = {
-    b = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Buffer" },
+    b = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Buffer" },
   },
 }
 
