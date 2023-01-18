@@ -22,7 +22,7 @@ with lib; let
       owner = "echasnovski";
       repo = pname;
       rev = version;
-      sha256 = "UQ49ZWkbjJkP3j5DLrITNxQG5nuVzX6pnm2aYGOwQdc=/vAAfTk0ppz/H54=";
+      sha256 = "UQ49ZWkbjJkP3j5DLrITNxQG5nuVzX6pnm2aYGOwQdc="
     };
   };
 in {
