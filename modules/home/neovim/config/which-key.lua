@@ -119,6 +119,8 @@ local leader = {
       "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Buffers",
     },
+    d = { "<cmd>lua require('mini.bufremove').delete(0, false)", "Delete Buffer" },
+    D = { "<cmd>lua require('mini.bufremove').delete(0, true)", "Delete Buffer (Force)" },
   },
   f = {
     r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },

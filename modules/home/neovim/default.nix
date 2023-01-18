@@ -4,7 +4,17 @@
   ...
 }:
 with lib; let
-  # mini-bufremove
+  mini-bufremove = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+    pname = "mini.bufremove";
+    version = "3a412070c8c264327eb57e9e14761c07b018b75a";
+    src = pkgs.fetchFromGitHub {
+      owner = "echasnovski";
+      repo = pname;
+      rev = version;
+      sha256 = "EvFXd1dl0eCBAEncDUD7RUOXkqNb/vAAfTk0ppz/H54=";
+    };
+  };
+
   # mini-indentscope
 in {
   programs.neovim = {
@@ -28,6 +38,7 @@ in {
       indent-blankline-nvim
       kanagawa-nvim
       lualine-nvim
+      mini-bufremove
       neo-tree-nvim
       noice-nvim
       nui-nvim
