@@ -120,6 +120,9 @@ local leader = {
       "Buffers",
     },
   },
+  f = {
+    r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
+  },
   g = {
     b = { "<cmd>Telescope git_branches<CR>", "Branches" },
     c = { "<cmd>Telescope git_commits<CR>", "Commits" },
