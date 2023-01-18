@@ -74,12 +74,14 @@ in {
       cmp-emoji
       cmp_luasnip
       dressing-nvim
+      { plugin = friendly-snippets; type = "lua"; config = "require('luasnip.loaders.from_vscode').lazy_load()"; }
       neogit
       null-ls-nvim
       gitsigns-nvim
       indent-blankline-nvim
       kanagawa-nvim
       lualine-nvim
+      luasnip
       mini-bufremove
       mini-comment
       mini-indentscope
@@ -130,6 +132,7 @@ in {
         "bufferline"
         "gitsigns"
         "kanagawa"
+        "luasnip"
         "mini-comment"
         "mini-indentscope"
         "mini-surround"
