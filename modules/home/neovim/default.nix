@@ -36,6 +36,28 @@ with lib; let
       sha256 = "UQ49ZWkbjJkP3j5DLrITNxQG5nuVzX6pnm2aYGOwQdc=";
     };
   };
+
+  mini-pairs = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+    pname = "mini.pairs";
+    version = "01ff683bf13839f5a56b765e89591f418ffe1e2c";
+    src = pkgs.fetchFromGitHub {
+      owner = "echasnovski";
+      repo = pname;
+      rev = version;
+      sha256 = "m4EXaiFbJIfnv7mM/oH4zk5iglR8MMij6hfWOf9Foxc=";
+    };
+  };
+
+  mini-surround = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+    pname = "mini.surround";
+    version = "aeeb1c4ce4d1c66211bdc74b131c11b8fcbae65e";
+    src = pkgs.fetchFromGitHub {
+      owner = "echasnovski";
+      repo = pname;
+      rev = version;
+      sha256 = "1Q1PlknNhkl9gpwTVMSqCQ9LlaRRge+1Yb/iBwbWlH8=";
+    };
+  };
 in {
   programs.neovim = {
     enable = true;
@@ -61,6 +83,8 @@ in {
       mini-bufremove
       mini-comment
       mini-indentscope
+      { plugin = mini-pairs; type = "lua"; config = "require('mini.pairs').setup({})"; }
+      mini-surround
       neo-tree-nvim
       noice-nvim
       nui-nvim
@@ -70,6 +94,7 @@ in {
       nvim-notify
       nvim-spectre
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+      nvim-treesitter-textobjects
       nvim-ts-context-commentstring
       nvim-web-devicons
       plenary-nvim
@@ -79,6 +104,7 @@ in {
       toggleterm-nvim
       trouble-nvim
       vim-illuminate
+      { plugin = vim-matchup; type = "lua"; config = "vim.g.matchup_matchparen_offscreen = { method = 'status_manual' }"; }
       vim-nix
       which-key-nvim
     ];
@@ -106,6 +132,7 @@ in {
         "kanagawa"
         "mini-comment"
         "mini-indentscope"
+        "mini-surround"
         "neogit"
         "telescope"
 	      "which-key"
