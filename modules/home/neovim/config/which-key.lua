@@ -123,7 +123,10 @@ local leader = {
   g = {
     b = { "<cmd>Telescope git_branches<CR>", desc = "Branches" },
     c = { "<cmd>Telescope git_commits<CR>", desc = "Commits" },
+    d = { "<cmd>DiffviewOpen<CR>", "Diffview" },
+    g = { "<cmd>Neogit<CR>", desc = "Neogit" },
     s = { "<cmd>Telescope git_status<CR>", desc = "Status" },
+    h = { name = "+hunk" }
   },
   h = {
     a = { "<cmd>Telescope autocommands<CR>", desc = "Auto Commands" },
