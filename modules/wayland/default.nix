@@ -16,20 +16,20 @@
 
   environment = {
     systemPackages = with pkgs; [
-      (catppuccin-gtk.override {size = "compact";})
-      bibata-cursors
+      # (catppuccin-gtk.override {size = "compact";})
+      # bibata-cursors
       papirus-icon-theme
     ];
 
     # set gtk theme
-    etc."gtk-3.0/settings.ini".text = ''
-      [Settings]
-      gtk-cursor-theme-name=Bibata-Modern-Classic
-      gtk-cursor-theme-size=24
-      gtk-font-name=Lato
-      gtk-icon-theme-name=Papirus-Dark
-      gtk-theme-name=Catppuccin-Orange-Dark-Compact
-    '';
+    # etc."gtk-3.0/settings.ini".text = ''
+    #   [Settings]
+    #   gtk-cursor-theme-name=Bibata-Modern-Classic
+    #   gtk-cursor-theme-size=24
+    #   gtk-font-name=Lato
+    #   gtk-icon-theme-name=Papirus-Dark
+    #   gtk-theme-name=Catppuccin-Orange-Dark-Compact
+    # '';
 
     etc."greetd/environments".text = ''
       Hyprland

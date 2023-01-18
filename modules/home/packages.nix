@@ -56,22 +56,22 @@ in {
       gcc
       gnumake
     ];
-    pointerCursor = {
-      #name = "Dracula-cursors";
-      #package = pkgs.dracula-theme;
-      #name = "Catppuccin-Mocha-Dark-Cursors";
-      #package = pkgs.catppuccin-cursors.mochaDark;
-      #name = "Phinger-cursors";
-      #package = pkgs.phinger-cursors;
-      #gtk.enable = true;
-      # name = "phinger-cursors";
-      # package = pkgs.phinger-cursors;
-      # size = 48;
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
-      size = 24;
-      gtk.enable = true;
-      x11.enable = true;
-    };
+    # pointerCursor = {
+    #   #name = "Dracula-cursors";
+    #   #package = pkgs.dracula-theme;
+    #   #name = "Catppuccin-Mocha-Dark-Cursors";
+    #   #package = pkgs.catppuccin-cursors.mochaDark;
+    #   #name = "Phinger-cursors";
+    #   #package = pkgs.phinger-cursors;
+    #   #gtk.enable = true;
+    #   # name = "phinger-cursors";
+    #   # package = pkgs.phinger-cursors;
+    #   # size = 48;
+    #   package = pkgs.bibata-cursors;
+    #   name = "Bibata-Modern-Classic";
+    #   size = 24;
+    #   gtk.enable = true;
+    #   x11.enable = true;
+    # };
   };
 }
