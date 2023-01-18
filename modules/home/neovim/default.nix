@@ -15,6 +15,17 @@ with lib; let
     };
   };
 
+  mini-comment = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+    pname = "mini.comment";
+    version = "a0f543e7846f67d10cbed5f2dce72eb26d0ca96b";
+    src = pkgs.fetchFromGitHub {
+      owner = "echasnovski";
+      repo = pname;
+      rev = version;
+      sha256 = "bJhPXvs2UwuBRe9Y6svxkQqgmNIEnsRsmfNlHOmD33w=";
+    };
+  };
+
   mini-indentscope = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
     pname = "mini.indentscope";
     version = "59c73c6965f9fa74cd2c1351339a58778e68e589";
@@ -48,6 +59,7 @@ in {
       kanagawa-nvim
       lualine-nvim
       mini-bufremove
+      mini-comment
       mini-indentscope
       neo-tree-nvim
       noice-nvim
@@ -58,6 +70,7 @@ in {
       nvim-notify
       nvim-spectre
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+      nvim-ts-context-commentstring
       nvim-web-devicons
       plenary-nvim
       telescope-fzf-native-nvim
@@ -81,10 +94,12 @@ in {
 	  ./config
 	  + "/${module}.lua");
       luaConfig = builtins.concatStringsSep "\n" (map luaRequire [
+        "autocmds"
         "options"
         "bufferline"
         "gitsigns"
         "kanagawa"
+        "mini-comment"
         "mini-indentscope"
         "neogit"
         "telescope"
