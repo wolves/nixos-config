@@ -120,8 +120,24 @@ local leader = {
       "Buffers",
     },
   },
+  g = {
+    b = { "<cmd>Telescope git_branches<CR>", desc = "Branches" },
+    c = { "<cmd>Telescope git_commits<CR>", desc = "Commits" },
+    s = { "<cmd>Telescope git_status<CR>", desc = "Status" },
+  },
   h = {
-    f = { "<cmd>Telescope filetypes<CR>", desc = "Filetypes" },
+    a = { "<cmd>Telescope autocommands<CR>", desc = "Auto Commands" },
+    c = { "<cmd>Telescope commands<CR>", desc = "Commands" },
+    f = { "<cmd>Telescope filetypes<CR>", desc = "File Types" },
+    h = { "<cmd>Telescope help_tags<CR>", desc = "Help Pages" },
+    k = { "<cmd>Telescope keymaps<CR>", desc = "Key Maps" },
+    m = { "<cmd>Telescope man_pages<CR>", desc = "Man Pages" },
+    o = { "<cmd>Telescope vim_options<CR>", desc = "Options" },
+    s = { "<cmd>Telescope highlights<CR>", desc = "Search Highlight Groups" },
+    t = { "<cmd>Telescope builtin<CR>", desc = "Telescope" },
+  },
+  s = {
+    b = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "Buffer" },
   },
 }
 

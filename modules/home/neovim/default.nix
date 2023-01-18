@@ -62,7 +62,9 @@ in {
       luaConfig = builtins.concatStringsSep "\n" (map luaRequire [
         "options"
         "bufferline"
+        "gitsigns"
         "kanagawa"
+        "neogit"
         "telescope"
 	      "which-key"
       ]);
