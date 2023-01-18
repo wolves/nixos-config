@@ -103,8 +103,9 @@ in {
       telescope-fzf-native-nvim
       telescope-nvim
       { plugin = todo-comments-nvim; type = "lua"; config = "require('todo-comments').setup({})"; }
+      toggleterm-nvim
       {
-        plugin = toggleterm-nvim;
+        plugin = trouble-nvim;
         type = "lua";
         config = ''
           require("trouble").setup({
@@ -113,7 +114,6 @@ in {
           })
         '';
       }
-      trouble-nvim
       vim-illuminate
       { plugin = vim-matchup; type = "lua"; config = "vim.g.matchup_matchparen_offscreen = { method = 'status_manual' }"; }
       vim-nix
