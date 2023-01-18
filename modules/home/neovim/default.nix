@@ -15,7 +15,16 @@ with lib; let
     };
   };
 
-  # mini-indentscope
+  mini-indentscope = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+    pname = "mini.indentscope";
+    version = "59c73c6965f9fa74cd2c1351339a58778e68e589";
+    src = pkgs.fetchFromGitHub {
+      owner = "echasnovski";
+      repo = pname;
+      rev = version;
+      sha256 = "UQ49ZWkbjJkP3j5DLrITNxQG5nuVzX6pnm2aYGOwQdc=/vAAfTk0ppz/H54=";
+    };
+  };
 in {
   programs.neovim = {
     enable = true;
@@ -39,6 +48,7 @@ in {
       kanagawa-nvim
       lualine-nvim
       mini-bufremove
+      mini-indentscope
       neo-tree-nvim
       noice-nvim
       nui-nvim
@@ -75,6 +85,7 @@ in {
         "bufferline"
         "gitsigns"
         "kanagawa"
+        "mini-indentscope"
         "neogit"
         "telescope"
 	      "which-key"
