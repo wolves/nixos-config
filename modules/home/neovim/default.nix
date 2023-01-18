@@ -102,8 +102,17 @@ in {
       plenary-nvim
       telescope-fzf-native-nvim
       telescope-nvim
-      todo-comments-nvim
-      toggleterm-nvim
+      { plugin = todo-comments-nvim; type = "lua"; config = "require('todo-comments').setup({})"; }
+      {
+        plugin = toggleterm-nvim;
+        type = "lua";
+        config = ''
+          require("trouble").setup({
+            auto_open = false,
+            use_diagnostic_signs = true,
+          })
+        '';
+      }
       trouble-nvim
       vim-illuminate
       { plugin = vim-matchup; type = "lua"; config = "vim.g.matchup_matchparen_offscreen = { method = 'status_manual' }"; }
