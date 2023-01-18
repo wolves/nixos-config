@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local wk = require("which-key")
 
 vim.o.timeoutlen = 300
@@ -71,6 +73,15 @@ wk.register({
 local leader = {
   w = { "<cmd>w!<CR>", "Save" },
   q = { "<cmd>q!<CR>", "Quit" },
+  b = {
+    b = {
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      "Buffers",
+    },
+  },
+  h = {
+    f = { "<cmd>Telescope filetypes<CR>", desc = "Filetypes" },
+  },
 }
 
 for i = 0, 10 do

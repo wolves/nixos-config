@@ -63,7 +63,8 @@ in {
         "options"
         "bufferline"
         "kanagawa"
-	"which-key"
+        "telescope"
+	      "which-key"
       ]);
     in ''
       lua <<
