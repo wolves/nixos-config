@@ -138,6 +138,7 @@ in {
         "mini-surround"
         "neogit"
         "noice"
+        "nvim-cmp"
         "telescope"
 	      "which-key"
       ]);
