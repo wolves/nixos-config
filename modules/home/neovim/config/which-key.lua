@@ -147,6 +147,12 @@ local leader = {
   s = {
     b = { "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Buffer" },
   },
+  x = {
+    x = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Trouble" },
+    t = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
+    ["tt"] = { "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", "Todo Trouble (Specific)" },
+    T = { "<cmd>TodoTelescope<CR>", "Todo Telescope" },
+  },
 }
 
 for i = 0, 10 do
