@@ -79,13 +79,18 @@ in {
       toggleterm-nvim
       trouble-nvim
       vim-illuminate
+      vim-nix
       which-key-nvim
     ];
 
     extraPackages = with pkgs; [
-      gcc
-      ripgrep
       fd
+      gcc
+      nodejs
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted
+      ripgrep
+      sumneko-lua-language-server
     ];
 
     extraConfig = let
