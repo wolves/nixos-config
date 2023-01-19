@@ -171,6 +171,7 @@ in {
         "gitsigns"
         "indent-blankline"
         "kanagawa"
+        "lsp"
         "lualine"
         "luasnip"
         "mini-comment"
