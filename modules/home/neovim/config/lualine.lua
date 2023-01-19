@@ -1,4 +1,3 @@
-require("lualine").setup({
   local function fg(name)
     return function()
       ---@type {foreground?:number}?
@@ -7,7 +6,7 @@ require("lualine").setup({
     end
   end
 
-  return {
+require("lualine").setup({
     options = {
       theme = "auto",
       globalstatus = true,
@@ -83,5 +82,4 @@ require("lualine").setup({
       },
     },
     -- extensions = { "nvim-tree" },
-  }
 })
