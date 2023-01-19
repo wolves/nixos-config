@@ -58,6 +58,28 @@ with lib; let
       sha256 = "1Q1PlknNhkl9gpwTVMSqCQ9LlaRRge+1Yb/iBwbWlH8=";
     };
   };
+
+  schemastore-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+    pname = "SchemaStore.nvim";
+    version = "8ec6e1b030d933cba9a207a78c2f24333641fb2c";
+    src = pkgs.fetchFromGitHub {
+      owner = "b0o";
+      repo = pname;
+      rev = version;
+      sha256 = "ElRAlZxXgKZB5duCwaWnO/nsKU7yHuyRiFdicat4ELM=";
+    };
+  };
+
+  typescript-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix rec {
+    pname = "typescript.nvim";
+    version = "f66d4472606cb24615dfb7dbc6557e779d177624";
+    src = pkgs.fetchFromGitHub {
+      owner = "jose-elias-alvarez";
+      repo = pname;
+      rev = version;
+      sha256 = "PHVY5NJbOGvY9p0F0QNSfMKmAWdqjw1RB0Vspq88qMI=";
+    };
+  };
 in {
   programs.neovim = {
     enable = true;
@@ -91,6 +113,7 @@ in {
       neo-tree-nvim
       noice-nvim
       nui-nvim
+      null-ls-nvim
       nvim-colorizer-lua
       nvim-cmp
       nvim-lspconfig
@@ -102,6 +125,7 @@ in {
       nvim-ts-context-commentstring
       nvim-web-devicons
       plenary-nvim
+      schemastore-nvim
       splitjoin-vim
       telescope-fzf-native-nvim
       telescope-nvim
@@ -117,6 +141,7 @@ in {
           })
         '';
       }
+      { plugin = typescript-nvim; type = "lua"; config = "require('typescript').setup({})"; }
       { plugin = vim-illuminate; type = "lua"; config = "require('illuminate').configure({ delay= 200 })"; }
       { plugin = vim-matchup; type = "lua"; config = "vim.g.matchup_matchparen_offscreen = { method = 'status_manual' }"; }
       vim-nix
