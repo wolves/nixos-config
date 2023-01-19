@@ -178,6 +178,7 @@ in {
         "mini-surround"
         "neogit"
         "noice"
+        "null-ls"
         "nvim-cmp"
         "telescope"
 	      "which-key"
