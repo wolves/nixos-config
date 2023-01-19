@@ -73,6 +73,7 @@ in {
       cmp-path
       cmp-emoji
       cmp_luasnip
+      { plugin = diffview-nvim; type = "lua"; config = "require('diffview').setup({})"; }
       dressing-nvim
       { plugin = friendly-snippets; type = "lua"; config = "require('luasnip.loaders.from_vscode').lazy_load()"; }
       neogit
@@ -93,6 +94,7 @@ in {
       nvim-colorizer-lua
       nvim-cmp
       nvim-lspconfig
+      nvim-navic
       nvim-notify
       nvim-spectre
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
@@ -100,6 +102,7 @@ in {
       nvim-ts-context-commentstring
       nvim-web-devicons
       plenary-nvim
+      splitjoin-vim
       telescope-fzf-native-nvim
       telescope-nvim
       { plugin = todo-comments-nvim; type = "lua"; config = "require('todo-comments').setup({})"; }
@@ -114,7 +117,7 @@ in {
           })
         '';
       }
-      vim-illuminate
+      { plugin = vim-illuminate; type = "lua"; config = "require('illuminate').configure({ delay= 200 })"; }
       { plugin = vim-matchup; type = "lua"; config = "vim.g.matchup_matchparen_offscreen = { method = 'status_manual' }"; }
       vim-nix
       which-key-nvim
@@ -139,8 +142,10 @@ in {
         "autocmds"
         "options"
         "bufferline"
+        "colorizer"
         "gitsigns"
         "kanagawa"
+        "lualine"
         "luasnip"
         "mini-comment"
         "mini-indentscope"
