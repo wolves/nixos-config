@@ -136,14 +136,15 @@ in {
     extraConfig = let
       luaRequire = module:
         builtins.readFile (builtins.toString
-	  ./config
-	  + "/${module}.lua");
+	        ./config
+	        + "/${module}.lua");
       luaConfig = builtins.concatStringsSep "\n" (map luaRequire [
         "autocmds"
         "options"
         "bufferline"
         "colorizer"
         "gitsigns"
+        "indent-blankline"
         "kanagawa"
         "lualine"
         "luasnip"
