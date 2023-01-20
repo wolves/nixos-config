@@ -4,7 +4,7 @@
   programs.mako = {
     enable = true;
     # iconPath = 
-    font = "Lato 12";
+    font = "Product Sans 11";
     margin = "8";
     padding = "10,20";
     anchor = "top-center";
