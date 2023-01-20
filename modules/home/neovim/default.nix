@@ -149,12 +149,21 @@ in {
     ];
 
     extraPackages = with pkgs; [
+      alejandra
       fd
       gcc
       nodejs
+      nodePackages.bash-language-server
+      nodePackages.eslint_d
+      nodePackages.prettier
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
+      nodePackages.vscode-json-languageserver
+      nodePackages.yaml-language-server
       ripgrep
+      rust-analyzer
+      shellcheck
+      stylua
       sumneko-lua-language-server
     ];
 
@@ -182,6 +191,7 @@ in {
         "null-ls"
         "nvim-cmp"
         "telescope"
+        "treesitter"
 	      "which-key"
       ]);
     in ''
