@@ -11,9 +11,11 @@
     server.enable = true;
     settings = {
       main = {
-        # term = "xterm-256color";
-        font = "Iosevka Nerd Font Mono:size=7,monospace:size=7";
-        pad = "24x24";
+        shell = "${pkgs.tmux/bin/tmux}";
+        term = "xterm-256color";
+        font = "Iosevka Nerd Font Mono:size=10,monospace:size=10";
+        pad = "6x6 center";
+        dpi-aware = "auto";
         # dpi-aware = "yes";
       };
       colors = {
