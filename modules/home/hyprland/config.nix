@@ -15,6 +15,7 @@ in {
     workspace=eDP-1,1
 
     exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    exec-once = "${pkgs.foot}/bin/foot --server"
     #exec-once=eww daemon
     exec-once=eww open bar
     exec-once=swaybg -i $HOME/wallpaper/aenami_escape_1k.jpg --mode fill
@@ -100,7 +101,8 @@ in {
     bindm=SUPER,mouse:272,movewindow
     bindm=SUPER,mouse:273,resizewindow
 
-    bind = $mod, Return, exec, alacritty
+    bind = $mod, Return, exec, footclient
+    #bind = $mod, Return, exec, alacritty
     bind = $mod, W, exec, makoctl dismiss
     bind = $mod, Q, killactive,
     bind = $mod SHIFT, X, exec, loginctl lock-session
