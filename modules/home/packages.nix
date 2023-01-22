@@ -56,6 +56,13 @@ in {
       gcc
       gnumake
     ];
+    pointerCursor = {
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors";
+      size = 32;
+      gtk.enable = true;
+      x11.enable = true;
+    };
     # pointerCursor = {
     #   #name = "Dracula-cursors";
     #   #package = pkgs.dracula-theme;

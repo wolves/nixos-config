@@ -1,10 +1,12 @@
 {
   pkgs,
   default,
+  config,
   ...
 }: let
   emoji = "${pkgs.wofi-emoji}/bin/wofi-emoji";
   launcher = "wofi";
+  pointer = config.home.pointerCursor;
 in {
   wayland.windowManager.hyprland.extraConfig = ''
     $mod=SUPER
@@ -15,6 +17,9 @@ in {
     workspace=eDP-1,1
 
     exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+    # Set cursor
+    exec-once = hyprctl setcursor ${pointer.name} ${toString pointer.size}
     #exec-once=eww daemon
     exec-once=eww open bar
     exec-once=swaybg -i $HOME/wallpaper/aenami_escape_1k.jpg --mode fill
