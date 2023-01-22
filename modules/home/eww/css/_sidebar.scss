@@ -68,6 +68,8 @@
   scale {
     margin-right: -1rem;
     min-width: 21.5rem;
+
+    trough { margin-right: 0; }
   }
 
   box { margin: .2rem 0; }
@@ -110,3 +112,16 @@
   }
 }
 
+.bt-connected {
+  background-color: #89b4fa;
+  color: #11111b;
+
+  button:hover { background-color: #7ba2e1; }
+}
+
+.wifi-connected {
+  background-color: #cba6f7;  
+  color: #11111b;
+
+  button:hover { background-color: #b695de; }
+}
