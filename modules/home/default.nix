@@ -23,6 +23,7 @@
     ./hyprland
     ./mako
     ./swaylock
+    ./swayidle
     inputs.hyprland.homeManagerModules.default
   ];
 }
