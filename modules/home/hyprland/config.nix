@@ -22,7 +22,7 @@ in {
     exec-once = hyprctl setcursor ${pointer.name} ${toString pointer.size}
     #exec-once=eww daemon
     exec-once=eww open bar
-    exec-once=swaybg -i $HOME/wallpaper/aenami_escape_1k.jpg --mode fill
+    exec-once=swaybg -i $HOME/wallpaper/lightbars.png --mode fill
     exec-once=mako
 
     # touchpad gestures
