@@ -13,7 +13,7 @@
     yellow = "#DCA561"; # Kanagawa AutumnYellow
     orange = "#FFA066"; # Kanagawa SurimiOrange
   in {
-    image = "$HOME/wallpaper/aenami_escape_1k.jpg";
+    image = "$HOME/wallpaper/lightbars.png";
     effect-blur = "30x3";
 
     scaling = "fill";
