@@ -24,7 +24,6 @@
     ./mako
     ./swaylock
     ./swayidle
-    ./syncthing.nix
     inputs.hyprland.homeManagerModules.default
   ];
 }
