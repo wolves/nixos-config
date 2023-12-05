@@ -1,56 +1,80 @@
 {
-  description = "NixOS Configuration";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-    hyprland.url = "github:hyprwm/Hyprland";
-    #neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    helix.url = "github:SoraTenshi/helix/experimental";
+    description = "First Flake";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    inputs = {
+      nixpkgs.url = "nixpkgs/nixos-unstable";
+      home-manager.url = "github:nix-community/home-manager/master";
+      home-manager.inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    outputs = { self, nixpkgs, home-manager, ... }:
+      let
+	# ---- SYSTEM SETTINGS ---- #
+	system = "x86_64-linux"; # system architecture
+	hostname = "fwrk";
+	profile = "personal"; # select profile from profiles directory
+	timezone = "America/New_York";
+	locale = "en_US.UTF-8";
 
-    eww = {
-      url = "github:elkowar/eww";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
-    };
+	# ----- USER SETTINGS ----- #
+	username = "wlvs";
+	name = "Christopher";
+	email = "cstingl@pm.me";
+	dotfilesDir = "~/.dots";
+	theme = "kanagawa"; # select theme from themes dir (./themes/)
+	wm = "hyprland"; # select window manager; must exist in both ./user/wm/ & ./system/wm/
+	wmType = "wayland"; # x11 or wayland
+	browser = "brave"; # select browser from ./user/app/browser/
+	editor = "nvim";
+	term = "alacritty"; # default terminal command
+	font = "Intel One Mono"; # select default font
+	fontPkg = pkgs.intel-one-mono; # Font package
 
-    nil = {
-      url = "github:oxalica/nil";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
-    };
+	pkgs = nixpkgs.legacyPackages.${system};
 
-    fufexan-dotfiles = {
-      url = "github:fufexan/dotfiles";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
+	# configure lib
+	lib = nixpkgs.lib;
+      in {
+	nixosConfigurations = {
+	  system = lib.nixosSystem {
+	    inherit system;
+	    modules = [ (./. + "/profiles"+("/"+profile)+"/configuration.nix") ]; # load configuration from selected PROFILE
+	    specialArgs = {
+	      inherit username;
+	      inherit name;
+	      inherit hostname;
+	      inherit timezone;
+	      inherit locale;
+	      inherit theme;
+	      inherit font;
+	      inherit fontPkg;
+	      inherit wm;
+	    };
+	  };
+	};
+        homeConfigurations = {
+	  user = home-manager.lib.homeManagerConfiguration {
+	    inherit pkgs;
+	    modules = [ (./. + "/profiles"+("/"+profile)+"/home.nix") ]; # load home.nix from selected PROFILE
+	    extraSpecialArgs = {
+	      inherit username;
+	      inherit name;
+	      inherit hostname;
+	      inherit profile;
+	      inherit email;
+	      inherit dotfilesDir;
+	      inherit theme;
+	      inherit font;
+	      inherit fontPkg;
+	      inherit wm;
+	      inherit wmType;
+	      inherit browser;
+	      inherit editor;
+	      inherit term;
+	    };
+	  };
+	};
+      };
 
-  outputs = { self, ... } @ inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
-      # user = "wlvs";
-      # location = "$HOME/.config/nixos";
-    in
-    {
-      nixosConfigurations = import ./hosts inputs;
-      # nixosConfigurations = (
-      #   import ./hosts {
-      #     inherit (nixpkgs) lib;
-      #     inherit inputs nixpkgs home-manager user location hyprland;
-      #   }
-      # );
-    };
 }
