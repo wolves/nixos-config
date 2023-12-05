@@ -31,7 +31,7 @@
 	rounding = 4
       }
 
-      $mod = ALT
+      $mod = SUPER
 
       bind = $mod, D, exec, fuzzel
       bind = $mod, Q, killactive
