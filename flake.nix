@@ -19,8 +19,8 @@
 
 	# ----- USER SETTINGS ----- #
 	username = "wlvs";
-	name = "Christopher";
-	email = "cstingl@pm.me";
+	name = "wlvs";
+	email = "cs@wlvs.io";
 	dotfilesDir = "~/.dots";
 	theme = "kanagawa"; # select theme from themes dir (./themes/)
 	wm = "hyprland"; # select window manager; must exist in both ./user/wm/ & ./system/wm/
