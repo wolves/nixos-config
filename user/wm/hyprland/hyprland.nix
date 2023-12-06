@@ -187,6 +187,16 @@
       bind=CTRL,up,resizeactive,0 -20
       bind=CTRL,down,resizeactive,0 20
 
+      # Volume
+      bindle=,XF86AudioLowerVolume,exec,pamixer -d 10
+      bindle=,XF86AudioRaiseVolume,exec,pamixer -i 10
+      bindl=,XF86AudioMute,exec,pamixer -t
+      bindl=,XF86AudioMicMute,exec,pamixer --default-source -t
+
+      # Backlight
+      bindle = , XF86MonBrightnessDown, exec, brightnessctl s 10%-
+      bindle = , XF86MonBrightnessUP, exec, brightnessctl s +10%
+
       # Switch workspaces with mainMod + [0-9]
       bind = $mod, 1, workspace, 1
       bind = $mod, 2, workspace, 2
@@ -250,6 +260,10 @@
 	];
 	modules-center = [];
 	modules-right = [
+	  "tray"
+	  "backlight"
+	  "pulseaudio"
+	  "pulseaudio#microphone"
 	  "cpu"
 	  "memory"
 	  "temperature"
@@ -293,6 +307,46 @@
 	  "all-outputs" = true;
 	  "disable-scroll" = true;
 	  "on-click" = "activate";
+        };
+
+        "tray" = {
+          "icon-size" = 13;
+          "spacing" = 10;
+        };
+
+        "backlight" = {
+          #"device" = "acpi_video1";
+          "format" = "{icon} {percent}%";
+          "format-icons" = [""];
+        };
+
+        "pulseaudio" = {
+          "format" = "{icon} {volume}%";
+          "tooltip" = false;
+          "format-muted" = " Muted";
+          "on-click" = "pamixer -t";
+          "on-scroll-up" = "pamixer -i 5";
+          "on-scroll-down" = "pamixer -d 5";
+          "scroll-step" = 5;
+          "format-icons" = {
+            "headphone" = "";
+            "hands-free" = "";
+            "headset" = "";
+            "phone" = "";
+            "portable" = "";
+            "car" = "";
+            "default" = ["" "" ""];
+          };
+        };
+
+        "pulseaudio#microphone" = {
+          "format" = "{format_source}";
+          "format-source" = " {volume}%";
+          "format-source-muted" = " Muted";
+          "on-click" = "pamixer --default-source -t";
+          "on-scroll-up" = "pamixer --default-source -i 5";
+          "on-scroll-down" = "pamixer --default-source -d 5";
+          "scroll-step" = 5;
         };
 
 	"cpu" = {
