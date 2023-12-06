@@ -5,6 +5,7 @@
     killall
     libnotify
     bat eza fd bottom ripgrep
+    duf
     fzf
     rsync
     tmux
