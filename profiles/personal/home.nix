@@ -11,6 +11,8 @@
 
   imports = [
     (./. + "../../../user/wm"+("/"+wm+"/"+wm)+".nix")
+    ../../user/shell/sh.nix
+    ../../user/shell/cli.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -25,7 +27,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    zsh
+    fish
     alacritty
     git
     gh

@@ -74,10 +74,14 @@
     vim 
     wget
     unzip
-    zsh
+    fish
     git
     home-manager
   ];
+
+  environment.shells = with pkgs; [ fish ];
+  users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true; 
 
   fonts.fontDir.enable = true;
 
