@@ -6,6 +6,7 @@
     libnotify
     bat eza fd bottom ripgrep
     duf
+    zoxide
     fzf
     rsync
     tmux

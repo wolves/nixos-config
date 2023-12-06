@@ -51,5 +51,32 @@ in
     enable = true;
     shellAliases = myAliases;
     functions = myFuncs;
+    interactiveShellInit = ''
+      ${pkgs.zoxide}/bin/zoxide init fish | source
+      ${pkgs.starship}/bin/starship init fish | source
+    '';
+  };
+
+  programs.starship.enable = true;
+  programs.starship.settings = {
+    directory = {
+      style = "blue";
+      read_only = " ";
+      format = " [$path]($style)[$read_only]($read_only_style) ";
+    };
+    
+    character = {
+      success_symbol = "[❯](purple)";
+      error_symbol = "[❯](red)";
+      vicmd_symbol = "[❮](green)";
+    };
+    
+    git_branch = {
+      symbol = " ";
+      format = "[$branch]($style) ";
+      style = "bright-black";
+    };
+    
+    git_status = {};
   };
 }
