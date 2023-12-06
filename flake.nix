@@ -20,7 +20,7 @@
 	# ----- USER SETTINGS ----- #
 	username = "wlvs";
 	name = "wlvs";
-	email = "cs@wlvs.io";
+	email = "cstingl@protonmail.com";
 	dotfilesDir = "~/.dots";
 	theme = "kanagawa"; # select theme from themes dir (./themes/)
 	wm = "hyprland"; # select window manager; must exist in both ./user/wm/ & ./system/wm/

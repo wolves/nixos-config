@@ -13,6 +13,7 @@
     (./. + "../../../user/wm"+("/"+wm+"/"+wm)+".nix")
     ../../user/shell/sh.nix
     ../../user/shell/cli.nix
+    ../../user/app/git/git.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
