@@ -8,7 +8,7 @@
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    outputs = { self, nixpkgs, home-manager, ... }:
+    outputs = { self, nixpkgs, home-manager, ... }@inputs:
       let
 	# ---- SYSTEM SETTINGS ---- #
 	system = "x86_64-linux"; # system architecture
