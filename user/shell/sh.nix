@@ -52,6 +52,7 @@ in
     shellAliases = myAliases;
     functions = myFuncs;
     interactiveShellInit = ''
+      set -Ux fish_greeting
       ${pkgs.zoxide}/bin/zoxide init fish | source
       ${pkgs.starship}/bin/starship init fish | source
     '';
