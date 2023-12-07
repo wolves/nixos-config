@@ -8,6 +8,7 @@
     [ 
       ../../system/hardware-configuration.nix
       ../../system/hardware/power.nix # Power management
+      ../../system/hardware/bluetooth.nix
       (./. + "../../../system/wm"+("/"+wm)+".nix")
       ../../system/security/doas.nix
       ../../system/security/sshd.nix
