@@ -31,8 +31,10 @@
     enable = true;
     settings = { };
     extraConfig = ''
+      exec-once = dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
       exec-once = waybar
       exec-once = swaybg -m fill -i $HOME/.wallpaper.png
+      exec-once = swayidle -w timeout 900 "${pkgs.gtklock}/bin/gtklock -d" timeout 910 '${pkgs.hyprland}/bin/hyprctl dispatch dpms off' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${pkgs.gtklock}/bin/gtklock -d"
 
       #monitor = eDP-1, preferred, auto, auto
       monitor = eDP-1, 2256x1504, 0x0, 1.25
@@ -150,6 +152,7 @@
 
       $mod = SUPER
 
+      bind = CTRL ALT, L, exec, ${pkgs.gtklock}/bin/gtklock -d
       bind = $mod, Return, exec, alacritty
       bind = $mod, B, exec, brave
       bind = $mod SHIFT, R, exec, hyprctl reload && notify-send "Hyprland Reloaded"
