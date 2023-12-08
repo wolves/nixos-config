@@ -47,7 +47,7 @@
 
       kanagawa-nvim
       which-key-nvim
-
+      neoscroll-nvim
       neogit
       diffview-nvim
       fzf-lua
@@ -70,7 +70,6 @@
     ];
 
     extraLuaConfig = ''
-      ${builtins.readFile ./nvim/options.lua}
       require 'wlvs'.init()
     '';
   };
