@@ -629,6 +629,28 @@
     '';
   };
 
+  home.file.".config/gtklock/style.css".text = ''
+    window {
+      background-image: url("../../.wallpaper.png");
+      background-size: auto 100%;
+      background-position: center;
+    }
+
+    #clock-label {
+      font-size: 0;
+      opacity: 0;
+    }
+
+    #input-label {
+      font-size: 0;
+      opacity: 0;
+    }
+
+    #unlock-button {
+      opacity: 0;
+    }
+  '';
+
   programs.fuzzel.enable = true;
   programs.fuzzel.settings = {
     main = {
