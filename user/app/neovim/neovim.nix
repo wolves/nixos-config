@@ -1,6 +1,19 @@
-{  config, pkgs, ... }:
+{  config, pkgs, inputs, ... }:
 
 {
+  nixpkgs = {
+    overlays = [
+      (final: prev: {
+        vimPlugins = prev.vimPlugins // {
+          wlvs-nvim = prev.vimUtils.buildVimPlugin {
+            name = "wlvs-nvim";
+            src = ../../../config/nvim;
+          };
+        };
+      })
+    ];
+  };
+
   programs.neovim =
   let
     toLua = str: "lua << EOF\n${str}\nEOF\n";
@@ -25,31 +38,23 @@
       plenary-nvim
       popup-nvim
 
-      {
-        plugin = nvim-treesitter.withAllGrammars;
-        type = "lua";
-        config = luaConfig ./nvim/plugin/treesitter.lua;
-      }
+      nvim-treesitter.withAllGrammars
       nvim-treesitter-context
       nvim-ts-rainbow2
 
-      {
-        plugin = telescope-nvim;
-        type = "lua";
-        config = luaConfig ./nvim/plugin/telescope.lua;
-      }
+      telescope-nvim
       telescope-fzf-native-nvim
 
-      {
-        plugin = kanagawa-nvim;
-        type = "lua";
-        config = luaConfig ./nvim/plugin/kanagawa.lua;
-      }
-      {
-        plugin = which-key-nvim;
-        type = "lua";
-        config = luaConfig ./nvim/plugin/which-key.lua;
-      }
+      kanagawa-nvim
+      which-key-nvim
+
+      neogit
+      diffview-nvim
+      fzf-lua
+
+      # Add custom config from overlay
+      wlvs-nvim
+
       {
         plugin = better-escape-nvim;
         type = "lua";
@@ -66,6 +71,7 @@
 
     extraLuaConfig = ''
       ${builtins.readFile ./nvim/options.lua}
+      require 'wlvs'.init()
     '';
   };
 }
