@@ -7,6 +7,8 @@ let
     ".4" = "cd ../../../..";
     ".5" = "cd ../../../../..";
 
+    nv = "nvim";
+
     ls = "exa -al --color=always --group-directories-first";
     la = "exa -a --color=always --group-directories-first"; # all files and dirs
     ll = "exa -aalgh --color=always --group-directories-first"; # long format
