@@ -52,6 +52,10 @@
       diffview-nvim
       fzf-lua
 
+      toggleterm-nvim
+
+      mini-nvim
+
       # Add custom config from overlay
       wlvs-nvim
 

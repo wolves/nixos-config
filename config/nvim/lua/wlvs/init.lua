@@ -6,6 +6,7 @@ local function init()
   require 'wlvs.treesitter'.init()
   require 'wlvs.neoscroll'.init()
   require 'wlvs.neogit'.init()
+  require 'wlvs.toggleterm'.init()
 end
 
 return {
