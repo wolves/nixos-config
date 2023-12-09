@@ -7,6 +7,7 @@ local function init()
   require 'wlvs.neoscroll'.init()
   require 'wlvs.neogit'.init()
   require 'wlvs.toggleterm'.init()
+  require 'wlvs.mini'.init()
   require 'wlvs.editor'.init()
 end
 
