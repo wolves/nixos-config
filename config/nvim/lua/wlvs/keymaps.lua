@@ -133,6 +133,7 @@ local function init()
       },
       d = { "<cmd>lua require('mini.bufremove').delete(0, false)<CR>", "Delete Buffer" },
     },
+    e = { "<cmd>lua require('mini.files').open()", "File Explorer" },
     f = {
       name = "+file",
       n = { "<cmd>enew<CR>", "New" },
