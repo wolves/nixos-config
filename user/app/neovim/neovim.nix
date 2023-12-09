@@ -55,6 +55,8 @@
       toggleterm-nvim
 
       mini-nvim
+      trouble-nvim
+      todo-comments-nvim
 
       # Add custom config from overlay
       wlvs-nvim

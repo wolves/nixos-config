@@ -170,6 +170,12 @@ local function init()
       --  "Word Wrap",
       --},
     },
+    x = {
+      name = "+trouble/todo",
+      x = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Trouble" },
+      t = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
+      T = { "<cmd>TodoTelescope<CR>", "Todo Telescope" },
+    },
   }
   
   for i = 0, 10 do
