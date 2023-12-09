@@ -131,6 +131,7 @@ local function init()
         "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "Buffers",
       },
+      d = { "<cmd>lua require('mini.bufremove').delete(0, false)<CR>", "Delete Buffer" },
     },
     f = {
       name = "+file",
