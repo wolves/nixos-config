@@ -41,6 +41,7 @@
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
       nvim-ts-rainbow2
+      nvim-ts-context-commentstring
 
       telescope-nvim
       telescope-fzf-native-nvim
@@ -49,6 +50,7 @@
       which-key-nvim
       neoscroll-nvim
       neogit
+      gitsigns-nvim
       diffview-nvim
       fzf-lua
 
