@@ -60,6 +60,15 @@
       trouble-nvim
       todo-comments-nvim
 
+      treesj
+
+      dressing-nvim
+      bufferline-nvim
+      indent-blankline-nvim
+      noice-nvim
+      nui-nvim
+      nvim-web-devicons
+
       # Add custom config from overlay
       wlvs-nvim
 

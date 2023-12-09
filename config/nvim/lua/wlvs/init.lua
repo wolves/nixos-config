@@ -9,6 +9,8 @@ local function init()
   require 'wlvs.toggleterm'.init()
   require 'wlvs.mini'.init()
   require 'wlvs.editor'.init()
+  require 'wlvs.coding'.init()
+  require 'wlvs.ui'.init()
 end
 
 return {
