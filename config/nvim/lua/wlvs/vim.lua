@@ -1,6 +1,8 @@
 local function set_vim_g()
   vim.g.mapleader = " "
   vim.g.maplocalleader = " "
+
+  vim.g.skip_ts_context_commentstring_nodule = true
 end
 
 local function set_vim_opts()
