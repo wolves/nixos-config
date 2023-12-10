@@ -159,7 +159,7 @@ local function init()
     },
     t = {
       name = "+toggle",
-      --f = { require("plugins.lsp.format").toggle, "Format on Save" },
+      f = { require("wlvs.lsp.format").toggle, "Format on Save" },
       n = {
        function()
          util.toggle("relativenumber", true)

@@ -6,58 +6,58 @@ local keymaps = require("wlvs.lsp.keymaps")
 
 local util = require("util")
 
--- local function autocmd(args)
---   local event = args[1]
---   local group = args[2]
---   local callback = args[3]
---
---   vim.api.nvim_create_autocmd(event, {
---     group = group,
---     buffer = args[4],
---     callback = function()
---       callback()
---     end,
---     once = args.once,
---   })
--- end
-
--- local function on_attach(client, buffer)
---   local augroup_highlight = vim.api.nvim_create_augroup("custom-lsp-references", { clear = true })
---   local autocmd_clear = vim.api.nvim_clear_autocmds
---
---   local opts = { buffer = buffer, remap = false }
---
---   -- Enable completion triggered by <c-x><c-o>
---   vim.bo[buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'
---
---   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
---   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
---   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
---   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
---   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
---   vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
---   vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
---   vim.keymap.set('n', '<leader>wl', function()
---     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
---   end, opts)
---   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
---   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
---   vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
---   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
---   vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, opts)
---
---   if client.server_capabilities.documentHighlightProvider then
---     autocmd_clear { group = augroup_highlight, buffer = buffer }
---     autocmd { "CursorHold", augroup_highlight, vim.lsp.buf.document_highlight, buffer }
---     autocmd { "CursorMoved", augroup_highlight, vim.lsp.buf.clear_references, buffer }
---   end
--- end
+local opts = {
+  diagnostics = {
+    underline = true,
+    update_in_insert = false,
+    virtual_text = {
+      spacing = 4,
+      source = "if_many",
+      prefix = "●",
+    },
+    severity_sort = true,
+  },
+  -- Automatically format on save
+  autoformat = true,
+  -- Enable this to show formatters used in a notification
+  -- Useful for debugging formatter issues
+  format_notify = false,
+  -- options for vim.lsp.buf.format
+  -- `bufnr` and `filter` is handled by the LazyVim formatter,
+  -- but can be also overriden when specified
+  format = {
+    formatting_options = nil,
+    timeout_ms = nil,
+  },
+  -- you can do any additional lsp server setup here
+  -- return true if you don't want this server to be setup with lspconfig
+  ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
+  setup = {
+    -- example to setup with typescript.nvim
+    -- tsserver = function(_, opts)
+      --   require("typescript").setup({ server = opts })
+      --   return true
+      -- end,
+      -- Specify * to use this function as a fallback for any server
+      -- ["*"] = function(server, opts) end,
+    },
+}
 
 function M.init()
+
+  require("wlvs.lsp.format").setup(opts)
 
   util.on_attach(function(client, buffer)
     keymaps.on_attach(client, buffer)
   end)
+
+  -- diagnostics
+  for name, icon in pairs(require("wlvs.symbols").icons.diagnostics) do
+    name = "DiagnosticSign" .. name
+    vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+  end
+  vim.diagnostic.config(opts.diagnostics)
+
 
   local capabilities = vim.tbl_deep_extend(
     "force",
