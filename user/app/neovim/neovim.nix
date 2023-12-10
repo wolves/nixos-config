@@ -67,6 +67,7 @@
       lualine-nvim
       nvim-navic
       indent-blankline-nvim
+      nvim-notify
       noice-nvim
       nui-nvim
       nvim-web-devicons
