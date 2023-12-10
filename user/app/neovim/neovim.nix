@@ -69,6 +69,7 @@
       indent-blankline-nvim
       nvim-notify
       noice-nvim
+      nvim-colorizer-lua
       nui-nvim
       nvim-web-devicons
 
