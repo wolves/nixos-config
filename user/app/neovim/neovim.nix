@@ -64,6 +64,8 @@
 
       dressing-nvim
       bufferline-nvim
+      lualine-nvim
+      nvim-navic
       indent-blankline-nvim
       noice-nvim
       nui-nvim
