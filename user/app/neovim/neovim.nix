@@ -31,6 +31,10 @@
       plenary-nvim
       popup-nvim
 
+      nvim-lspconfig
+      nvim-cmp
+      cmp-nvim-lsp
+
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
       nvim-ts-rainbow2
@@ -67,6 +71,7 @@
       nvim-colorizer-lua
       nui-nvim
       nvim-web-devicons
+
 
       # Add custom config from overlay
       wlvs-nvim

@@ -9,6 +9,7 @@ local function init()
   require 'wlvs.editor'.init()
   require 'wlvs.coding'.init()
   require 'wlvs.ui'.init()
+  require 'wlvs.lsp'.init()
 end
 
 return {
