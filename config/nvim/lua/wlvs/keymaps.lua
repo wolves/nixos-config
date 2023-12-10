@@ -1,3 +1,8 @@
+local util = require('util')
+
+grep_string_prompt = require('wlvs.telescope').grep_string_prompt
+grep_word = require('wlvs.telescope').grep_word
+
 local function init()
   --require("lazyvim.config.keymaps")
   
@@ -124,7 +129,7 @@ local function init()
   local leader = {
     w = { "<cmd>w!<CR>", "Save" },
     q = { "<cmd>q!<CR>", "Quit" },
-    ["<space>"] = { "<cmd>Telescope find_files<CR>", "Find Files" },
+    ["<space>"] = { util.telescope("find_files"), "Find Files" },
     b = {
       name = "+buffer",
       b = {
@@ -147,28 +152,33 @@ local function init()
     m = {
       name = "+harpoon",
     },
+    s = {
+      name = "+search",
+      s = { grep_string_prompt, "Grep Prompt" },
+      w = { grep_word, "Grep Current Word" },
+    },
     t = {
       name = "+toggle",
       --f = { require("plugins.lsp.format").toggle, "Format on Save" },
-      --n = {
-      --  function()
-      --    util.toggle("relativenumber", true)
-      --    util.toggle("number")
-      --  end,
-      --  "Line Numbers",
-      --},
-      --s = {
-      --  function()
-      --    util.toggle("spell")
-      --  end,
-      --  "Spelling",
-      --},
-      --w = {
-      --  function()
-      --    util.toggle("wrap")
-      --  end,
-      --  "Word Wrap",
-      --},
+      n = {
+       function()
+         util.toggle("relativenumber", true)
+         util.toggle("number")
+       end,
+       "Line Numbers",
+      },
+      s = {
+       function()
+         util.toggle("spell")
+       end,
+       "Spelling",
+      },
+      w = {
+       function()
+         util.toggle("wrap")
+       end,
+       "Word Wrap",
+      },
     },
     x = {
       name = "+trouble/todo",

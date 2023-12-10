@@ -1,18 +1,20 @@
-local function init()
-  local function grep_string_prompt()
-    require("telescope.builtin").grep_string({
-      path_display = { "shorten" },
-      search = vim.fn.input("Grep String ❱ "),
-    })
-  end
+local M = {}
 
-  local function grep_word()
-    require("telescope.builtin").grep_string({
-      path_display = { "shorten" },
-      search = vim.fn.expand("<cword>"),
-    })
-  end
+function M.grep_string_prompt()
+  require("telescope.builtin").grep_string({
+    path_display = { "shorten" },
+    search = vim.fn.input("Grep String ❱ "),
+  })
+end
 
+function M.grep_word()
+  require("telescope.builtin").grep_string({
+    path_display = { "shorten" },
+    search = vim.fn.expand("<cword>"),
+  })
+end
+
+function M.init()
   require('telescope').setup({
     defaults = {
       prompt_prefix = " ",
@@ -38,6 +40,4 @@ local function init()
   require('telescope').load_extension('fzf')
 end
 
-return {
-  init = init
-}
+return M
