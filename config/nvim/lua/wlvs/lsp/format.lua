@@ -46,7 +46,7 @@ function M.format()
     filter = function(client)
       return vim.tbl_contains(client_ids, client.id)
     end,
-  }, require("util").opts("nvim-lspconfig").format or {}))
+  }, {})) --require("util").opts("nvim-lspconfig").format or {}))
   -- local buf = vim.api.nvim_get_current_buf()
   -- local ft = vim.bo[buf].filetype
   -- local have_nls = #require("null-ls.sources").get_available(ft, "NULL_LS_FORMATTING") > 0
@@ -70,14 +70,14 @@ function M.notify(formatters)
     local line = "- **" .. client.name .. "**"
     if client.name == "null-ls" then
       line = line
-        .. " ("
-        .. table.concat(
-          vim.tbl_map(function(f)
-            return "`" .. f.name .. "`"
-          end, formatters.null_ls),
-          ", "
-        )
-        .. ")"
+          .. " ("
+          .. table.concat(
+            vim.tbl_map(function(f)
+              return "`" .. f.name .. "`"
+            end, formatters.null_ls),
+            ", "
+          )
+          .. ")"
     end
     table.insert(lines, line)
   end
@@ -138,9 +138,9 @@ end
 ---@param client lsp.Client
 function M.supports_format(client)
   if
-    client.config
-    and client.config.capabilities
-    and client.config.capabilities.documentFormattingProvider == false
+      client.config
+      and client.config.capabilities
+      and client.config.capabilities.documentFormattingProvider == false
   then
     return false
   end
