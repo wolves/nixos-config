@@ -27,13 +27,6 @@
     vimAlias = true;
     vimdiffAlias = true;
 
-    extraPackages = with pkgs; [
-      lua-language-server
-      rnix-lsp
-
-      wl-clipboard
-    ];
-
     plugins = with pkgs.vimPlugins; [
       plenary-nvim
       popup-nvim
@@ -82,5 +75,26 @@
     extraLuaConfig = ''
       require 'wlvs'.init()
     '';
+
+    extraPackages = with pkgs; [
+      lua-language-server
+
+      # Nix LSP
+      nil
+
+      nodePackages."bash-language-server"
+      nodePackages."typescript"
+      nodePackages."typescript-language-server"
+      nodePackages."vscode-langservers-extracted"
+      nodePackages."yaml-language-server"
+
+      gopls
+      gofumpt
+      golines
+
+      wl-clipboard
+      yarn
+    ];
+
   };
 }
