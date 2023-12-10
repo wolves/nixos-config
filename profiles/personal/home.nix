@@ -1,6 +1,11 @@
-{ config, lib, pkgs, username, email, dotfilesDir, theme, wm, browser, editor, term, ... }:
+{ config, lib, pkgs, neovim-nightly-overlay, username, email, dotfilesDir, theme, wm, browser, editor, term, ... }:
 
 {
+  nixpkgs = {
+    overlays = [
+      neovim-nightly-overlay.overlay
+    ];
+  };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "wlvs";
