@@ -61,6 +61,51 @@ local function init()
     end,
   })
 
+  require("neogit").setup({
+    disable_commit_confirmation = true,
+    kind = "floating",
+    commit_editor = {
+      kind = "floating",
+    },
+    popup = {
+      kind = "floating",
+    },
+    signs = {
+      -- { CLOSED, OPENED }
+      section = { "", "" },
+      item = { "", "" },
+      hunk = { "", "" },
+    },
+    integrations = { diffview = true },
+  })
+
+  require("neoscroll").setup({})
+  require("neoscroll.config").set_mappings({
+    ["<C-u>"] = { "scroll", { "-vim.wo.scroll", "true", "80" } },
+    ["<C-d>"] = { "scroll", { "vim.wo.scroll", "true", "80" } },
+    ["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "250" } },
+    ["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "250" } },
+    ["<C-y>"] = { "scroll", { "-0.10", "false", "80" } },
+    ["<C-e>"] = { "scroll", { "0.10", "false", "80" } },
+    ["zt"] = { "zt", { "150" } },
+    ["zz"] = { "zz", { "150" } },
+    ["zb"] = { "zb", { "150" } },
+  })
+
+  require("toggleterm").setup({
+    size = 20,
+    hide_numbers = true,
+    open_mapping = [[<C-\>]],
+    shade_filetypes = {},
+    shade_terminals = true,
+    shading_factor = 0.3, -- Bak has 2
+    start_in_insert = true,
+    persist_size = true,
+    direction = "horizontal",
+  })
+  -- Esc twice to get to normal mode
+  vim.cmd([[tnoremap <esc><esc> <C-\><C-N>]])
+
   require('trouble').setup({
     auto_open = false,
     use_diagnostic_signs = true,
