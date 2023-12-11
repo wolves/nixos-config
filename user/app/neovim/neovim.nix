@@ -31,10 +31,12 @@
     plugins = with pkgs.vimPlugins; [
       plenary-nvim
       popup-nvim
-
+      
       nvim-lspconfig
       nvim-cmp
       cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
 
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
