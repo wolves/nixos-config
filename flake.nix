@@ -29,7 +29,7 @@
     wmType = "wayland"; # x11 or wayland
     browser = "brave"; # select browser from ./user/app/browser/
     editor = "nvim";
-    term = "alacritty"; # default terminal command
+    term = "foot"; # default terminal command
     font = "Intel One Mono"; # select default font
     fontPkg = pkgs.intel-one-mono; # Font package
 

@@ -35,7 +35,7 @@
   # environment.
   home.packages = with pkgs; [
     fish
-    alacritty
+    foot
     git
     gh
     brave

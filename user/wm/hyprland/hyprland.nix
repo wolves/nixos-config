@@ -1,8 +1,12 @@
 { config, lib, pkgs, stdenv, toString, browser, term, font, ... }:
 
 {
+  imports = [
+    ../../app/terminal/foot.nix
+  ];
+
   home.packages = with pkgs; [
-    alacritty
+    foot
     feh
     killall
     polkit_gnome
@@ -32,6 +36,7 @@
     settings = { };
     extraConfig = ''
       exec-once = dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
+      exec-once = ${pkgs.foot}/bin/foot --server
       exec-once = waybar
       exec-once = swaybg -m fill -i $HOME/.wallpaper.png
       exec-once = swayidle -w timeout 900 "${pkgs.gtklock}/bin/gtklock -d" timeout 910 '${pkgs.hyprland}/bin/hyprctl dispatch dpms off' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${pkgs.gtklock}/bin/gtklock -d"
@@ -153,7 +158,7 @@
       $mod = SUPER
 
       bind = CTRL ALT, L, exec, ${pkgs.gtklock}/bin/gtklock -d
-      bind = $mod, Return, exec, alacritty
+      bind = $mod, Return, exec, ${pkgs.foot}/bin/footclient
       bind = $mod, B, exec, brave
       bind = $mod SHIFT, R, exec, hyprctl reload && notify-send "Hyprland Reloaded"
 
@@ -381,7 +386,7 @@
           "format-disconnected" = "Disconnected <span font='14'>󰈂</span>";
           "format-alt" = "{ipaddr}";
           #"on-click" = "bash ~/.config/waybar/scripts/test.sh";
-          "on-click" = "${pkgs.alacritty}/bin/alacritty nmtui";
+          "on-click" = "${pkgs.foot}/bin/footclient nmtui";
 	};
 
 	"battery" = {
@@ -655,7 +660,7 @@
   programs.fuzzel.settings = {
     main = {
       font = font + ":size=13";
-      terminal = "${pkgs.alacritty}/bin/alacritty";
+      terminal = "${pkgs.foot}/bin/foot";
     };
     colors = {
       #background = config.lib.stylix.colors.base00 + "e6";
