@@ -159,7 +159,7 @@
 
       bind = CTRL ALT, L, exec, ${pkgs.gtklock}/bin/gtklock -d
       bind = $mod, Return, exec, ${pkgs.foot}/bin/footclient
-      bind = $mod, B, exec, brave
+      bind = $mod, B, exec, ${pkgs.firefox}/bin/firefox
       bind = $mod SHIFT, R, exec, hyprctl reload && notify-send "Hyprland Reloaded"
 
       bind = $mod, D, exec, killall fuzzel || fuzzel
@@ -414,7 +414,7 @@
       * {
         border: none;
         border-radius: 0;
-	font-family: FontAwesome, ''+font+'';
+	      font-family: FontAwesome, Product Sans;
         /* font-family: Cartograph CF Nerd Font, monospace; */
         /* font-weight: bold; */
         font-size: 14px;

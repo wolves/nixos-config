@@ -20,6 +20,7 @@
     ../../user/shell/cli.nix
     ../../user/app/neovim/neovim.nix
     ../../user/app/git/git.nix
+    (./. + "../../../user/app/browser"+("/"+browser)+".nix")
   ];
 
   # This value determines the Home Manager release that your configuration is

@@ -7,10 +7,18 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, firefox-addons, ... }@inputs:
   let
     # ---- SYSTEM SETTINGS ---- #
     system = "x86_64-linux"; # system architecture
@@ -27,7 +35,7 @@
     theme = "kanagawa"; # select theme from themes dir (./themes/)
     wm = "hyprland"; # select window manager; must exist in both ./user/wm/ & ./system/wm/
     wmType = "wayland"; # x11 or wayland
-    browser = "brave"; # select browser from ./user/app/browser/
+    browser = "firefox"; # select browser from ./user/app/browser/
     editor = "nvim";
     term = "foot"; # default terminal command
     font = "Intel One Mono"; # select default font
@@ -60,6 +68,7 @@
         inherit pkgs;
         modules = [ (./. + "/profiles"+("/"+profile)+"/home.nix") ]; # load home.nix from selected PROFILE
         extraSpecialArgs = {
+          inherit system;
           inherit username;
           inherit name;
           inherit hostname;
@@ -74,6 +83,7 @@
           inherit browser;
           inherit editor;
           inherit term;
+          inherit (inputs) firefox-addons;
           inherit (inputs) neovim-nightly-overlay;
         };
       };
