@@ -1,13 +1,13 @@
 local symbols = {
   icons = {
     diagnostics = {
-      Error = " ",
-      Warn = " ",
-      Hint = " ",
+      Error = " ",
+      Warn = " ",
+      Hint = " ",
       Info = " ",
     },
     kinds = {
-      Class = " ",
+      Class = " ",
       Color = " ",
       Constant = " ",
       Constructor = " ",
