@@ -5,6 +5,7 @@
     killall
     libnotify
     bat eza fd bottom ripgrep
+    tealdeer
     duf
     zoxide
     fzf
