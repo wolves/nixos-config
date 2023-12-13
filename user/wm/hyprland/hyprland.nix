@@ -155,6 +155,12 @@
           workspace_swipe = off
       }
 
+      misc {
+        # Disable default hyprland bg
+        disable_hyprland_logo = true
+        force_hypr_chan = false
+      }
+
       $mod = SUPER
 
       bind = CTRL ALT, L, exec, ${pkgs.gtklock}/bin/gtklock -d
