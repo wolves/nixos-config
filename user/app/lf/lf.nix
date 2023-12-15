@@ -26,11 +26,11 @@
     };
 
     keybindings = {
-      c = "mkdir";
+      m = "mkdir";
       "<enter>" = "open";
 
       ee = "editor-open";
-      V = ''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
+      V = ''''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
     };
   };
 }
