@@ -43,6 +43,7 @@
     dmenu
     rofi
     mpv
+    syncthing
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -60,6 +61,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+  services.syncthing.enable = true;
 
   xdg.enable = true;
   xdg.userDirs = {
