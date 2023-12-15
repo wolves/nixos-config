@@ -19,6 +19,7 @@
     ../../user/shell/sh.nix
     ../../user/shell/cli.nix
     ../../user/app/neovim/neovim.nix
+    ../../user/app/lf/lf.nix
     ../../user/app/git/git.nix
     (./. + "../../../user/app/browser"+("/"+browser)+".nix")
   ];
