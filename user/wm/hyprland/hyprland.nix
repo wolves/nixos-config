@@ -29,7 +29,7 @@
     pamixer
   ];
 
-  home.file.".wallpaper.png".source = ../../../themes/mtn_wallpaper.png;
+  home.file.".wallpaper.png".source = ../../../themes/aenami_escape.jpg;
 
   wayland.windowManager.hyprland = {
     enable = true;
