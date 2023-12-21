@@ -1,7 +1,7 @@
-
 local servers = {
   bashls = {},
   cssls = {},
+  dockerls = {},
   gopls = {
     settings = {
       gopls = {
@@ -35,6 +35,17 @@ local servers = {
         formatting = { command = { "nixpkgs-fmt" } },
       },
     }
+  },
+  pyright = {
+    settings = {
+      python = {
+        analysis = {
+          autoSearchPaths = true,
+          diagnosticMode = "workspace",
+          useLibraryCodeForTypes = true
+        },
+      },
+    },
   },
   tsserver = {},
   yamlls = {
