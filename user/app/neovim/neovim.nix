@@ -37,6 +37,10 @@
       cmp-nvim-lsp
       cmp-buffer
       cmp-path
+      cmp_luasnip
+
+      luasnip
+      friendly-snippets
 
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
