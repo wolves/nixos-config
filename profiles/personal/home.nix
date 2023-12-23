@@ -1,4 +1,4 @@
-{ config, lib, pkgs, neovim-nightly-overlay, username, email, dotfilesDir, theme, wm, browser, editor, term, ... }:
+{ config, lib, pkgs, neovim-nightly-overlay, username, email, dotfilesDir, theme, wm, browser, editor, term, termType, ... }:
 
 {
   nixpkgs = {
@@ -22,6 +22,7 @@
     ../../user/app/lf/lf.nix
     ../../user/app/git/git.nix
     (./. + "../../../user/app/browser"+("/"+browser)+".nix")
+    ../../user/lang/go/go.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -63,7 +64,11 @@
     # '')
   ];
 
-  services.syncthing.enable = true;
+  services = {
+    blueman-applet.enable = true;
+    network-manager-applet.enable = true;
+    syncthing.enable = true;
+  };
 
   xdg.enable = true;
   xdg.userDirs = {
@@ -106,7 +111,7 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
     EDITOR = editor;
-    TERM = term;
+    TERM = termType;
     BROWSER = browser;
   };
 

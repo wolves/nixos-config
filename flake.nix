@@ -38,6 +38,7 @@
     browser = "firefox"; # select browser from ./user/app/browser/
     editor = "nvim";
     term = "foot"; # default terminal command
+    termType = "xterm-256color";
     font = "Intel One Mono"; # select default font
     fontPkg = pkgs.intel-one-mono; # Font package
 
@@ -83,6 +84,7 @@
           inherit browser;
           inherit editor;
           inherit term;
+          inherit termType;
           inherit (inputs) firefox-addons;
           inherit (inputs) neovim-nightly-overlay;
         };
