@@ -281,7 +281,7 @@
 	  "pulseaudio#microphone"
 	  "cpu"
 	  "memory"
-	  "temperature"
+	  # "temperature"
 	  "network"
 	  "battery"
 	  "clock"
@@ -336,7 +336,7 @@
         };
 
         "pulseaudio" = {
-          "format" = "{icon}  {volume}%";
+          "format" = "{icon}   {volume}%";
           "tooltip" = false;
           "format-muted" = " Muted";
           "on-click" = "pamixer -t";
@@ -366,7 +366,7 @@
 
 	"cpu" = {
           "interval" = 15;
-          "format" = "  {}%";
+          "format" = "   {}%";
           "max-length" = 10;
 	};
 
@@ -377,15 +377,15 @@
 	};
 
 	"temperature" = {
-          "critical-threshold" = 80;
-          "format" = "{temperatureC}°C";
-          #"format" = " {temperatureC}°C";
+    "critical-threshold" = 80;
+    "format" = "{temperatureC}°C";
+    #"format" = " {temperatureC}°C";
 	};
 
 	"network" = {
           #"interface" = "wlp2*"; # (Optional) To force the use of this interface
           #"format-wifi" = "{essid} ({signalStrength}%) <span font='18'>󰖩</span>";
-          "format-wifi" = "󰖩  {signalStrength}%";
+          "format-wifi" = "󰖩   {signalStrength}%";
           "format-ethernet" = "Connected <span font='14'>󰈁</span>";
           "tooltip-format" = "{essid} ({signalStrength}%)\n{ifname} via {gwaddr}/{cidr}";
           "format-linked" = "{ifname} (No IP) <span font='14'>󰈁</span>";
@@ -617,7 +617,8 @@
       #memory {
         color: #ffa066;
         border-left: 0px;
-        border-right: 0px;
+        border-radius: 0 4px 4px 0;
+        margin-right: 10px;
       }
       
       #temperature {
