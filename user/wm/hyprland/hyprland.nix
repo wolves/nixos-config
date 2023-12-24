@@ -331,12 +331,12 @@
 
         "backlight" = {
           #"device" = "acpi_video1";
-          "format" = "{icon} {percent}%";
+          "format" = "{icon}  {percent}%";
           "format-icons" = [""];
         };
 
         "pulseaudio" = {
-          "format" = "{icon} {volume}%";
+          "format" = "{icon}  {volume}%";
           "tooltip" = false;
           "format-muted" = " Muted";
           "on-click" = "pamixer -t";
@@ -356,7 +356,7 @@
 
         "pulseaudio#microphone" = {
           "format" = "{format_source}";
-          "format-source" = " {volume}%";
+          "format-source" = "  {volume}%";
           "format-source-muted" = " Muted";
           "on-click" = "pamixer --default-source -t";
           "on-scroll-up" = "pamixer --default-source -i 5";
@@ -366,14 +366,13 @@
 
 	"cpu" = {
           "interval" = 15;
-          #"format" = " {}%";
-          "format" = " {}%";
+          "format" = "  {}%";
           "max-length" = 10;
 	};
 
 	"memory" = {
           "interval" = 30;
-          "format" = " {}%";
+          "format" = "  {}%";
           "max-length" = 10;
 	};
 
@@ -386,7 +385,7 @@
 	"network" = {
           #"interface" = "wlp2*"; # (Optional) To force the use of this interface
           #"format-wifi" = "{essid} ({signalStrength}%) <span font='18'>󰖩</span>";
-          "format-wifi" = "󰖩 {signalStrength}%";
+          "format-wifi" = "󰖩  {signalStrength}%";
           "format-ethernet" = "Connected <span font='14'>󰈁</span>";
           "tooltip-format" = "{essid} ({signalStrength}%)\n{ifname} via {gwaddr}/{cidr}";
           "format-linked" = "{ifname} (No IP) <span font='14'>󰈁</span>";
@@ -402,7 +401,7 @@
             "warning" = 20;
             "critical" = 10;
           };
-          "format" = "{icon}  {capacity}%";
+          "format" = "{icon}   {capacity}%";
           "format-charging" = " {capacity}%";
           "format-plugged" = " {capacity}%";
           "format-alt" = "{time} {icon}";
@@ -545,7 +544,7 @@
       #backlight {
         color: #dca561;
         border-right: 0px;
-        border-left: 0px;
+        border-radius: 4px 0 0 4px;
       }
       
       #custom-language {
