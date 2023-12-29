@@ -44,7 +44,7 @@
 
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
-      nvim-ts-rainbow2
+      rainbow-delimiters-nvim
       nvim-ts-context-commentstring
 
       telescope-nvim
