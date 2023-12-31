@@ -115,6 +115,21 @@
     BROWSER = browser;
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 24;
+  };
+
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+    };
+  };
+
   programs.bash = {
     enable = true;
     shellAliases = {
@@ -123,5 +138,4 @@
       "..." = "cd ../..";
     };
   };
-
 }
