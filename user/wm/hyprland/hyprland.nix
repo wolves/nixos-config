@@ -365,25 +365,25 @@
           "scroll-step" = 5;
         };
 
-	"cpu" = {
+	      "cpu" = {
           "interval" = 15;
           "format" = "   {}%";
           "max-length" = 10;
-	};
+	      };
 
-	"memory" = {
+	      "memory" = {
           "interval" = 30;
           "format" = "  {}%";
           "max-length" = 10;
-	};
+	      };
 
-	"temperature" = {
-    "critical-threshold" = 80;
-    "format" = "{temperatureC}°C";
-    #"format" = " {temperatureC}°C";
-	};
+	      "temperature" = {
+          "critical-threshold" = 80;
+          "format" = "{temperatureC}°C";
+          #"format" = " {temperatureC}°C";
+        };
 
-	"network" = {
+	      "network" = {
           #"interface" = "wlp2*"; # (Optional) To force the use of this interface
           #"format-wifi" = "{essid} ({signalStrength}%) <span font='18'>󰖩</span>";
           "format-wifi" = "󰖩   {signalStrength}%";
@@ -394,26 +394,26 @@
           "format-alt" = "{ipaddr}";
           #"on-click" = "bash ~/.config/waybar/scripts/test.sh";
           "on-click" = "${pkgs.foot}/bin/footclient nmtui";
-	};
+	      };
 
-	"battery" = {
+	      "battery" = {
           "states" = {
             "good" = 95;
             "warning" = 20;
             "critical" = 10;
           };
-          "format" = "{icon}   {capacity}%";
-          "format-charging" = " {capacity}%";
-          "format-plugged" = " {capacity}%";
+          "format" = "{icon}  {capacity}%";
+          "format-charging"= "󰂄 {capacity}%";
+          "format-plugged"= "󱘖 {capacity}%";
           "format-alt" = "{time} {icon}";
-          "format-icons" = ["" "" "" "" ""];
-	};
+          "format-icons" = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+	      };
 
-	"clock" = {
+	      "clock" = {
           #"format" = "{: %R    %m/%d}";
           "format" = "{:%R}";
           "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-	};
+	      };
       };
     };
 
