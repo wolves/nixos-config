@@ -15,6 +15,7 @@
     wl-clipboard
     hyprland-protocols
     gtklock
+    swaylock-effects
     wev
     fnott
     fuzzel
@@ -40,7 +41,7 @@
       exec-once = ${pkgs.foot}/bin/foot --server
       exec-once = waybar
       exec-once = swaybg -m fill -i $HOME/.wallpaper.png
-      exec-once = swayidle -w timeout 900 "${pkgs.gtklock}/bin/gtklock -d" timeout 910 '${pkgs.hyprland}/bin/hyprctl dispatch dpms off' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${pkgs.gtklock}/bin/gtklock -d"
+      exec-once = swayidle -w timeout 900 "${pkgs.swaylock-effects}/bin/swaylock" timeout 910 '${pkgs.hyprland}/bin/hyprctl dispatch dpms off' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${pkgs.swaylock-effects}/bin/swaylock"
 
       #monitor = eDP-1, preferred, auto, auto
       monitor = eDP-1, 2256x1504, 0x0, 1.25
@@ -164,7 +165,7 @@
 
       $mod = SUPER
 
-      bind = CTRL ALT, L, exec, ${pkgs.gtklock}/bin/gtklock -d
+      bind = CTRL ALT, L, exec, ${pkgs.swaylock-effects}/bin/swaylock
       bind = $mod, Return, exec, ${pkgs.foot}/bin/footclient
       bind = $mod, B, exec, ${pkgs.firefox}/bin/firefox
       bind = $mod SHIFT, R, exec, hyprctl reload && notify-send "Hyprland Reloaded"
@@ -640,6 +641,45 @@
       }
     '';
   };
+
+  home.file.".config/swaylock/config".text = ''
+    daemonize
+    image="$HOME/.wallpaper.png"
+    show-failed-attempts
+    clock
+    effect-blur=5x5
+    color=1f1d2e80
+    font="Product Sans"
+    indicator
+    indicator-radius=200
+    indicator-thickness=20
+    line-color=1f1d2e
+    ring-color=191724
+    inside-color=1f1d2e
+    key-hl-color=eb6f92
+    separator-color=00000000
+    text-color=e0def4
+    text-caps-lock-color=""
+    line-ver-color=eb6f92
+    ring-ver-color=eb6f92
+    inside-ver-color=1f1d2e
+    text-ver-color=e0def4
+    ring-wrong-color=31748f
+    text-wrong-color=31748f
+    inside-wrong-color=1f1d2e
+    inside-clear-color=1f1d2e
+    text-clear-color=e0def4
+    ring-clear-color=9ccfd8
+    line-clear-color=1f1d2e
+    line-wrong-color=1f1d2e
+    bs-hl-color=31748f
+    grace=0
+    grace-no-mouse
+    grace-no-touch
+    datestr=%m.%d
+    fade-in="0.1"
+    ignore-empty-password
+  '';
 
   home.file.".config/gtklock/style.css".text = ''
     window {
