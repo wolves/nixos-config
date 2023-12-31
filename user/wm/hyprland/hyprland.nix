@@ -266,29 +266,29 @@
 
     settings = {
       mainBar = {
-	layer = "top";
-	position = "top";
-	height = 0;
+    	  layer = "top";
+	      position = "top";
+	      height = 0;
 
         modules-left = [
-	  "idle_inhibitor"
-	  "hyprland/workspaces"
-	];
-	modules-center = [];
-	modules-right = [
-	  "tray"
-	  "backlight"
-	  "pulseaudio"
-	  "pulseaudio#microphone"
-	  "cpu"
-	  "memory"
-	  # "temperature"
-	  "network"
-	  "battery"
-	  "clock"
-	];
+          "idle_inhibitor"
+            "hyprland/workspaces"
+        ];
+        modules-center = [];
+        modules-right = [
+          "tray"
+            "backlight"
+            "pulseaudio"
+            "pulseaudio#microphone"
+            "cpu"
+            "memory"
+            # "temperature"
+            "network"
+            "battery"
+            "clock"
+        ];
 
-	"idle_inhibitor" = {
+        "idle_inhibitor" = {
           format = "{icon}";
           format-icons = {
             activated = "󰅶";
@@ -296,7 +296,7 @@
           };
         };
 
-	"hyprland/workspaces" = {
+        "hyprland/workspaces" = {
           "format" = "{icon}";
           #"format-icons" = {
           #  "1" = "󱚌";
@@ -309,20 +309,20 @@
           #  "8" = "󰑴";
           #  "9" = "󱎓";
           #};
-	  "persistant-workspaces" = {
-	    "1" = [];
-	    "2" = [];
-	    "3" = [];
-	    "4" = [];
-	    "5" = [];
-	    "6" = [];
-	    "7" = [];
-	    "8" = [];
-	    "9" = [];
-	  };
-	  "all-outputs" = true;
-	  "disable-scroll" = true;
-	  "on-click" = "activate";
+          "persistant-workspaces" = {
+            "1" = [];
+            "2" = [];
+            "3" = [];
+            "4" = [];
+            "5" = [];
+            "6" = [];
+            "7" = [];
+            "8" = [];
+            "9" = [];
+          };
+          "all-outputs" = true;
+          "disable-scroll" = true;
+          "on-click" = "activate";
         };
 
         "tray" = {
@@ -519,7 +519,7 @@
         color: #957fb8;
         border-radius: 4px;
         margin-left: 8px;
-	padding-right: 14px;
+	      padding-right: 14px;
       }
       
       #idle_inhibitor.activated {
