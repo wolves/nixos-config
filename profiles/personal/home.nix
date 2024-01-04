@@ -117,16 +117,16 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
+    name = "phinger-cursors";
+    package = pkgs.phinger-cursors;
     size = 24;
   };
 
   gtk = {
     enable = true;
     cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
+      name = "phinger-cursors";
+      package = pkgs.phinger-cursors;
     };
   };
 
