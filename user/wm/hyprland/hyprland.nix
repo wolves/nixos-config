@@ -272,20 +272,20 @@
 
         modules-left = [
           "idle_inhibitor"
-            "hyprland/workspaces"
+          "hyprland/workspaces"
         ];
         modules-center = [];
         modules-right = [
           "tray"
-            "backlight"
-            "pulseaudio"
-            "pulseaudio#microphone"
-            "cpu"
-            "memory"
-            # "temperature"
-            "network"
-            "battery"
-            "clock"
+          "backlight"
+          "pulseaudio"
+          "pulseaudio#microphone"
+          "cpu"
+          "memory"
+          # "temperature"
+          "network"
+          "battery"
+          "clock"
         ];
 
         "idle_inhibitor" = {
@@ -373,7 +373,7 @@
 
 	      "memory" = {
           "interval" = 30;
-          "format" = "  {}%";
+          "format"= "   {}%";
           "max-length" = 10;
 	      };
 
@@ -386,13 +386,13 @@
 	      "network" = {
           #"interface" = "wlp2*"; # (Optional) To force the use of this interface
           #"format-wifi" = "{essid} ({signalStrength}%) <span font='18'>󰖩</span>";
-          "format-wifi" = "󰖩   {signalStrength}%";
+          "format-icons" = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
+          "format-wifi" = "{icon}   {signalStrength}%";
           "format-ethernet" = "Connected <span font='14'>󰈁</span>";
           "tooltip-format" = "{essid} ({signalStrength}%)\n{ifname} via {gwaddr}/{cidr}";
           "format-linked" = "{ifname} (No IP) <span font='14'>󰈁</span>";
-          "format-disconnected" = "Disconnected <span font='14'>󰈂</span>";
+          "format-disconnected" = "󰤮";
           "format-alt" = "{ipaddr}";
-          #"on-click" = "bash ~/.config/waybar/scripts/test.sh";
           "on-click" = "${pkgs.foot}/bin/footclient nmtui";
 	      };
 
