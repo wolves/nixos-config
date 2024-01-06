@@ -55,6 +55,10 @@ in
     functions = myFuncs;
     interactiveShellInit = ''
       set -Ux fish_greeting
+
+      set -e fish_user_paths
+      set -U fish_user_paths $GOPATH/bin $fish_user_paths
+
       ${pkgs.zoxide}/bin/zoxide init fish | source
       ${pkgs.starship}/bin/starship init fish | source
     '';
