@@ -1,4 +1,4 @@
-{ config, lib, pkgs, stdenv, toString, browser, term, font, ... }:
+{ config, lib, pkgs, stdenv, toString, hypr-contrib, browser, term, font, ... }:
 
 {
   imports = [
@@ -21,6 +21,7 @@
     fuzzel
     grim
     slurp
+    hypr-contrib.packages.${pkgs.system}.grimblast
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
     xdg-utils
@@ -171,6 +172,10 @@
       bind = $mod SHIFT, R, exec, hyprctl reload && notify-send "Hyprland Reloaded"
 
       bind = $mod, D, exec, killall fuzzel || fuzzel
+
+      # Screenshots
+      bind = ,Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date ' + %Y-%m-%d ').png
+      bind = $mod, Print, exec, grimblast --notify --cursor  copy area
 
       # Window Mgmt
       bind = $mod, Q, killactive

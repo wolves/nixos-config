@@ -4,8 +4,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hypr-contrib.url = "github:hyprwm/contrib";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -16,9 +15,14 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, firefox-addons, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, hypr-contrib, neovim-nightly-overlay, firefox-addons, ... }@inputs:
   let
     # ---- SYSTEM SETTINGS ---- #
     system = "x86_64-linux"; # system architecture
@@ -85,6 +89,7 @@
           inherit editor;
           inherit term;
           inherit termType;
+          inherit (inputs) hypr-contrib;
           inherit (inputs) firefox-addons;
           inherit (inputs) neovim-nightly-overlay;
         };
