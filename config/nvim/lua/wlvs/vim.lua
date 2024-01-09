@@ -9,7 +9,7 @@ local function set_vim_opts()
   --require("lazyvim.config.options")
 
   local indent = 2
-  
+
   local notify = {
     old = vim.notify,
     lazy = nil,
@@ -25,11 +25,11 @@ local function set_vim_opts()
     end, 300)
   end
   vim.notify = notify.lazy
-  
+
   if vim.fn.has("nvim-0.8") == 1 then
     --   vim.opt.spell = true -- Put new windows below current
     vim.opt.cmdheight = 0
-  
+
     -- make all keymaps silent by default
     local keymap_set = vim.keymap.set
     vim.keymap.set = function(mode, lhs, rhs, opts)
@@ -38,16 +38,16 @@ local function set_vim_opts()
       return keymap_set(mode, lhs, rhs, opts)
     end
   end
-  
+
   if vim.fn.has("nvim-0.9.0") == 1 then
     vim.opt.splitkeep = "screen"
   end
-  
-  
+
+
   vim.g.loaded_python3_provider = 0
   vim.g.loaded_perl_provider = 0
   --vim.g.ruby_host_prog = "/home/wlvs/.asdf/shims/ruby"
-  
+
   -- Set neovim npm location when using pnpm global via asdf-vm
   -- if vim.fn.has("mac") then
   --   vim.notify("Setting up for Mac", vim.log.levels.WARN, { title = "Neovim: Mac Setup" })
@@ -56,16 +56,16 @@ local function set_vim_opts()
   --   vim.notify("Setting up for Linux", vim.log.levels.WARN, { title = "Neovim: Linux Setup" })
   --   vim.g.node_host_prog = "$HOME/.local/share/pnpm/global/5/node_modules/neovim/bin/cli.js"
   -- end
-  
+
   vim.opt.autowrite = true
   vim.opt.clipboard = "unnamedplus"
   vim.opt.conceallevel = 3
   vim.opt.confirm = true
   vim.opt.cursorline = true
   vim.opt.expandtab = true
-  
+
   vim.o.formatoptions = "jcroqlnt"
-  
+
   vim.opt.guifont = "FiraCode Nerd Font:h12"
   vim.opt.grepprg = "rg --vimgrep"
   vim.opt.grepformat = "%f:%l:%c:%m"
@@ -87,7 +87,7 @@ local function set_vim_opts()
   vim.opt.signcolumn = "yes"
   vim.opt.smartcase = true
   vim.opt.smartindent = true
-  
+
   vim.opt.splitbelow = true
   vim.opt.splitright = true
   vim.opt.tabstop = indent
@@ -112,7 +112,7 @@ local function set_vim_opts()
     -- foldsep = " ",
     foldclose = "",
   }
-  
+
   -- don't load the plugins below
   --local builtins = {
   --  "gzip",
@@ -135,11 +135,11 @@ local function set_vim_opts()
   --  "netrwSettings",
   --  "netrwFileHandlers",
   --}
-  
+
   --for _, plugin in ipairs(builtins) do
   --  vim.g["loaded_" .. plugin] = 1
   --end
-  
+
   -- Use proper syntax highlighting in code blocks
   local fences = {
     "lua",
@@ -157,9 +157,18 @@ local function set_vim_opts()
   vim.g.markdown_fenced_languages = fences
 end
 
+local function set_vim_filetypes()
+  vim.filetype.add({
+    extension = {
+      templ = "templ"
+    }
+  })
+end
+
 local function init()
   set_vim_g()
   set_vim_opts()
+  set_vim_filetypes()
 end
 
 return {

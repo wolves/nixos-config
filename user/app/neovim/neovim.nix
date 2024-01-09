@@ -105,6 +105,7 @@
       gopls
       gofumpt
       golines
+      gotools
 
       wl-clipboard
       yarn
