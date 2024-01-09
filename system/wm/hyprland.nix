@@ -8,7 +8,6 @@
   ];
 
   security = {
-    # pam.services.gtklock = {};
     pam.services.swaylock = {
       text = ''
         auth include login
