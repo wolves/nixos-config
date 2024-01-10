@@ -139,7 +139,7 @@
       bind = $mod, B, exec, ${pkgs.firefox}/bin/firefox
       bind = $mod SHIFT, R, exec, hyprctl reload && notify-send "Hyprland Reloaded"
 
-      bind = $mod, D, exec, killall fuzzel || fuzzel
+      bind = $mod, D, exec, pkill anyrun || anyrun
 
       # Screenshots
       bind = ,Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date ' + %Y-%m-%d ').png

@@ -6,6 +6,11 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     hypr-contrib.url = "github:hyprwm/contrib";
 
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -71,7 +76,10 @@
     homeConfigurations = {
       user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ (./. + "/profiles"+("/"+profile)+"/home.nix") ]; # load home.nix from selected PROFILE
+        modules = [
+          (./. + "/profiles"+("/"+profile)+"/home.nix")
+          inputs.anyrun.homeManagerModules.default
+        ]; # load home.nix from selected PROFILE
         extraSpecialArgs = {
           inherit system;
           inherit username;
@@ -90,6 +98,7 @@
           inherit term;
           inherit termType;
           inherit (inputs) hypr-contrib;
+          inherit (inputs) anyrun;
           inherit (inputs) firefox-addons;
           inherit (inputs) neovim-nightly-overlay;
         };
