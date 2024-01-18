@@ -12,8 +12,8 @@
       exec-once = swaybg -m fill -i $HOME/.wallpaper.png
       exec-once = swayidle -w timeout 900 "${pkgs.swaylock-effects}/bin/swaylock" timeout 910 '${pkgs.hyprland}/bin/hyprctl dispatch dpms off' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${pkgs.swaylock-effects}/bin/swaylock"
 
-      #monitor = eDP-1, preferred, auto, auto
-      monitor = eDP-1, 2256x1504, 0x0, 1.25
+      # monitor = eDP-1, preferred, auto, auto
+      monitor = eDP-1, 2256x1504, 0x0, 1.175000
       monitor = DP-1, 2560x1440, auto, 1
       monitor = DP-2, 2560x1440, auto, 1
 
