@@ -23,6 +23,7 @@
     ../../user/app/lf/lf.nix
     ../../user/app/git/git.nix
     (./. + "../../../user/app/browser"+("/"+browser)+".nix")
+    ../../user/app/zathura
     ../../user/lang/go/go.nix
   ];
 
