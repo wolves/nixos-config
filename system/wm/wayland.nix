@@ -12,9 +12,11 @@
 
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "";
-    xkbOptions = "ctrl:nocaps";
+    xkb = {
+      layout = "us";
+      variant = "";
+      options = "ctrl:nocaps";
+    };
     displayManager.gdm = {
       enable = true;
       wayland = true;
