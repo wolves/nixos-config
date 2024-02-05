@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./tmux
+  ];
+  
   home.packages = with pkgs; [
     killall
     libnotify
@@ -10,7 +14,6 @@
     zoxide
     fzf
     rsync
-    tmux
     unzip
     brightnessctl
   ];
