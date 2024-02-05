@@ -3,10 +3,11 @@
 {
   programs.tmux = {
     enable = true;
+    shell = "${pkgs.fish}/bin/fish";
     shortcut = "a";
     baseIndex = 1;
     keyMode = "vi";
-    terminal = "xterm-256color";
+    terminal = "tmux-256color";
 
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
@@ -15,9 +16,13 @@
     ];
 
     extraConfig = ''
+      set -ag terminal-overrides ",xterm-256color:RGB"
+      set-option -g  status-keys vi 
+      set-option -g  set-clipboard on
       set-option -g renumber-windows on
 
       set -g message-style 'bg=default,fg=yellow,bold'
+      set -g status-style  'bg=default'
 
       set -g set-titles on
       set -g set-titles-string '#{window_index}.#{pane_index} ☞ #{pane_current_command}'
