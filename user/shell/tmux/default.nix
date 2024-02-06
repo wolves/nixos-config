@@ -10,7 +10,14 @@
     terminal = "tmux-256color";
 
     plugins = with pkgs.tmuxPlugins; [
-      better-mouse-mode
+      {
+        plugin = better-mouse-mode;
+        extraConfig = ''
+          set -g @emulate-scroll-for-no-mouse-alternate-buffer "on" 
+          set -g @scroll-speed-num-lines-per-scroll "1"
+        '';
+      }
+
       {
         plugin = online-status;
         extraConfig = ''
@@ -23,6 +30,8 @@
 
     extraConfig = ''
       set -ag terminal-overrides ",xterm-256color:RGB"
+
+      set-option -g mouse on
       set-option -g  status-keys vi 
       set-option -g  set-clipboard on
       set-option -g renumber-windows on
