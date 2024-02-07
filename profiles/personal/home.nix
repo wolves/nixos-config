@@ -49,6 +49,7 @@
     mpv
     vlc
     syncthing
+    gnumake
 
     obs-studio
     ffmpeg

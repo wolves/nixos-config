@@ -86,7 +86,6 @@
     vim 
     wget
     unzip
-    fish
     git
     home-manager
   ];
