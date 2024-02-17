@@ -129,7 +129,6 @@
       misc {
         # Disable default hyprland bg
         disable_hyprland_logo = true
-        force_hypr_chan = false
       }
 
       $mod = SUPER
