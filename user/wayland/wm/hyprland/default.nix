@@ -9,8 +9,10 @@
       exec-once = GOMAXPROCS=1 syncthing --no-browser
       exec-once = ${pkgs.foot}/bin/foot --server
       exec-once = waybar
-      exec-once = swaybg -m fill -i $HOME/.wallpaper.png
+      # exec-once = swaybg -m fill -i $HOME/.wallpaper.png
       exec-once = swayidle -w timeout 900 "${pkgs.swaylock-effects}/bin/swaylock" timeout 910 '${pkgs.hyprland}/bin/hyprctl dispatch dpms off' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep "${pkgs.swaylock-effects}/bin/swaylock"
+      exec-once = swww init
+      exec = swww img $HOME/.wallpaper.png
 
       # monitor = eDP-1, preferred, auto, auto
       monitor = eDP-1, 2256x1504, 0x0, 1.175000

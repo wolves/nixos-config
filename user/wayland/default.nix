@@ -14,7 +14,8 @@
     feh
     killall
     polkit_gnome
-    swaybg
+    # swaybg
+    swww
     swayidle
     wl-clipboard
     hyprland-protocols
