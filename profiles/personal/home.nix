@@ -19,6 +19,7 @@
     ../../user/wayland
     ../../user/shell/sh.nix
     ../../user/shell/cli.nix
+    ../../user/app/yazi
     ../../user/app/neovim/neovim.nix
     ../../user/app/lf/lf.nix
     ../../user/app/git/git.nix

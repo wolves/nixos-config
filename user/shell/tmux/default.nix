@@ -69,6 +69,13 @@
       setw -g window-status-separator      "#[fg=brightwhite,bold]  "
       set -g status-justify left
 
+      # Yazi Image Preview
+ 
+      set -g allow-passthrough on
+
+      set -ga update-environment TERM
+      set -ga update-environment TERM_PROGRAM
+
       # Key-Bindings
       set -g prefix C-a
       bind C-a send-prefix
