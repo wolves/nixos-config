@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
     killall
     libnotify
-    bat eza fd bottom ripgrep
+    eza fd bottom ripgrep
     tealdeer
     duf
     zoxide
@@ -17,4 +17,11 @@
     unzip
     brightnessctl
   ];
+
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "base16-256";
+    };
+  };
 }
