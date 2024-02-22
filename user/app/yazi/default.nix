@@ -3,6 +3,7 @@
 {
   imports =[
     ./keymap.nix
+    ./theme.nix
   ];
 
   programs.yazi = {
