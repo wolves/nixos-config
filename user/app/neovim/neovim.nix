@@ -47,6 +47,8 @@
       rainbow-delimiters-nvim
       nvim-ts-context-commentstring
 
+      rust-tools-nvim
+
       telescope-nvim
       telescope-fzf-native-nvim
 
@@ -106,6 +108,8 @@
       gofumpt
       golines
       gotools
+
+      rust-analyzer
 
       wl-clipboard
       yarn

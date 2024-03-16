@@ -4,6 +4,8 @@ local lspconfig = require("lspconfig")
 local servers = require("wlvs.lsp.servers")
 local keymaps = require("wlvs.lsp.keymaps")
 
+local rust_tools = require("rust-tools")
+
 local util = require("util")
 
 local opts = {
@@ -46,6 +48,30 @@ local opts = {
 function M.init()
 
   require("wlvs.lsp.format").setup(opts)
+
+  -- Rust specific setup
+  rust_tools.setup {
+    server = {
+      settings = {
+        ['rust-analyzer'] = {
+          cargo = {
+            buildScripts = {
+              enable = true,
+            },
+          },
+          diagnostics = {
+            enable = false,
+          },
+          files = {
+            excludeDirs = { ".direnv", ".git" },
+            watcherExclude = { ".direnv", ".git" },
+          },
+        },
+      },
+      on_attach = keymaps.on_attach,
+      -- on_attach = on_attach,
+    },
+  }
 
   util.on_attach(function(client, buffer)
     keymaps.on_attach(client, buffer)
