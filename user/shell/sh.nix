@@ -34,6 +34,8 @@ let
     gpr = "git pull --rebase";
     grc = "git rebase --continue";
     gs = "git status --short --branch";
+
+    dcm = "docker-compose";
   };
 
   myFuncs = {
