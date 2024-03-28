@@ -16,6 +16,12 @@
     rsync
     unzip
     brightnessctl
+
+    (pkgs.writeShellScriptBin "dvd" ''
+      #!/bin/sh
+      echo "use flake \"github:the-nix-way/dev-templates?dir=$1\"" >> .envrc
+      direnv allow
+    '')
   ];
 
   programs = {
