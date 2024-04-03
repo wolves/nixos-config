@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   services.openssh = {
-    enable = false;
+    enable = lib.mkForce false;
     openFirewall = true;
     settings = {
       PasswordAuthentication = true;
