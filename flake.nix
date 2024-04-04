@@ -27,7 +27,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hypr-contrib, neovim-nightly-overlay, firefox-addons, ... }@inputs:
+  outputs = inputs@{ self, nixpkgs, home-manager, hypr-contrib, neovim-nightly-overlay, firefox-addons, ... }:
   let
     # ---- SYSTEM SETTINGS ---- #
     system = "x86_64-linux"; # system architecture
