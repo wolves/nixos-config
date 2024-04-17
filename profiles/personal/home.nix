@@ -138,18 +138,18 @@
   };
 
   home.pointerCursor = {
-    name = "phinger-cursors";
+    name = "phinger-cursors-dark";
     package = pkgs.phinger-cursors;
-    size = 32;
+    size = 24;
     gtk.enable = true;
   };
 
   gtk = {
     enable = true;
     cursorTheme = {
-      name = "phinger-cursors";
+      name = "phinger-cursors-dark";
       package = pkgs.phinger-cursors;
-      size = 32;
+      size = 24;
     };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme=1;

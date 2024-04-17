@@ -7,6 +7,7 @@
     extraConfig = ''
       exec-once = dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
       exec-once = GOMAXPROCS=1 syncthing --no-browser
+      exec-once = hyprctl setcursor phinger-cursors-dark 24
       exec-once = ${pkgs.foot}/bin/foot --server
       exec-once = waybar
       # exec-once = swaybg -m fill -i $HOME/.wallpaper.png
