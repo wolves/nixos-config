@@ -26,7 +26,6 @@
     (./. + "../../../user/app/browser"+("/"+browser)+".nix")
     ../../user/app/virtualization
     ../../user/app/zathura
-    ../../user/lang/go/go.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
