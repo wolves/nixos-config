@@ -71,7 +71,8 @@
       treesj
 
       dressing-nvim
-      bufferline-nvim
+      # bufferline-nvim
+      barbar-nvim
       lualine-nvim
       nvim-navic
       indent-blankline-nvim
