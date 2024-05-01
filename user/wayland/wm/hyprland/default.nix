@@ -16,7 +16,8 @@
       exec = swww img $HOME/.wallpaper.png
 
       # monitor = eDP-1, preferred, auto, auto
-      monitor = eDP-1, 2256x1504, 0x0, 1.175000
+      # monitor = eDP-1, 2256x1504, 0x0, 1.175000
+      monitor = eDP-1, 2256x1504, 0x0, 1.333333
       monitor = DP-1, 2560x1440, auto, 1
       monitor = DP-2, 2560x1440, auto, 1
 
