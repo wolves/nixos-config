@@ -19,6 +19,18 @@
     toLua = str: "lua << EOF\n${str}\nEOF\n";
     toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
     luaConfig = file: builtins.readFile file;
+
+    # noice-nvim-2_0_3 = pkgs.vimUtils.buildVimPlugin {
+    #   pname = "noice.nvim";
+    #   version = "2024-05-15";
+    #   src = pkgs.fetchFromGitHub {
+    #     owner = "folke";
+    #     repo = "noice.nvim";
+    #     rev = "8389ff59ec6eab87d7328a83e3f28ca96111d7b1";
+    #     sha256 = "m3vRKLuWrNkhHMgnpfRodTqBScaQlsIYnShsrpjKa+E=";
+    #   };
+    #   meta.homepage = "https://github.com/folke/noice.nvim/";
+    # };
   in
   {
     enable = true;
@@ -78,6 +90,7 @@
       indent-blankline-nvim
       nvim-notify
       noice-nvim
+      # noice-nvim-2_0_3
       nvim-colorizer-lua
       nui-nvim
       nvim-web-devicons
