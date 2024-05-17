@@ -96,7 +96,6 @@ local function set_vim_opts()
   vim.opt.undolevels = 10000
   vim.opt.updatetime = 200
   vim.opt.wildmode = "longest:full,full"
-  vim.opt.completeopt = "menu,menuone,noselect"
   vim.opt.wrap = false
   vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
   vim.opt.fillchars = {

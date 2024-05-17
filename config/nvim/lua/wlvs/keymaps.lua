@@ -5,7 +5,7 @@ grep_word = require('wlvs.telescope').grep_word
 
 local function init()
   --require("lazyvim.config.keymaps")
-  
+
   local wk = require("which-key")
   --local util = require("util")
 
@@ -29,9 +29,9 @@ local function init()
     ["<leader>s"] = { name = "+search" },
     ["<leader>x"] = { name = "+diagnostics/quickfix" },
   })
-  
+
   vim.o.timeoutlen = 300
-  
+
   -- local id
   -- for _, key in ipairs({ "h", "j", "k", "l" }) do
   --   local count = 0
@@ -53,7 +53,7 @@ local function init()
   --     end
   --   end, { expr = true })
   -- end
-  
+
   --wk.setup({
   --  show_help = false,
   --  triggers = "auto",
@@ -64,22 +64,22 @@ local function init()
   --    v = { "j", "k" },
   --  },
   --})
-  
+
   -- Atempting fixing <C-c> -> <esc> remapping error
   -- vim.keymap.set("i", "<C-c>", "<C-c>")
-  
+
   -- Move to window using the <ctrl> movement keys
   vim.keymap.set("n", "<left>", "<C-w>h")
-  vim.keymap.set("n", "<down>", "<C-w>j")
-  vim.keymap.set("n", "<up>", "<C-w>k")
   vim.keymap.set("n", "<right>", "<C-w>l")
-  
+  -- vim.keymap.set("n", "<down>", "<C-w>j")
+  -- vim.keymap.set("n", "<up>", "<C-w>k")
+
   -- Resize window using <ctrl> arrow keys
   vim.keymap.set("n", "<S-Up>", "<cmd>resize +2<CR>")
   vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<CR>")
   vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -2<CR>")
   vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<CR>")
-  
+
   -- Move Lines
   vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
   vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
@@ -87,21 +87,21 @@ local function init()
   vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
   vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
   vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
-  
+
   vim.keymap.set("n", "<C-Left>", "<cmd>bprevious<CR>")
   vim.keymap.set("n", "<C-Right>", "<cmd>bnext<CR>")
   vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>")
   vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>")
-  
+
   -- Move to splits
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")
   vim.keymap.set("n", "<C-k>", "<C-w>k")
   vim.keymap.set("n", "<C-l>", "<C-w>l")
-  
+
   -- Tree
   vim.keymap.set("n", "<C-e>", "<cmd>Neotree toggle reveal<CR>")
-  
+
   -- Search
   local function search(backward)
     vim.cmd([[echo "1> "]])
@@ -111,21 +111,21 @@ local function init()
       vim.cmd([[echo "2> "]])
       local second = vim.fn.getcharstr()
       vim.fn.search(first .. second, "c" .. (backward and "b" or ""))
-  
+
       vim.fn.setreg("/", first .. second)
     end)
   end
-  
+
   vim.keymap.set("n", "s", search)
   vim.keymap.set("n", "S", function()
     search(true)
   end)
-  
+
   -- Clear search with <esc>
   vim.keymap.set("", "<esc>", ":noh<esc>")
   vim.keymap.set("n", "gw", "*N")
   vim.keymap.set("x", "gw", "*N")
-  
+
   local leader = {
     w = { "<cmd>w!<CR>", "Save" },
     q = { "<cmd>q!<CR>", "Quit" },
@@ -161,23 +161,23 @@ local function init()
       name = "+toggle",
       f = { require("wlvs.lsp.format").toggle, "Format on Save" },
       n = {
-       function()
-         util.toggle("relativenumber", true)
-         util.toggle("number")
-       end,
-       "Line Numbers",
+        function()
+          util.toggle("relativenumber", true)
+          util.toggle("number")
+        end,
+        "Line Numbers",
       },
       s = {
-       function()
-         util.toggle("spell")
-       end,
-       "Spelling",
+        function()
+          util.toggle("spell")
+        end,
+        "Spelling",
       },
       w = {
-       function()
-         util.toggle("wrap")
-       end,
-       "Word Wrap",
+        function()
+          util.toggle("wrap")
+        end,
+        "Word Wrap",
       },
     },
     x = {
@@ -187,13 +187,13 @@ local function init()
       T = { "<cmd>TodoTelescope<CR>", "Todo Telescope" },
     },
   }
-  
+
   for i = 0, 10 do
     leader[tostring(i)] = "which_key_ignore"
   end
-  
+
   wk.register(leader, { prefix = "<leader>" })
-  
+
   wk.register({ g = { name = "+goto" } })
 end
 
