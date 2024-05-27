@@ -16,10 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # neovim-nightly-overlay = {
+    #   url = "github:nix-community/neovim-nightly-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -27,7 +27,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hypr-contrib, neovim-nightly-overlay, firefox-addons, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, hypr-contrib, firefox-addons, ... }:
   let
     # ---- SYSTEM SETTINGS ---- #
     system = "x86_64-linux"; # system architecture
@@ -100,7 +100,6 @@
           inherit (inputs) hypr-contrib;
           inherit (inputs) anyrun;
           inherit (inputs) firefox-addons;
-          inherit (inputs) neovim-nightly-overlay;
         };
       };
     };

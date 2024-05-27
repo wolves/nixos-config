@@ -34,7 +34,7 @@
   in
   {
     enable = true;
-    package = pkgs.neovim-nightly;
+    # package = pkgs.neovim-nightly;
 
     viAlias = true;
     vimAlias = true;
