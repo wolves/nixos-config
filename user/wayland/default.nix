@@ -3,6 +3,7 @@
 {
   imports = [
     (./. + "../../../user/wayland/wm"+("/"+wm))
+    ./hyprlock.nix
     ./anyrun
     ./waybar
     ./swaylock.nix
