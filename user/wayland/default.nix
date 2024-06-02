@@ -4,9 +4,9 @@
   imports = [
     (./. + "../../../user/wayland/wm"+("/"+wm))
     ./hyprlock.nix
+    ./hypridle.nix
     ./anyrun
     ./waybar
-    ./swaylock.nix
     ../app/terminal/foot.nix
   ];
 
@@ -15,12 +15,10 @@
     feh
     killall
     polkit_gnome
-    # swaybg
     swww
     swayidle
     wl-clipboard
     hyprland-protocols
-    swaylock-effects
     wev
     fnott
     grim

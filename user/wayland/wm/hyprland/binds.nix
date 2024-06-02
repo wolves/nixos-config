@@ -8,7 +8,7 @@
     ];
 
     bind = [
-      "CTRL ALT, L, exec, ${pkgs.swaylock-effects}/bin/swaylock"
+      "CTRL ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
       "$mod, Return, exec, ${pkgs.foot}/bin/foot"
       "$mod, B, exec, ${pkgs.firefox}/bin/firefox"
       "$mod SHIFT, R, exec, hyprctl reload && notify-send 'Hyprland Reloaded'"

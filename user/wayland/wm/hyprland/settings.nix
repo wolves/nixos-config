@@ -6,9 +6,9 @@
 
     exec-once = [
       "dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY"
-      "swayidle -w timeout 900 '${pkgs.swaylock-effects}/bin/swaylock' timeout 910 '${pkgs.hyprland}/bin/hyprctl dispatch dpms off' resume '${pkgs.hyprland}/bin/hyprctl dispatch dpms on' before-sleep '${pkgs.swaylock-effects}/bin/swaylock'"
-      "GOMAXPROCS=1 syncthing --no-browser"
       "hyprctl setcursor phinger-cursors-dark 24"
+      # "hyprlock"
+      "GOMAXPROCS=1 syncthing --no-browser"
       "waybar"
       "swww init"
 

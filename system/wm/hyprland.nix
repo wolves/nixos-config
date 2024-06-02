@@ -8,7 +8,6 @@
   ];
 
   security = {
-    pam.services.swaylock.text = "auth include login";
     pam.services.hyprlock.text = "auth include login";
     pam.services.login.enableGnomeKeyring = true;
   };
