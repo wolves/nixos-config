@@ -20,7 +20,7 @@
     ];
 
     exec = [
-      "swww img $HOME/.wallpaper.png"
+      "swww img $HOME/.cache/wallpaper.png"
     ];
 
     monitor = [

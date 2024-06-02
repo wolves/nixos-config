@@ -14,7 +14,7 @@
       image = [
         {
           monitor = "";
-          path = "$HOME/.dots/themes/avatars/guy_fawkes.png";
+          path = "$HOME/.cache/avatar.png";
           size = 280;
           rounding = -1; # negative values mean circle
           border_size = 4;
@@ -49,7 +49,7 @@
       background = [
         {
           monitor = "";
-          path = "$HOME/.wallpaper.png";
+          path = "$HOME/.cache/wallpaper.png";
 
           blur_passes = 3; # 0 disables blurring
           blur_size = 7;

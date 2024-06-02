@@ -33,7 +33,10 @@
     pamixer
   ];
 
-  home.file.".wallpaper.png".source = ../../themes/aenami_escape.jpg;
+  home.file = {
+    ".cache/wallpaper.png".source = ../../themes/aenami_escape.jpg;
+    ".cache/avatar.png".source = ../../themes/avatars/guy_fawkes.png;
+  };
 
   services.fnott.enable = true;
 }
