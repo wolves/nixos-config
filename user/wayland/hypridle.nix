@@ -17,11 +17,11 @@
 
       listener = [
         {
-          timeout = 60;
+          timeout = 900;
           on-timeout = "${loginctl} lock-session";
         }
         {
-          timeout = 70;
+          timeout = 915;
           on-timeout = "${hyprctl} dispatch dpms off";
           on-resume = "${hyprctl} dispatch dpms on";
         }
