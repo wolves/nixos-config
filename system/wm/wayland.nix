@@ -10,16 +10,18 @@
 
   environment.systemPackages = [ pkgs.wayland ];
 
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "us";
-      variant = "";
-      options = "ctrl:nocaps";
+  services.greetd = let
+    session = {
+      command = "Hyprland";
+      user = "wlvs";
     };
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
+  in {
+    enable = true;
+
+    settings = {
+      terminal.vt = 1;
+      default_session = session;
+      initial_session = session;
     };
   };
 }

@@ -1,19 +1,22 @@
 { config, pkgs, ... }:
 
 {
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings = let
+    hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
+    hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+  in {
     "$mod" = "SUPER";
 
     exec-once = [
       "dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY"
-      "hyprctl setcursor phinger-cursors-dark 24"
-      # "hyprlock"
+      "${hyprctl} setcursor phinger-cursors-dark 24"
+      "${hyprlock}"
       "GOMAXPROCS=1 syncthing --no-browser"
       "waybar"
       "swww init"
 
-      "hyprctl dispatch exec [workspace 1 silent] ${pkgs.foot}/bin/foot"
-      "hyprctl dispatch exec [workspace 2 silent] ${pkgs.firefox}/bin/firefox"
+      "${hyprctl} dispatch exec [workspace 1 silent] ${pkgs.foot}/bin/foot"
+      "${hyprctl} dispatch exec [workspace 2 silent] ${pkgs.firefox}/bin/firefox"
     ];
 
     exec = [
