@@ -4,6 +4,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     hypr-contrib.url = "github:hyprwm/contrib";
 
     anyrun = {
@@ -27,7 +28,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, hypr-contrib, firefox-addons, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, hypr-contrib, firefox-addons, ... }:
   let
     # ---- SYSTEM SETTINGS ---- #
     system = "x86_64-linux"; # system architecture
@@ -59,7 +60,10 @@
     nixosConfigurations = {
       system = lib.nixosSystem {
         inherit system;
-        modules = [ (./. + "/profiles"+("/"+profile)+"/configuration.nix") ]; # load configuration from selected PROFILE
+        modules = [
+          nixos-hardware.nixosModules.framework-11th-gen-intel
+          (./. + "/profiles"+("/"+profile)+"/configuration.nix")
+        ]; # load configuration from selected PROFILE
         specialArgs = {
           inherit username;
           inherit name;
