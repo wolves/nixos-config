@@ -8,11 +8,12 @@
     ];
 
     bind = [
-      "CTRL ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
       "$mod, Return, exec, ${pkgs.foot}/bin/foot"
       "$mod, B, exec, ${pkgs.firefox}/bin/firefox"
       "$mod SHIFT, R, exec, hyprctl reload && notify-send 'Hyprland Reloaded'"
       "$mod, D, exec, pkill anyrun || anyrun"
+      "$mod, Escape, exec, wlogout -p layer-shell"
+      "CTRL ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
 
       # Screenshots
       ",Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date ' + %Y-%m-%d ').png"

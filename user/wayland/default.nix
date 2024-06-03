@@ -5,6 +5,7 @@
     (./. + "../../../user/wayland/wm"+("/"+wm))
     ./hyprlock.nix
     ./hypridle.nix
+    ./wlogout.nix
     ./anyrun
     ./waybar
     ../app/terminal/foot.nix
