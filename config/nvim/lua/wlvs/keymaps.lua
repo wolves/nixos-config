@@ -159,6 +159,7 @@ local function init()
     },
     t = {
       name = "+toggle",
+      c = { require("util").toggle_colors, "Colorscheme Light/Dark" },
       f = { require("wlvs.lsp.format").toggle, "Format on Save" },
       n = {
         function()
