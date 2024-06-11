@@ -51,6 +51,7 @@
     vlc
     syncthing
     gnumake
+    just
 
     obs-studio
     ffmpeg
