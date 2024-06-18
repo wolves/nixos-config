@@ -16,7 +16,7 @@
       "CTRL ALT, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
 
       # Screenshots
-      ",Print, exec, grimblast --notify --cursor save area ~/Media/Pictures/$(date ' + %Y-%m-%d ').png"
+      ",Print, exec, grimblast --notify --cursor save area ~/Media/Pictures/$(date -u +%Y-%m-%d_%H:%M:%S).png"
       "$mod, Print, exec, grimblast --notify --cursor copy area"
 
       # Window Mgmt
