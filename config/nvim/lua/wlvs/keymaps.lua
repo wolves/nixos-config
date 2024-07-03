@@ -88,8 +88,8 @@ local function init()
   vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
   vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 
-  vim.keymap.set("n", "<C-Left>", "<cmd>bprevious<CR>")
-  vim.keymap.set("n", "<C-Right>", "<cmd>bnext<CR>")
+  vim.keymap.set("n", "<C-Left>", "<cmd>BufferPrevious<CR>")
+  vim.keymap.set("n", "<C-Right>", "<cmd>BufferNext<CR>")
   vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>")
   vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>")
 
