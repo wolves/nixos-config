@@ -1,24 +1,24 @@
 local function init()
   require("better_escape").setup({
-    mapping = { "jk", "jj" }, -- a table with mappings to use
+    mapping = { "jk", "jj" },   -- a table with mappings to use
     timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-    clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-    keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+    clear_empty_lines = false,  -- clear line after escaping if there is only whitespace
+    keys = "<Esc>",             -- keys used for escaping, if it is a function will use the result everytime
   })
 
   require("colorizer").setup({
     filetypes = { "*", "!lazy" },
     buftype = { "*", "!prompt", "!nofile" },
     user_default_options = {
-      RGB = true, -- #RGB hex codes
-      RRGGBB = true, -- #RRGGBB hex codes
-      names = false, -- "Name" codes like Blue
-      RRGGBBAA = true, -- #RRGGBBAA hex codes
+      RGB = true,       -- #RGB hex codes
+      RRGGBB = true,    -- #RRGGBB hex codes
+      names = false,    -- "Name" codes like Blue
+      RRGGBBAA = true,  -- #RRGGBBAA hex codes
       AARRGGBB = false, -- 0xAARRGGBB hex codes
-      rgb_fn = true, -- CSS rgb() and rgba() functions
-      hsl_fn = true, -- CSS hsl() and hsla() functions
-      css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-      css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+      rgb_fn = true,    -- CSS rgb() and rgba() functions
+      hsl_fn = true,    -- CSS hsl() and hsla() functions
+      css = false,      -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+      css_fn = true,    -- Enable all CSS *functions*: rgb_fn, hsl_fn
       -- Available modes: foreground, background
       -- Available modes for `mode`: foreground, background,  virtualtext
       mode = "background", -- Set the display mode.
@@ -65,7 +65,7 @@ local function init()
     disable_commit_confirmation = true,
     kind = "floating",
     commit_editor = {
-      kind = "floating",
+      kind = "tab",
     },
     popup = {
       kind = "floating",
