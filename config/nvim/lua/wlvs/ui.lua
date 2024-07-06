@@ -12,6 +12,7 @@ local function init()
   require("dressing").setup({})
 
   require("barbar").setup({
+    insert_at_end = true,
     sidebar_filetypes = {
       ['neo-tree'] = { event = 'BufWipeout' },
     }
