@@ -148,6 +148,8 @@ local function init()
       g = { "<cmd>Neogit<CR>", "Neogit" },
       d = { "<cmd>DiffviewOpen<CR>", "Diffview" },
       h = { name = "+hunk" },
+      J = { "<cmd>TSJJoin<CR>", "Join" },
+      S = { "<cmd>TSJSplit<CR>", "Split" },
     },
     m = {
       name = "+harpoon",
