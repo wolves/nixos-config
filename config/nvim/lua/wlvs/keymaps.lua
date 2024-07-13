@@ -183,7 +183,8 @@ local function init()
     },
     x = {
       name = "+trouble/todo",
-      x = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Trouble" },
+      x = { "<cmd>Trouble diagnostics toggle<CR>", "Diagnostics (Trouble)" },
+      X = { "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", "Buffer Diagnostics (Trouble)" },
       t = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
       T = { "<cmd>TodoTelescope<CR>", "Todo Telescope" },
     },
