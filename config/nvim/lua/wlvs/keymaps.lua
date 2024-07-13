@@ -148,8 +148,6 @@ local function init()
       g = { "<cmd>Neogit<CR>", "Neogit" },
       d = { "<cmd>DiffviewOpen<CR>", "Diffview" },
       h = { name = "+hunk" },
-      J = { "<cmd>TSJJoin<CR>", "Join" },
-      S = { "<cmd>TSJSplit<CR>", "Split" },
     },
     m = {
       name = "+harpoon",
@@ -190,6 +188,11 @@ local function init()
       T = { "<cmd>TodoTelescope<CR>", "Todo Telescope" },
     },
   }
+
+  wk.register({
+    ["gJ"] = { "<cmd>TSJJoin<cr>", "Join" },
+    ["gS"] = { "<cmd>TSJSplit<cr>", "Split" },
+  })
 
   for i = 0, 10 do
     leader[tostring(i)] = "which_key_ignore"
