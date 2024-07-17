@@ -112,7 +112,6 @@
 
       nodePackages."bash-language-server"
       nodePackages."dockerfile-language-server-nodejs"
-      # nodePackages."pyright"
       nodePackages."typescript"
       nodePackages."typescript-language-server"
       nodePackages."vscode-langservers-extracted"
