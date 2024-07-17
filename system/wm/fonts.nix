@@ -3,7 +3,7 @@
 {
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Inconsolata" ]; })
-    powerline
+    # powerline
     inconsolata
     inconsolata-nerdfont
     iosevka
