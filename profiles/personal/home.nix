@@ -45,8 +45,6 @@
     git
     gh
     brave
-    dmenu
-    rofi
     mpv
     vlc
     syncthing
