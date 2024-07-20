@@ -45,7 +45,7 @@
     theme = "kanagawa"; # select theme from themes dir (./themes/)
     wm = "hyprland"; # select window manager; must exist in both ./user/wm/ & ./system/wm/
     wmType = "wayland"; # x11 or wayland
-    browser = "firefox"; # select browser from ./user/app/browser/
+    browser = "brave"; # select browser from ./user/app/browser/
     editor = "nvim";
     term = "foot"; # default terminal command
     termType = "xterm-256color";

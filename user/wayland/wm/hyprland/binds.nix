@@ -9,7 +9,7 @@
 
     bind = [
       "$mod, Return, exec, ${pkgs.foot}/bin/foot"
-      "$mod, B, exec, ${pkgs.firefox}/bin/firefox"
+      "$mod, B, exec, ${pkgs.brave}/bin/brave"
       "$mod SHIFT, R, exec, hyprctl reload && notify-send 'Hyprland Reloaded'"
       "$mod, D, exec, pkill anyrun || anyrun"
       "$mod, Escape, exec, wlogout -p layer-shell"
