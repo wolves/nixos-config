@@ -1,6 +1,6 @@
 {
 
-  description = "First Flake";
+  description = "WLVS - NixOS Flake and Home Manager Configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -28,8 +28,18 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, hypr-contrib, firefox-addons, ... }:
+  outputs = {
+    self,
+    nixpkgs,
+    nixos-hardware,
+    home-manager,
+    hypr-contrib,
+    firefox-addons,
+    ...
+  } @ inputs:
   let
+    inherit (self) outputs;
+
     # ---- SYSTEM SETTINGS ---- #
     system = "x86_64-linux"; # system architecture
     hostname = "fwrk";
@@ -57,6 +67,8 @@
     # configure lib
     lib = nixpkgs.lib;
   in {
+    homeManagerModules = import ./modules/home-manager;
+
     nixosConfigurations = {
       system = lib.nixosSystem {
         inherit system;
