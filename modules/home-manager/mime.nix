@@ -1,15 +1,15 @@
 { config, pkgs, browser, ... }:
 let
-  webBrowser = "${browser}.desktop";
+  web-browser = "${browser}.desktop";
 in {
   xdg.mimeApps = rec {
     enable = true;
     defaultApplications = {
-      "text/html" = webBrowser;
-      "x-scheme-handler/http" = webBrowser;
-      "x-scheme-handler/https" = webBrowser;
-      "x-scheme-handler/about" = webBrowser;
-      "x-scheme-handler/unknown" = webBrowser;
+      "text/html" = web-browser;
+      "x-scheme-handler/http" = web-browser;
+      "x-scheme-handler/https" = web-browser;
+      "x-scheme-handler/about" = web-browser;
+      "x-scheme-handler/unknown" = web-browser;
     };
   };
 }
