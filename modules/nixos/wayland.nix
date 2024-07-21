@@ -2,10 +2,7 @@
 
 {
   imports = [
-    ./pipewire.nix
-    ./dbus.nix
-    ./gnome-keyring.nix
-    ./fonts.nix
+    ./keyring.nix
   ];
 
   environment.systemPackages = [ pkgs.wayland ];
@@ -25,3 +22,4 @@
     };
   };
 }
+

@@ -5,3 +5,4 @@
     gnome-keyring.enable = true;
   };
 }
+

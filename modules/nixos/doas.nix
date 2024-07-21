@@ -13,3 +13,4 @@
     (pkgs.writeScriptBin "sudo" ''exec doas "$@"'')
   ];
 }
+

@@ -4,23 +4,22 @@
 
 { config, lib, pkgs, username, name, hostname, timezone, locale, wm, theme, ... }:
 {
-  imports =
-    [ 
-      ../../system/hardware-configuration.nix
-      ../../system/hardware/power.nix # Power management
-      ../../system/hardware/bluetooth.nix
-      (./. + "../../../system/wm"+("/"+wm)+".nix")
-      ../../system/security/doas.nix
-      ../../system/security/sshd.nix
-      ../../system/security/network.nix
-    ];
+  imports = [
+    ./users.nix
+  ];
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   nix.package = pkgs.nixFlakes;
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
+
   nix.settings = {
+    experimental-features = "nix-command flakes";
+    auto-optimise-store = true;
+    trusted-users = ["${username}"];
+
     builders-use-substitutes = true;
+
     # substituters to use
     substituters = [
         "https://anyrun.cachix.org"
@@ -36,8 +35,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices."luks-b97d0cb7-3b47-4cc8-b662-e6cab44e384d".device = "/dev/disk/by-uuid/b97d0cb7-3b47-4cc8-b662-e6cab44e384d";
   boot.kernelParams = [ "mem_sleep_default=deep" ];
-
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -72,17 +69,6 @@
 
   virtualisation.docker.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${username} = {
-    isNormalUser = true;
-    description = name;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [];
-    uid = 1000;
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -97,6 +83,7 @@
   environment.shells = with pkgs; [ fish ];
   users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true; 
+
 
   fonts.fontDir.enable = true;
 
@@ -114,17 +101,6 @@
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
-  # };
-
-  # nix = {
-  #   gc = {
-  #     automatic = true;
-  #     dates = "weekly";
-  #     options = "--delete-older-than 3d";
-  #   };
-  #   settings = {
-  #     auto-optimise-store = true;
-  #   };
   # };
 
   # This value determines the NixOS release from which the default

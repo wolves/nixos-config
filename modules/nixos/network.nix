@@ -12,7 +12,7 @@
       enable = true;
       trustedInterfaces = [ "tailscale0" ];
       allowedUDPPorts = [
-	config.services.tailscale.port
+	      config.services.tailscale.port
       ];
       allowedTCPPorts = [ 22 ];
       checkReversePath = "loose";
@@ -25,3 +25,4 @@
   # Slows down boot time
   systemd.services.NetworkManager-wait-online.enable = false;
 }
+

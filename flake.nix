@@ -67,18 +67,22 @@
     # configure lib
     lib = nixpkgs.lib;
   in {
+    nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
       system = lib.nixosSystem {
         inherit system;
+
         modules = [
-          # ./nixos/configuration.nix
-          # (./. + "/profiles"+("/"+profile)+"/configuration.nix")
-          ./profiles/personal/configuration.nix
+          ./nixos/configuration.nix
+          ./nixos/hosts/nixos
+
           nixos-hardware.nixosModules.framework-11th-gen-intel
-        ]; # load configuration from selected PROFILE
+        ];
+
         specialArgs = {
+          inherit outputs;
           inherit username;
           inherit name;
           inherit hostname;
