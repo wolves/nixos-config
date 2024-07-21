@@ -43,7 +43,7 @@
     # ---- SYSTEM SETTINGS ---- #
     system = "x86_64-linux"; # system architecture
     hostname = "fwrk";
-    profile = "personal"; # select profile from profiles directory
+    # profile = "personal"; # select profile from profiles directory
     timezone = "America/New_York";
     locale = "en_US.UTF-8";
 
@@ -73,8 +73,9 @@
       system = lib.nixosSystem {
         inherit system;
         modules = [
+          ./nixos/configuration.nix
           nixos-hardware.nixosModules.framework-11th-gen-intel
-          (./. + "/profiles"+("/"+profile)+"/configuration.nix")
+          # (./. + "/profiles"+("/"+profile)+"/configuration.nix")
         ]; # load configuration from selected PROFILE
         specialArgs = {
           inherit username;
@@ -93,7 +94,8 @@
       user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          (./. + "/profiles"+("/"+profile)+"/home.nix")
+          # (./. + "/profiles"+("/"+profile)+"/home.nix")
+          ./home-manager/home.nix
           inputs.anyrun.homeManagerModules.default
         ]; # load home.nix from selected PROFILE
         extraSpecialArgs = {
@@ -101,7 +103,6 @@
           inherit username;
           inherit name;
           inherit hostname;
-          inherit profile;
           inherit email;
           inherit dotfilesDir;
           inherit theme;
