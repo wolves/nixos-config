@@ -73,9 +73,10 @@
       system = lib.nixosSystem {
         inherit system;
         modules = [
-          ./nixos/configuration.nix
-          nixos-hardware.nixosModules.framework-11th-gen-intel
+          # ./nixos/configuration.nix
           # (./. + "/profiles"+("/"+profile)+"/configuration.nix")
+          ./profiles/personal/configuration.nix
+          nixos-hardware.nixosModules.framework-11th-gen-intel
         ]; # load configuration from selected PROFILE
         specialArgs = {
           inherit username;
@@ -93,12 +94,14 @@
     homeConfigurations = {
       user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+
         modules = [
-          # (./. + "/profiles"+("/"+profile)+"/home.nix")
           ./home-manager/home.nix
           inputs.anyrun.homeManagerModules.default
-        ]; # load home.nix from selected PROFILE
+        ];
+
         extraSpecialArgs = {
+          inherit outputs;
           inherit system;
           inherit username;
           inherit name;

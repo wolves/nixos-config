@@ -8,16 +8,38 @@
   editor,
   termType,
   browser,
+  hypr-contrib,
   ...
 }: {
   imports = with outputs.homeManagerModules; [
-  
+    anyrun
+    bat
+    brave
+    direnv
+    # firefox
+    fish
+    foot
+    git
+    hyprland
+    mime
+    mpv
+    neovim
+    ripgrep
+    starship
+    tmux
+    virtualization
+    waybar
+    wlogout
+    yazi
+    zathura
   ];
 
   nixpkgs = {
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [ "electron-19.1.9" ];
     };
+
   };
 
   home = {
@@ -26,12 +48,7 @@
   };
  
   home.packages = with pkgs; [
-    fish
-    foot
-    git
     gh
-    brave
-    mpv
     vlc
     syncthing
     gnumake
@@ -40,9 +57,48 @@
     obs-studio
     ffmpeg
     calibre
+
+    feh
+    killall
+    libnotify
+    polkit_gnome
+    swww
+    swayidle
+    wl-clipboard
+    hyprland-protocols
+    wev
+    fnott
+    grim
+    slurp
+    hypr-contrib.packages.${pkgs.system}.grimblast
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
+    xdg-utils
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    pamixer
+
+    eza
+    fd
+    bottom
+    tealdeer
+    duf
+    zoxide
+    fzf
+    rsync
+    unzip
+    brightnessctl
+
+    (pkgs.writeShellScriptBin "dvd" ''
+      #!/bin/sh
+      echo "use flake \"github:the-nix-way/dev-templates?dir=$1\"" >> .envrc
+      direnv allow
+    '')
   ];
 
   services = {
+    fnott.enable = true;
     blueman-applet.enable = true;
     # network-manager-applet.enable = true;
     syncthing.enable = true;
@@ -69,7 +125,6 @@
 
   };
   xdg.mime.enable = true;
-  xdg.mimeApps.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -84,6 +139,8 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".cache/wallpaper.png".source = ../themes/aenami_escape.jpg;
+    ".cache/avatar.png".source = ../themes/avatars/guy_fawkes.png;
   };
   
   home.sessionVariables = {

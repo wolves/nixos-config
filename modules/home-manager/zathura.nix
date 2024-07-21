@@ -1,6 +1,4 @@
 {
-  # home.shellAliases.z = "zathura";
-
   programs.zathura = {
     enable = true;
 

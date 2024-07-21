@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   myAliases = {
     ".." = "cd ..";
     "..." = "cd ../..";
@@ -41,16 +44,15 @@ let
   myFuncs = {
     g = {
       body = ''
-	if count $argv >/dev/null
+	      if count $argv >/dev/null
           git $argv
-	else
+	      else
           git status --short --branch
-	end
+	      end
       '';
     };
   };
-in
-{
+in {
   programs.fish = {
     enable = true;
     shellAliases = myAliases;
@@ -65,27 +67,5 @@ in
       ${pkgs.starship}/bin/starship init fish | source
     '';
   };
-
-  programs.starship.enable = true;
-  programs.starship.settings = {
-    directory = {
-      style = "blue";
-      read_only = " ";
-      format = " [$path]($style)[$read_only]($read_only_style) ";
-    };
-    
-    character = {
-      success_symbol = "[❯](purple)";
-      error_symbol = "[❯](red)";
-      vicmd_symbol = "[❮](green)";
-    };
-    
-    git_branch = {
-      symbol = " ";
-      format = "[$branch]($style) ";
-      style = "bright-black";
-    };
-    
-    git_status = {};
-  };
 }
+

@@ -15,17 +15,6 @@
   programs.home-manager.enable = true;
 
   imports = [
-    # (./. + "../../../user/wm"+("/"+wm+"/"+wm)+".nix")
-    ../../user/wayland
-    ../../user/shell/sh.nix
-    ../../user/shell/cli.nix
-    ../../user/app/yazi
-    ../../user/app/neovim/neovim.nix
-    ../../user/app/lf/lf.nix
-    ../../user/app/git/git.nix
-    (./. + "../../../user/app/browser"+("/"+browser)+".nix")
-    ../../user/app/virtualization
-    ../../user/app/zathura
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -45,6 +34,8 @@
     git
     gh
     brave
+    # dmenu
+    # rofi
     mpv
     vlc
     syncthing

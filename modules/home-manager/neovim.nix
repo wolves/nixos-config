@@ -7,7 +7,7 @@
         vimPlugins = prev.vimPlugins // {
           wlvs-nvim = prev.vimUtils.buildVimPlugin {
             name = "wlvs-nvim";
-            src = ../../../config/nvim;
+            src = ../../config/nvim;
           };
         };
       })
@@ -130,3 +130,4 @@
 
   };
 }
+
