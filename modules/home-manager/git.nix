@@ -3,10 +3,16 @@
 {
   programs.git = {
     enable = true;
-    userName = "Wolves";
+    userName = "wolves";
     userEmail = email;
     extraConfig = {
+      github.user = "wolves";
       init.defaultBranch = "main";
+      branch ={
+        autosetupmerge = true;
+        autosetuprebase = "always";
+      };
+      rerere.enabled = 1;
     };
   };
 }
