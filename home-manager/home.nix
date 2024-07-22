@@ -12,6 +12,7 @@
   ...
 }: {
   imports = with outputs.homeManagerModules; [
+    # alacritty
     anyrun
     bat
     brave

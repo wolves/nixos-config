@@ -1,4 +1,5 @@
 {
+  alacritty = import ./alacritty.nix;
   anyrun = import ./anyrun;
   bat = import ./bat.nix;
   brave = import ./brave.nix;
