@@ -1,6 +1,6 @@
 {
 
-  description = "First Flake";
+  description = "WLVS - NixOS Flake and Home Manager Configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -28,12 +28,22 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, nixos-hardware, home-manager, hypr-contrib, firefox-addons, ... }:
+  outputs = {
+    self,
+    nixpkgs,
+    nixos-hardware,
+    home-manager,
+    hypr-contrib,
+    firefox-addons,
+    ...
+  } @ inputs:
   let
+    inherit (self) outputs;
+
     # ---- SYSTEM SETTINGS ---- #
     system = "x86_64-linux"; # system architecture
     hostname = "fwrk";
-    profile = "personal"; # select profile from profiles directory
+    # profile = "personal"; # select profile from profiles directory
     timezone = "America/New_York";
     locale = "en_US.UTF-8";
 
@@ -57,14 +67,22 @@
     # configure lib
     lib = nixpkgs.lib;
   in {
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+
     nixosConfigurations = {
       system = lib.nixosSystem {
         inherit system;
+
         modules = [
+          ./nixos/configuration.nix
+          ./nixos/hosts/nixos
+
           nixos-hardware.nixosModules.framework-11th-gen-intel
-          (./. + "/profiles"+("/"+profile)+"/configuration.nix")
-        ]; # load configuration from selected PROFILE
+        ];
+
         specialArgs = {
+          inherit outputs;
           inherit username;
           inherit name;
           inherit hostname;
@@ -80,16 +98,18 @@
     homeConfigurations = {
       user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+
         modules = [
-          (./. + "/profiles"+("/"+profile)+"/home.nix")
+          ./home-manager/home.nix
           inputs.anyrun.homeManagerModules.default
-        ]; # load home.nix from selected PROFILE
+        ];
+
         extraSpecialArgs = {
+          inherit outputs;
           inherit system;
           inherit username;
           inherit name;
           inherit hostname;
-          inherit profile;
           inherit email;
           inherit dotfilesDir;
           inherit theme;
