@@ -5,6 +5,10 @@
 }: let
   repoPath = "${config.home.homeDirectory}/.dots";
 in {
+  home.packages = with pkgs; [
+    gcc
+  ];
+  
   home.sessionVariables = {
     LAZY_NVIM_LOCK_PATH = "${repoPath}/config/nvim_lazy/";
   };
@@ -29,7 +33,6 @@ in {
     extraPackages = with pkgs; [
       lua-language-server
       vscode-langservers-extracted
-      clang-tools
       tree-sitter
       fzf
 
