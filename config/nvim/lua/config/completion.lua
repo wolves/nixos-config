@@ -1,10 +1,10 @@
 local cmp = require("cmp")
-local ls = require("luasnip")
+-- local ls = require("luasnip")
 
 cmp.setup({
   sources = {
     { name = "nvim_lsp" },
-    { name = "luasnip" },
+    -- { name = "luasnip" },
     { name = "path" },
     { name = "buffer" },
   },
@@ -19,30 +19,30 @@ cmp.setup({
       { "i", "c" }
     ),
   },
-  snippet = {
-    expand = function(args)
-      ls.lsp_expand(args.body)
-    end,
-  },
+  -- snippet = {
+  --   expand = function(args)
+  --     ls.lsp_expand(args.body)
+  --   end,
+  -- },
 })
 
-ls.config.set_config({
-  history = false,
-  updateevents = "TextChanged,TextChangedI",
-})
+-- ls.config.set_config({
+--   history = false,
+--   updateevents = "TextChanged,TextChangedI",
+-- })
 
-for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/snippets/*.lua", true)) do
-  loadfile(ft_path)()
-end
+-- for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/snippets/*.lua", true)) do
+--   loadfile(ft_path)()
+-- end
 
-vim.keymap.set({ "i", "s" }, "<c-k>", function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
-end, { silent = true })
-
-vim.keymap.set({ "i", "s" }, "<c-j>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { silent = true })
+-- vim.keymap.set({ "i", "s" }, "<c-k>", function()
+--   if ls.expand_or_jumpable() then
+--     ls.expand_or_jump()
+--   end
+-- end, { silent = true })
+--
+-- vim.keymap.set({ "i", "s" }, "<c-j>", function()
+--   if ls.jumpable(-1) then
+--     ls.jump(-1)
+--   end
+-- end, { silent = true })
