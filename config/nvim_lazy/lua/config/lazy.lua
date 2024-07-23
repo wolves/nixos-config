@@ -43,7 +43,10 @@ local lazy_config = {
   },
 }
 if lockpath then
+  vim.notify(("Lockpath set to: %s"):format(lockpath), vim.log.levels.INFO, { title = "Lazy: lockpath set!" })
   lazy_config.lockfile = lockpath .. "/lazy-lock.json"
+else
+  vim.notify("No lock path", vim.log.levels.INFO, { title = "Lazy: lockpath not set!" })
 end
 
 require("lazy").setup("plugins", lazy_config)
