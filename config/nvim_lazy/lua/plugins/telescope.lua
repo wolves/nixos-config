@@ -15,12 +15,12 @@ end
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
-  -- dependencies = {
-  --   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  -- },
+  dependencies = {
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  },
   keys = {
     { "<leader>ss", grep_string_prompt, desc = "Grep Prompt" },
-    { "<leader>sw", grep_word,          desc = "Grep Current Word" },
+    { "<leader>sw", grep_word, desc = "Grep Current Word" },
   },
   config = function()
     local telescope = require("telescope")
