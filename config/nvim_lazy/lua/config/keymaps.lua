@@ -5,28 +5,6 @@ local util = require("util")
 
 vim.o.timeoutlen = 300
 
--- local id
--- for _, key in ipairs({ "h", "j", "k", "l" }) do
---   local count = 0
---   vim.keymap.set("n", key, function()
---     if count >= 10 then
---       id = vim.notify("Hold it Cowboy!", vim.log.levels.WARN, {
---         icon = "🤠",
---         replace = id,
---         keep = function()
---           return count >= 10
---         end,
---       })
---     else
---       count = count + 1
---       vim.defer_fn(function()
---         count = count - 1
---       end, 5000)
---       return key
---     end
---   end, { expr = true })
--- end
-
 --wk.setup({
 --  show_help = false,
 --  triggers = "auto",
@@ -101,23 +79,23 @@ vim.keymap.set("n", "gw", "*N")
 vim.keymap.set("x", "gw", "*N")
 
 wk.add({
-  { "<leader>b",  group = "buffer" },
+  { "<leader>b", group = "buffer" },
   {
     "<leader>bb",
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     desc = "Buffers",
   },
-  { "<leader>e",  "<cmd>lua require('mini.files').open()<CR>", desc = "File Explorer" },
-  { "<leader>f",  group = "file" },
-  { "<leader>fn", "<cmd>enew<CR>",                             desc = "New" },
-  { "<leader>g",  group = "git" },
-  { "<leader>gd", "<cmd>DiffviewOpen<CR>",                     desc = "Diffview" },
-  { "<leader>gg", "<cmd>Neogit<CR>",                           desc = "Neogit" },
+  { "<leader>e", "<cmd>lua require('mini.files').open()<CR>", desc = "File Explorer" },
+  { "<leader>f", group = "file" },
+  { "<leader>fn", "<cmd>enew<CR>", desc = "New" },
+  { "<leader>g", group = "git" },
+  { "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "Diffview" },
+  { "<leader>gg", "<cmd>Neogit<CR>", desc = "Neogit" },
   { "<leader>gh", group = "hunk" },
-  { "<leader>m",  group = "harpoon" },
-  { "<leader>q",  "<cmd>q!<CR>",                               desc = "Quit" },
-  { "<leader>t",  group = "toggle" },
-  { "<leader>tc", util.toggle_colors,                          desc = "Colorscheme Light/Dark" },
+  { "<leader>m", group = "harpoon" },
+  { "<leader>q", "<cmd>q!<CR>", desc = "Quit" },
+  { "<leader>t", group = "toggle" },
+  { "<leader>tc", util.toggle_colors, desc = "Colorscheme Light/Dark" },
   -- { "<leader>tf", require("plugins.lsp.format").toggle,        desc = "Format on Save" },
   {
     "<leader>tn",

@@ -26,12 +26,12 @@ return {
       -- use gz mappings instead of s to prevent conflict with leap
       require("mini.surround").setup({
         mappings = {
-          add = "gza",            -- Add surrounding in Normal and Visual modes
-          delete = "gzd",         -- Delete surrounding
-          find = "gzf",           -- Find surrounding (to the right)
-          find_left = "gzF",      -- Find surrounding (to the left)
-          highlight = "gzh",      -- Highlight surrounding
-          replace = "gzr",        -- Replace surrounding
+          add = "gza", -- Add surrounding in Normal and Visual modes
+          delete = "gzd", -- Delete surrounding
+          find = "gzf", -- Find surrounding (to the right)
+          find_left = "gzF", -- Find surrounding (to the left)
+          highlight = "gzh", -- Highlight surrounding
+          replace = "gzr", -- Replace surrounding
           update_n_lines = "gzn", -- Update `n_lines`
         },
       })
@@ -58,11 +58,6 @@ return {
             return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
           end,
         },
-        -- hooks = {
-        --   pre = function()
-        --     require("ts_context_commentstring.internal").update_commentstring({})
-        --   end,
-        -- },
       })
     end,
   },
@@ -102,9 +97,8 @@ return {
   {
     "Wansmer/treesj",
     keys = {
-      -- { "J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
       { "gS", "<cmd>TSJSplit<cr>", desc = "Split" },
-      { "gJ", "<cmd>TSJJoin<cr>",  desc = "Join" },
+      { "gJ", "<cmd>TSJJoin<cr>", desc = "Join" },
     },
     opts = {
       use_default_keymaps = false,
