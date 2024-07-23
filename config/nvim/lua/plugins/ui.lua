@@ -150,7 +150,7 @@ return {
             },
           },
           lualine_y = {
-            { "progress", separator = "",                   padding = { left = 1, right = 0 } },
+            { "progress", separator = "", padding = { left = 1, right = 0 } },
             { "location", padding = { left = 0, right = 1 } },
           },
           lualine_z = {
@@ -213,25 +213,6 @@ return {
         options = { try_as_border = true },
       })
     end,
-  },
-
-  -- noice ui
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      lsp = {
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-        },
-      },
-      presets = {
-        bottom_search = true,
-        command_palette = true,
-        long_message_to_split = true,
-      },
-    },
   },
 
   -- icons
