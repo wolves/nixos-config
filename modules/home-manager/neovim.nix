@@ -6,12 +6,12 @@
   repoPath = "${config.home.homeDirectory}/.dots";
 in {
   home.sessionVariables = {
-    LAZY_NVIM_LOCK_PATH = "${repoPath}/config/nvim_lazy/";
+    LAZY_NVIM_LOCK_PATH = "${repoPath}/config/nvim/";
   };
 
   home.file = {
     ".config/nvim" = {
-      source = ../../config/nvim_lazy;
+      source = ../../config/nvim;
       recursive = true;
     };
   };
