@@ -26,6 +26,8 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wlvs-nvim.url = "github:wolves/wlvs.nvim";
   };
 
   outputs = {
@@ -105,6 +107,7 @@
         ];
 
         extraSpecialArgs = {
+          inherit inputs;
           inherit outputs;
           inherit system;
           inherit username;
