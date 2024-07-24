@@ -12,58 +12,26 @@ local function init()
   wk.setup({
     show_help = false,
     plugins = { spelling = true },
-    key_labels = { ["<leader>"] = "SPC" },
   })
-  wk.register({
-    mode = { "n", "v" },
-    ["g"] = { name = "+goto" },
-    ["]"] = { name = "+next" },
-    ["["] = { name = "+prev" },
-    ["<leader>b"] = { name = "+buffer" },
-    ["<leader>c"] = { name = "+code" },
-    ["<leader>f"] = { name = "+file" },
-    ["<leader>g"] = { name = "+git" },
-    ["<leader>h"] = { name = "+help" },
-    ["<leader>n"] = { name = "+noice" },
-    ["<leader>q"] = { name = "+quit/session" },
-    ["<leader>s"] = { name = "+search" },
-    ["<leader>x"] = { name = "+diagnostics/quickfix" },
+  wk.add({
+    {
+      mode = { "n", "v" },
+      { "<leader>b", group = "+buffer" },
+      { "<leader>c", group = "+code" },
+      { "<leader>f", group = "+file" },
+      { "<leader>g", group = "+git" },
+      { "<leader>h", group = "+help" },
+      { "<leader>n", group = "+noice" },
+      { "<leader>q", group = "+quit/session" },
+      { "<leader>s", group = "+search" },
+      { "<leader>x", group = "+diagnostics/quickfix" },
+      { "[",         group = "+prev" },
+      { "]",         group = "+next" },
+      { "g",         group = "+goto" },
+    },
   })
 
   vim.o.timeoutlen = 300
-
-  -- local id
-  -- for _, key in ipairs({ "h", "j", "k", "l" }) do
-  --   local count = 0
-  --   vim.keymap.set("n", key, function()
-  --     if count >= 10 then
-  --       id = vim.notify("Hold it Cowboy!", vim.log.levels.WARN, {
-  --         icon = "🤠",
-  --         replace = id,
-  --         keep = function()
-  --           return count >= 10
-  --         end,
-  --       })
-  --     else
-  --       count = count + 1
-  --       vim.defer_fn(function()
-  --         count = count - 1
-  --       end, 5000)
-  --       return key
-  --     end
-  --   end, { expr = true })
-  -- end
-
-  --wk.setup({
-  --  show_help = false,
-  --  triggers = "auto",
-  --  plugins = { spelling = true },
-  --  key_labels = { ["<leader>"] = "SPC" },
-  --  triggers_blacklist = {
-  --    i = { "j", "k" },
-  --    v = { "j", "k" },
-  --  },
-  --})
 
   -- Atempting fixing <C-c> -> <esc> remapping error
   -- vim.keymap.set("i", "<C-c>", "<C-c>")
@@ -126,82 +94,81 @@ local function init()
   vim.keymap.set("n", "gw", "*N")
   vim.keymap.set("x", "gw", "*N")
 
-  local leader = {
-    w = { "<cmd>w!<CR>", "Save" },
-    q = { "<cmd>q!<CR>", "Quit" },
-    ["<space>"] = { util.telescope("find_files"), "Find Files" },
-    b = {
-      name = "+buffer",
-      b = {
-        "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "Buffers",
-      },
-      d = { "<cmd>lua require('mini.bufremove').delete(0, false)<CR>", "Delete Buffer" },
+  wk.add({
+    { "<leader>w",       "<cmd>w!<CR>",                desc = "Save" },
+    { "<leader>q",       "<cmd>q!<CR>",                desc = "Quit" },
+    { "<leader><space>", util.telescope("find_files"), desc = "Find Files" },
+    { "<leader>b",       group = "+buffer" },
+    {
+      "<leader>bb",
+      "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+      desc = "Buffers",
     },
-    e = { "<cmd>lua require('mini.files').open()<CR>", "File Explorer" },
-    f = {
-      name = "+file",
-      n = { "<cmd>enew<CR>", "New" },
+    {
+      "<leader>bd",
+      "<cmd>lua require('mini.bufremove').delete(0, false)<CR>",
+      desc = "Delete Buffer",
     },
-    g = {
-      name = "+git",
-      g = { "<cmd>Neogit<CR>", "Neogit" },
-      d = { "<cmd>DiffviewOpen<CR>", "Diffview" },
-      h = { name = "+hunk" },
-    },
-    m = {
-      name = "+harpoon",
-    },
-    s = {
-      name = "+search",
-      s = { grep_string_prompt, "Grep Prompt" },
-      w = { grep_word, "Grep Current Word" },
-    },
-    t = {
-      name = "+toggle",
-      c = { require("util").toggle_colors, "Colorscheme Light/Dark" },
-      f = { require("wlvs.lsp.format").toggle, "Format on Save" },
-      n = {
-        function()
-          util.toggle("relativenumber", true)
-          util.toggle("number")
-        end,
-        "Line Numbers",
-      },
-      s = {
-        function()
-          util.toggle("spell")
-        end,
-        "Spelling",
-      },
-      w = {
-        function()
-          util.toggle("wrap")
-        end,
-        "Word Wrap",
-      },
-    },
-    x = {
-      name = "+trouble/todo",
-      x = { "<cmd>Trouble diagnostics toggle<CR>", "Diagnostics (Trouble)" },
-      X = { "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", "Buffer Diagnostics (Trouble)" },
-      t = { "<cmd>TodoTrouble<CR>", "Todo Trouble" },
-      T = { "<cmd>TodoTelescope<CR>", "Todo Telescope" },
-    },
-  }
+    { "<leader>e",  "<cmd>lua require('mini.files').open()<CR>", desc = "File Explorer" },
+    { "<leader>f",  group = "+file" },
+    { "<leader>fn", "<cmd>enew<CR>",                             desc = "New" },
+    { "<leader>g",  group = "+git" },
+    { "<leader>gd", "<cmd>DiffviewOpen<CR>",                     desc = "Diffview" },
+    { "<leader>gg", "<cmd>Neogit<CR>",                           desc = "Neogit" },
+    { "<leader>gh", group = "+hunk" },
 
-  wk.register({
-    ["gJ"] = { "<cmd>TSJJoin<cr>", "Join" },
-    ["gS"] = { "<cmd>TSJSplit<cr>", "Split" },
+    { "<leader>gJ", "<cmd>TSJJoin<cr>",                          desc = "Join" },
+    { "<leader>gS", "<cmd>TSJSplit<cr>",                         desc = "Split" },
+
+    { "<leader>m",  group = "+harpoon" },
+    { "<leader>s",  group = "+search" },
+    { "<leader>ss", grep_string_prompt,                          desc = "Grep Prompt" },
+    { "<leader>sw", grep_word,                                   desc = "Grep Current Word" },
+    { "<leader>t",  group = "+toggle" },
+    { "<leader>tc", util.toggle_colors,                          desc = "Colorscheme Light/Dark" },
+    { "<leader>tf", require("wlvs.lsp.format").toggle,           desc = "Format on Save" },
+    {
+      "<leader>tn",
+      function()
+        util.toggle("relativenumber", true)
+        util.toggle("number")
+      end,
+      desc = "Line Numbers",
+    },
+    {
+      "<leader>ts",
+      function()
+        util.toggle("spell")
+      end,
+      desc = "Spelling",
+    },
+    {
+      "<leader>tw",
+      function()
+        util.toggle("wrap")
+      end,
+      desc = "Word Wrap",
+    },
+    { "<leader>x",  group = "+trouble/todo" },
+    { "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>",              desc = "Diagnostics (Trouble)" },
+    { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer Diagnostics (Trouble)" },
+    { "<leader>xt", "<cmd>TodoTrouble<CR>",                             desc = "Todo Trouble" },
+    { "<leader>xT", "<cmd>TodoTelescope<CR>",                           desc = "Todo Telescope" },
   })
 
+  -- Ignore <leader> with numerals
+  local ignores = {}
   for i = 0, 10 do
-    leader[tostring(i)] = "which_key_ignore"
+    table.insert(ignores, { "<leader>" .. tostring(i), hidden = true })
   end
+  wk.add(ignores)
 
-  wk.register(leader, { prefix = "<leader>" })
+  -- wk.register(leader, { prefix = "<leader>" })
 
-  wk.register({ g = { name = "+goto" } })
+
+  wk.add({
+    { "g", group = "+goto" },
+  })
 end
 
 return {
