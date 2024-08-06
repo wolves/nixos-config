@@ -6,7 +6,7 @@
   fonts = {
     packages = with pkgs; [
       (nerdfonts.override {fonts = ["GeistMono"];})
-      # powerline
+      powerline
       iosevka
       font-awesome
       ubuntu_font_family
