@@ -38,16 +38,15 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      permittedInsecurePackages = [ "electron-19.1.9" ];
+      permittedInsecurePackages = ["electron-19.1.9"];
     };
-
   };
 
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
   };
- 
+
   home.packages = with pkgs; [
     gh
     vlc
@@ -91,6 +90,8 @@
     unzip
     brightnessctl
 
+    figma-linux
+
     (pkgs.writeShellScriptBin "dvd" ''
       #!/bin/sh
       echo "use flake \"github:the-nix-way/dev-templates?dir=$1\"" >> .envrc
@@ -123,7 +124,6 @@
       XDG_PODCAST_DIR = "${config.home.homeDirectory}/Media/Podcasts";
       XDG_BOOK_DIR = "${config.home.homeDirectory}/Media/Books";
     };
-
   };
   xdg.mime.enable = true;
 
@@ -143,7 +143,7 @@
     ".cache/wallpaper.png".source = ../themes/aenami_escape.jpg;
     ".cache/avatar.png".source = ../themes/avatars/guy_fawkes.png;
   };
-  
+
   home.sessionVariables = {
     EDITOR = editor;
     TERM = termType;
@@ -165,10 +165,10 @@
       size = 24;
     };
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme=1;
+      gtk-application-prefer-dark-theme = 1;
     };
     gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme=1;
+      gtk-application-prefer-dark-theme = 1;
     };
   };
 
@@ -183,7 +183,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
