@@ -6,6 +6,7 @@
   direnv = import ./direnv.nix;
   firefox = import ./firefox.nix;
   fish = import ./fish.nix;
+  flatpak = import ./flatpak.nix;
   foot = import ./foot.nix;
   git = import ./git.nix;
   hypridle = import ./hypridle.nix;

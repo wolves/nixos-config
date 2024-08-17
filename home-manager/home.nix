@@ -19,6 +19,7 @@
     direnv
     # firefox
     fish
+    flatpak
     foot
     git
     hyprland

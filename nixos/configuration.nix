@@ -1,9 +1,19 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, lib, pkgs, username, name, hostname, timezone, locale, wm, theme, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  username,
+  name,
+  hostname,
+  timezone,
+  locale,
+  wm,
+  theme,
+  ...
+}: {
   imports = [
     ./users.nix
   ];
@@ -22,11 +32,11 @@
 
     # substituters to use
     substituters = [
-        "https://anyrun.cachix.org"
+      "https://anyrun.cachix.org"
     ];
 
     trusted-public-keys = [
-        "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
+      "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
     ];
   };
 
@@ -34,7 +44,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices."luks-b97d0cb7-3b47-4cc8-b662-e6cab44e384d".device = "/dev/disk/by-uuid/b97d0cb7-3b47-4cc8-b662-e6cab44e384d";
-  boot.kernelParams = [ "mem_sleep_default=deep" ];
+  boot.kernelParams = ["mem_sleep_default=deep"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -69,23 +79,23 @@
 
   virtualisation.docker.enable = true;
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     wget
     unzip
     git
     home-manager
   ];
 
-  environment.shells = with pkgs; [ fish ];
+  environment.shells = with pkgs; [fish];
   users.defaultUserShell = pkgs.fish;
-  programs.fish.enable = true; 
-
+  programs.fish.enable = true;
 
   fonts.fontDir.enable = true;
+
+  services.flatpak.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -116,4 +126,3 @@
   #   channel = "https://nixos.org/channels/nixos-unstable";
   # };
 }
-
