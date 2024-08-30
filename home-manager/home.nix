@@ -19,8 +19,9 @@
     direnv
     # firefox
     fish
-    flatpak
+    # flatpak
     foot
+    # gaming
     git
     hyprland
     mime

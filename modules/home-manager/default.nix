@@ -8,6 +8,7 @@
   fish = import ./fish.nix;
   flatpak = import ./flatpak.nix;
   foot = import ./foot.nix;
+  gaming = import ./gaming.nix;
   git = import ./git.nix;
   hypridle = import ./hypridle.nix;
   hyprland = import ./hyprland;
