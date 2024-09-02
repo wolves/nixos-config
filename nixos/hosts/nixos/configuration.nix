@@ -11,8 +11,10 @@
     doas
     fonts
     hyprland
+    lutris
     network
     power
     sshd
+    steam
   ];
 }
