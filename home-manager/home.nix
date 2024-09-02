@@ -21,7 +21,6 @@
     fish
     # flatpak
     foot
-    # gaming
     git
     hyprland
     mime
