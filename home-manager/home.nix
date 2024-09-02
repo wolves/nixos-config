@@ -165,6 +165,13 @@
       package = pkgs.phinger-cursors;
       size = 24;
     };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "macchiato";
+        accent = "lavender";
+      };
+    };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
