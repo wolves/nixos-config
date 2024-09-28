@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   wayland.windowManager.hyprland.settings = let
     hyprlock = "${pkgs.hyprlock}/bin/hyprlock";
     hyprctl = "${pkgs.hyprland}/bin/hyprctl";
@@ -33,14 +35,13 @@
     ];
 
     general = {
-        sensitivity = 1;
-        border_size = 2;
-        gaps_in = 4;
-        gaps_out = 8;
-        layout = "dwindle";
+      border_size = 2;
+      gaps_in = 4;
+      gaps_out = 8;
+      layout = "dwindle";
 
-        "col.active_border" = "0x997E9CD8";
-        "col.inactive_border" = "0x66333333";
+      "col.active_border" = "0x997E9CD8";
+      "col.inactive_border" = "0x66333333";
     };
 
     decoration = {
@@ -127,4 +128,3 @@
     };
   };
 }
-
