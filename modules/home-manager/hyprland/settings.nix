@@ -17,7 +17,8 @@
       "waybar"
       "swww init"
 
-      "${hyprctl} dispatch exec [workspace 1 silent] ${pkgs.foot}/bin/foot"
+      # "${hyprctl} dispatch exec [workspace 1 silent] ${pkgs.foot}/bin/foot"
+      "${hyprctl} dispatch exec [workspace 1 silent] ghostty"
       "${hyprctl} dispatch exec [workspace 2 silent] ${pkgs.brave}/bin/brave"
     ];
 

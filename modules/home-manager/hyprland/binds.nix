@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   wayland.windowManager.hyprland.settings = {
     bindm = [
       # Move/resize windows with mainMod + LMB/RMB and dragging
@@ -8,7 +11,8 @@
     ];
 
     bind = [
-      "$mod, Return, exec, ${pkgs.foot}/bin/foot"
+      # "$mod, Return, exec, ${pkgs.foot}/bin/foot"
+      "$mod, Return, exec, ghostty"
       "$mod, B, exec, ${pkgs.brave}/bin/brave"
       "$mod SHIFT, R, exec, hyprctl reload && notify-send 'Hyprland Reloaded'"
       "$mod, D, exec, pkill anyrun || anyrun"
@@ -25,7 +29,7 @@
       "$mod, Space, togglefloating,"
       "$mod, P, pseudo, # dwindle"
       "$mod, S, togglesplit, # dwindle"
-      
+
       # Move focus with mainMod + arrow keys
       "$mod, left, movefocus, l"
       "$mod, right, movefocus, r"
@@ -37,13 +41,13 @@
       "$mod, l, movefocus, r"
       "$mod, k, movefocus, u"
       "$mod, j, movefocus, d"
-      
+
       # Move
       "$mod SHIFT,left,movewindow,l"
       "$mod SHIFT,right,movewindow,r"
       "$mod SHIFT,up,movewindow,u"
       "$mod SHIFT,down,movewindow,d"
-      
+
       # Window Resize
       "CTRL,right,resizeactive,20 0"
       "CTRL,left,resizeactive,-20 0"
@@ -65,7 +69,7 @@
       "$mod, 8, workspace, 8"
       "$mod, 9, workspace, 9"
       "$mod, 0, workspace, 10"
-      
+
       # Move active window to a workspace with mainMod + SHIFT + [0-9]
       "$mod SHIFT, 1, movetoworkspace, 1"
       "$mod SHIFT, 2, movetoworkspace, 2"
@@ -77,11 +81,10 @@
       "$mod SHIFT, 8, movetoworkspace, 8"
       "$mod SHIFT, 9, movetoworkspace, 9"
       "$mod SHIFT, 0, movetoworkspace, 10"
-      
+
       # Scroll through existing workspaces with mainMod + scroll
       "$mod, mouse_down, workspace, e+1"
       "$mod, mouse_up, workspace, e-1"
-
     ];
 
     bindl = [
@@ -101,4 +104,3 @@
     ];
   };
 }
-

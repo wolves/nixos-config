@@ -1,5 +1,4 @@
 {
-
   description = "WLVS - NixOS Flake and Home Manager Configuration";
 
   inputs = {
@@ -28,6 +27,15 @@
     };
 
     wlvs-nvim.url = "github:wolves/wlvs.nvim";
+
+    ghostty = {
+      url = "git+ssh://git@github.com/ghostty-org/ghostty";
+
+      # NOTE: The below 2 lines are only required on nixos-unstable,
+      # if you're on stable, they may break your build
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+      inputs.nixpkgs-unstable.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -37,9 +45,9 @@
     home-manager,
     hypr-contrib,
     firefox-addons,
+    ghostty,
     ...
-  } @ inputs:
-  let
+  } @ inputs: let
     inherit (self) outputs;
 
     # ---- SYSTEM SETTINGS ---- #
@@ -49,7 +57,7 @@
     timezone = "America/New_York";
     locale = "en_US.UTF-8";
 
-	  # ----- USER SETTINGS ----- #
+    # ----- USER SETTINGS ----- #
     username = "wlvs";
     name = "wlvs";
     email = "cstingl@protonmail.com";
@@ -79,6 +87,12 @@
         modules = [
           ./nixos/configuration.nix
           ./nixos/hosts/nixos
+
+          {
+            environment.systemPackages = [
+              ghostty.packages.x86_64-linux.default
+            ];
+          }
 
           nixos-hardware.nixosModules.framework-11th-gen-intel
         ];
@@ -131,5 +145,4 @@
       };
     };
   };
-
 }
