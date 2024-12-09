@@ -57,11 +57,14 @@
 
       active_opacity = 0.9;
       inactive_opacity = 0.9;
-      drop_shadow = true;
-      shadow_offset = "2 2";
-      shadow_range = 4;
-      shadow_render_power = 2;
-      "col.shadow" = "0x66000000";
+
+      shadow = {
+        enabled = true;
+        offset = "2 2";
+        range = 4;
+        render_power = 2;
+        color = "0x66000000";
+      };
     };
 
     animations = {
@@ -106,7 +109,6 @@
     };
 
     dwindle = {
-      no_gaps_when_only = false;
       pseudotile = true;
       preserve_split = true;
     };
