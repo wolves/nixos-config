@@ -1,6 +1,9 @@
-{ config, pkgs, email, ... }:
-
 {
+  config,
+  pkgs,
+  email,
+  ...
+}: {
   programs.git = {
     enable = true;
     userName = "wolves";
@@ -8,12 +11,12 @@
     extraConfig = {
       github.user = "wolves";
       init.defaultBranch = "main";
-      branch ={
+      branch = {
         autosetupmerge = true;
         autosetuprebase = "always";
       };
       rerere.enabled = 1;
+      safe.directory = "/home/wlvs/.dots";
     };
   };
 }
-
