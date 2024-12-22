@@ -16,7 +16,7 @@
   mime = import ./mime.nix;
   mpv = import ./mpv.nix;
   neovim = import ./neovim.nix;
-  nu = import ./nu.nix;
+  nushell = import ./nushell;
   ripgrep = import ./ripgrep.nix;
   starship = import ./starship.nix;
   tmux = import ./tmux.nix;

@@ -26,7 +26,7 @@
     mime
     mpv
     neovim
-    nu
+    nushell
     ripgrep
     starship
     tmux
