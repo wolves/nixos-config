@@ -5,6 +5,8 @@
 }: {
   programs.starship = {
     enable = true;
+    enableFishIntegration = true;
+    enableNushellIntegration = true;
     settings = {
       directory = {
         style = "blue";
@@ -28,4 +30,3 @@
     };
   };
 }
-

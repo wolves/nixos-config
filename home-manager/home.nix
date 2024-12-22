@@ -26,6 +26,7 @@
     mime
     mpv
     neovim
+    nu
     ripgrep
     starship
     tmux
@@ -34,6 +35,7 @@
     wlogout
     yazi
     zathura
+    zoxide
   ];
 
   nixpkgs = {
@@ -85,7 +87,6 @@
     bottom
     tealdeer
     duf
-    zoxide
     fzf
     rsync
     unzip

@@ -16,6 +16,7 @@
   mime = import ./mime.nix;
   mpv = import ./mpv.nix;
   neovim = import ./neovim.nix;
+  nu = import ./nu.nix;
   ripgrep = import ./ripgrep.nix;
   starship = import ./starship.nix;
   tmux = import ./tmux.nix;
@@ -24,4 +25,5 @@
   wlogout = import ./wlogout.nix;
   yazi = import ./yazi;
   zathura = import ./zathura.nix;
+  zoxide = import ./zoxide.nix;
 }

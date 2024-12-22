@@ -3,12 +3,9 @@
   pkgs,
   ...
 }: let
-  myAliases = {
+  aliases = {
     ".." = "cd ..";
     "..." = "cd ../..";
-    ".3" = "cd ../../..";
-    ".4" = "cd ../../../..";
-    ".5" = "cd ../../../../..";
 
     nv = "nvim";
 
@@ -40,28 +37,9 @@
 
     dcm = "docker-compose";
   };
-
-  myFuncs = {
-    g = {
-      body = ''
-        if count $argv >/dev/null
-           git $argv
-        else
-           git status --short --branch
-        end
-      '';
-    };
-  };
 in {
-  programs.fish = {
+  programs.nushell = {
     enable = true;
-    shellAliases = myAliases;
-    functions = myFuncs;
-    interactiveShellInit = ''
-      set -Ux fish_greeting
-
-      set -e fish_user_paths
-      set -U fish_user_paths $GOPATH/bin $fish_user_paths
-    '';
+    shellAliases = aliases;
   };
 }
