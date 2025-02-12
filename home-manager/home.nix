@@ -82,6 +82,7 @@
     xdg-desktop-portal-hyprland
     pamixer
 
+    xh
     eza
     fd
     bottom
